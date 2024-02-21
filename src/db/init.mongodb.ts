@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { countConnect } from "../helpers/check.connect";
 import config from "../configs/config";
 
-const MONGO_URI = `mongodb://${config.db.userName}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`;
+const MONGO_URI = config.db.uri;
 
 class Database {
     static instance: any;
