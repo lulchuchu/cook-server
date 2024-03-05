@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 5
 import "./db/init.mongodb";
 const route = require('./routes/route');
 // checkOverload();
-//init routes
 
+//init routes
 route(app);
 
 app.get("/", (req, res) => {
@@ -28,6 +28,3 @@ app.get("/", (req, res) => {
         message: "Hello World!",
     });
 });
-
-
-//handling errors

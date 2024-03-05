@@ -33,6 +33,6 @@ const config: any = { dev, prod };
 
 const env = process.env.NODE_ENV || "dev";
 
-console.log("Current environment: ", config[env]);
+// console.log("Current environment: ", config[env]);
 
 export default config[env];

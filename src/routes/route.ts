@@ -1,4 +1,6 @@
-const accountRoute = require('./accountRoute');
+const accountRoute = require('./nguoidung/accountRoute');
+const axios = require('axios');
+import { Response } from "express";
 
 function route(app : any) {
     app.use(function(req:any, res:any, next:any) {

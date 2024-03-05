@@ -1,23 +1,21 @@
 import { Request, Response } from "express";
-const accountModel = require('../models/account');
+const accountModel = require('../models/NguoiDung.model');
 
 class verifySignUp {
-    verify(req: Request, res: Response, next: any) {
+    async verify(req: Request, res: Response, next: any) {
         const email = req.body.email;
 
-        accountModel.findOne({ email: email})
-            .then((account: object) => {
-                if (account) {
-                    res.status(200).send({ message: "Email registered!"});
-                }
-                else {
-                    res.status(200).send({ message: "Email not register!"});
-                }
-            })
-            .catch((err: any) => {
-                res.status(500).send({ message: err.message});
-            });
-    };
+        try {
+            const account = await accountModel.findOne({ email: email}).exec();
+            if (account) {
+                res.status(400).send({message: "Email registered!"});
+                return;
+            }
+            next();
+        } catch (err: any) {
+            res.status(err.status).send({message: err.message});
+        }
+    }
 };
 
 module.exports = new verifySignUp;
