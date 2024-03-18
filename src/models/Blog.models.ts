@@ -10,12 +10,12 @@ const Blog = new Schema({
     shortDes: {type: String, required: true},
     author: {
         type: Schema.Types.ObjectId,
-        ref: 'account',
+        ref: 'NguoiDung',
         required: true
     },
     accountLike: [{
         type: Schema.Types.ObjectId,
-        ref: 'account'
+        ref: 'NguoiDung'
     }],
     numberLike: {type: Number},
     comments: [{

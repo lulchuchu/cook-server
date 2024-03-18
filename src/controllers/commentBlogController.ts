@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
 import CommentBlogModels from "../models/CommentBlog.models";
+import BlogModels from "../models/Blog.models";
 
 class CmtBlogController {
     async createComment (req: Request, res: Response) {
@@ -23,6 +24,7 @@ class CmtBlogController {
             res.status(500).send({'message': err.message});
         }
     }
+
 };
 
 module.exports = new CmtBlogController;

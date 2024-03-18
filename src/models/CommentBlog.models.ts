@@ -6,7 +6,7 @@ const COLLECTION_NAME = 'CommentBlogs';
 const CommentBlog = new Schema({
     author: {
         type: Schema.Types.ObjectId,
-        ref: 'account',
+        ref: 'NguoiDung',
         required: true
     },
     content: {type: String, required: true},

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
-import account from "../models/NguoiDung.model";
+import NguoiDungModel from "../models/NguoiDung.model";
 import { OAuth2Client } from 'google-auth-library';
 
 require("dotenv").config();
@@ -28,7 +28,7 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-var temporaryCode = '';
+var temporaryCode : any = [];
 
 class accountController {
     async register(req: Request, res: Response) {
@@ -36,7 +36,7 @@ class accountController {
 
         const passwordHash = await bcrypt.hash(password, 8);
 
-        const newUser = new account({
+        const newUser = new NguoiDungModel({
             email: email,
             password: passwordHash,
             username: username,
@@ -66,7 +66,7 @@ class accountController {
 
     async login(req: Request, res: Response) {
         const {email, password} = req.body;
-        const user = await account.findOne({email: email});
+        const user = await NguoiDungModel.findOne({email: email});
 
         if (user) {
             const conmparePass = bcrypt.compareSync(password, user.password);
@@ -96,14 +96,14 @@ class accountController {
     }
 
     async sendMail(req : Request, res: Response) {
-
-        temporaryCode = Math.floor(1000 + Math.random() * 9000).toString();
+        const code = Math.floor(1000 + Math.random() * 9000);
+        temporaryCode.push(code);
 
         var mailOptions = {
             from: process.env.EMAIL,
             to: "DieuBX.B20CN123@stu.ptit.edu.vn",
             subject: "Send a message.",
-            text: temporaryCode,
+            text: code.toString(),
         };
 
         transporter.sendMail(mailOptions, function(err : any, info : any) {
@@ -118,8 +118,9 @@ class accountController {
 
     async verifyEmail(req: Request, res: Response) {
         const codeVerify = req.body.code;
+        console.log(temporaryCode.pop());
 
-        if (codeVerify === temporaryCode) {
+        if (codeVerify === temporaryCode.pop()) {
             res.send({'message': 'Verified email successfully'});
         }
         else {
