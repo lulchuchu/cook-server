@@ -8,9 +8,9 @@ const dev = {
     db: {
         host: process.env.DEV_DB_HOST || "localhost",
         port: process.env.DEV_DB_PORT || 27017,
-        userName: process.env.DEV_DB_USERNAME || "root",
-        password: process.env.DEV_DB_PASSWORD || "1411",
-        name: process.env.DEV_DB_NAME || "test",
+        userName: process.env.DEV_DB_USERNAME || "",
+        password: process.env.DEV_DB_PASSWORD || "",
+        name: process.env.DEV_DB_NAME || "cookdb",
     },
 };
 
