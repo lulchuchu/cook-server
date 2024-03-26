@@ -14,6 +14,9 @@ const congThuc = new Schema(
         hinhAnh: {
             type: String,
         },
+        thoiGian: {
+            type: Number,
+        },
     },
     {
         timestamps: true,

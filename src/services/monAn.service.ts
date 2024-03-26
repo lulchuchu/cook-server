@@ -1,11 +1,7 @@
 import MonAnModel from "../models/MonAn.model";
 
 export default class MonAn {
-    ten: string;
-    hinhAnh: string;
-    moTa: string;
-    congThuc: string[];
-    constructor({
+    static async themMon({
         ten,
         hinhAnh,
         moTa,
@@ -16,19 +12,20 @@ export default class MonAn {
         moTa: string;
         congThuc: string[];
     }) {
-        this.ten = ten;
-        this.hinhAnh = hinhAnh;
-        this.moTa = moTa;
-        this.congThuc = congThuc;
-    }
-
-    async save() {
         const monAn = new MonAnModel({
-            ten: this.ten,
-            hinhAnh: this.hinhAnh,
-            moTa: this.moTa,
-            congThuc: this.congThuc,
+            ten,
+            hinhAnh,
+            moTa,
+            congThuc,
         });
         await monAn.save();
+    }
+
+    static async getAll() {
+        return await MonAnModel.find();
+    }
+
+    static async getById(id: string) {
+        return await MonAnModel.findById(id).populate("congThuc");
     }
 }
