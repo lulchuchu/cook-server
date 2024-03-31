@@ -1,4 +1,4 @@
-import { model, Schema, Types } from "mongoose";
+import mongoose, { model, Schema, Types } from "mongoose";
 
 const DOCUMENT_NAME = "CongThuc";
 const COLLECTION_NAME = "CongThucs";

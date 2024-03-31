@@ -1,6 +1,8 @@
 import CongThucModel from "../models/CongThuc.model";
 import MonAnModel from "../models/MonAn.model";
+import NguoiDungModel from "../models/NguoiDung.model";
 import NguyenLieuSuDungModel from "../models/NguyenLieuSuDung.model";
+import nhomCongThucService from "./nhomMonAn.service";
 
 export default class CongThuc {
     static async save({
@@ -64,7 +66,7 @@ export default class CongThuc {
         const congThuc = await CongThucModel.findById(congThucId);
         const monAn = await MonAnModel.findById(monAnId);
         if (monAn) {
-            monAn.congThuc.push(congThuc?.id);
+            monAn.step.push(congThuc?.id);
         }
         return await monAn?.save();
     }
