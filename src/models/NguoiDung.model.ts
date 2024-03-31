@@ -1,30 +1,21 @@
-import { model, Schema, Types } from "mongoose";
+import {model, Schema} from "mongoose";
 
-const DOCUMENT_NAME = "NguoiDung";
-const COLLECTION_NAME = "NguoiDungs";
+const DOCUMENT_NAME = 'Nguoidung';
+const COLLECTION_NAME = 'Nguoidungs';
 
-const nguoiDung = new Schema(
+const NguoiDung = new Schema(
     {
-        ten: {
-            type: String,
-        },
-        email: {
-            type: String,
-        },
-        matKhau: {
-            type: String,
-        },
-        diaChi: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "DiaChi",
-            },
-        ],
+        email: {type: String, required: true},
+        password: {type: String, required: true},
+        username: {type: String, required: true},
+        img: {type: String},
+        address: {type: String},
+        tel: {type: String},
     },
     {
         timestamps: true,
-        collection: COLLECTION_NAME,
+        COLLECTION_NAME: COLLECTION_NAME
     }
 );
 
-export default model(DOCUMENT_NAME, nguoiDung, COLLECTION_NAME);
+export default model(DOCUMENT_NAME, NguoiDung, COLLECTION_NAME);

@@ -11,8 +11,8 @@ const thanhPhanDinhDuong = new Schema(
         donViDo: {
             type: String,
         },
-        hamLuongTrong100g: {
-            type: Number,
+        moTa: {
+            type: String,
         },
     },
     {

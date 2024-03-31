@@ -24,7 +24,7 @@ const prod = {
         port: process.env.PROD_DB_PORT || 27017,
         userName: process.env.PROD_DB_USERNAME || "root",
         password: process.env.PROD_DB_PASSWORD || "1411",
-        name: process.env.PROD_DB_NAME || "test",
+        name: process.env.PROD_DB_NAME || "pro",
     },
 };
 
@@ -32,6 +32,6 @@ const config: any = { dev, prod };
 
 const env = process.env.NODE_ENV || "dev";
 
-console.log("Current environment: ", config[env]);
+// console.log("Current environment: ", config[env]);
 
 export default config[env];

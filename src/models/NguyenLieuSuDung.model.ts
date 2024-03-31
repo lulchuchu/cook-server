@@ -9,9 +9,9 @@ const nguyenLieuSuDung = new Schema(
             type: Schema.Types.ObjectId,
             ref: "NguyenLieu",
         },
-        monAn: {
+        congThuc: {
             type: Schema.Types.ObjectId,
-            ref: "MonAn",
+            ref: "CongThuc",
         },
         soLuong: {
             type: Number,

@@ -1,23 +1,50 @@
-import { model, Schema, Types } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const DOCUMENT_NAME = "MonAn";
 const COLLECTION_NAME = "MonAns";
 
 const monAn = new Schema(
     {
-        ten: {
+        name: {
             type: String,
         },
-        hinhAnh: {
+        video: { type: String },
+        imgDes: {
             type: String,
         },
-        moTa: {
+        description: {
             type: String,
         },
-        congThuc: [
+        country: { type: String },
+        type: { type: String },
+        rating: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "CongThuc",
+                ref: "DanhGia",
+            },
+        ],
+        defaultPortion: { type: Number },
+        ingredients: {
+            type: Schema.Types.ObjectId,
+            ref: "NguyenLieu",
+        },
+        dungcu: {
+            type: String,
+        },
+        nuttrition: {
+            type: Array,
+        },
+        step: { type: Array },
+        storeUsers: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
+        ],
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
             },
         ],
     },
