@@ -1,11 +1,13 @@
 import express from "express";
-import MonAnService from "../services/monAn.service";
 import monAnController from "../controllers/monAn.controller";
 
 const monAnRoute = express.Router();
 
 monAnRoute.post("/", monAnController.taoMon);
-monAnRoute.get("/", monAnController.layTatCaMon);
+monAnRoute.get('/get-all', monAnController.getAll);
+monAnRoute.get('/get-by-diet', monAnController.getByDiet);
+monAnRoute.get('/get-by-country', monAnController.getByCountry);
+monAnRoute.get('/get-detail', monAnController.getDishDetail);
 monAnRoute.get("/:id", monAnController.layMonTheoId);
 monAnRoute.post("/luu-mon-an", monAnController.luuMonAn);
 monAnRoute.post("/bo-luu-mon-an", monAnController.boLuuMonAn);
