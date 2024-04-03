@@ -5,7 +5,7 @@ const COLLECTION_NAME = 'DanhGias';
 
 const danhGia = new Schema(
     {
-        congThuc: {
+        monAn: {
             type: Schema.Types.ObjectId,
             ref: 'MonAn',
         },
@@ -15,6 +15,9 @@ const danhGia = new Schema(
         },
         diemDanhGia: {
             type: Number,
+        },
+        img: {
+            type: String,
         },
         noiDung: {
             type: String,

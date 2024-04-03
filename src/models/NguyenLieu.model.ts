@@ -17,6 +17,12 @@ const nguyenLieu = new Schema(
         gia: {
             type: Array,
         },
+        hinhAnh: {
+            type: String,
+        },
+        donViTinh: {
+            type: String,
+        },
     },
     {
         timestamps: true,
