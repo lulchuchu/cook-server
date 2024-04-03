@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import os from "os";
-import process from "process";
+import mongoose from 'mongoose';
+import os from 'os';
+import process from 'process';
 
 const _SECONDS = 5000;
 
@@ -20,7 +20,7 @@ export const checkOverload = () => {
         console.log(`Memory used: ${memoryUsed / 1024 / 1024} MB`);
 
         if (countConnection > 10) {
-            console.log("Connection overload!!!");
+            console.log('Connection overload!!!');
         }
     }, _SECONDS);
 };

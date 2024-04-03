@@ -1,19 +1,19 @@
-import { model, Schema, Types } from "mongoose";
+import { model, Schema, Types } from 'mongoose';
 
-const DOCUMENT_NAME = "HoaDon";
-const COLLECTION_NAME = "HoaDons";
+const DOCUMENT_NAME = 'HoaDon';
+const COLLECTION_NAME = 'HoaDons';
 
 const hoaDon = new Schema(
     {
         danhSachMuas: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "DanhSachMua",
+                ref: 'DanhSachMua',
             },
         ],
         diaChi: {
             type: Schema.Types.ObjectId,
-            ref: "DiaChi",
+            ref: 'DiaChi',
         },
         tongTien: {
             type: Number,
@@ -22,7 +22,7 @@ const hoaDon = new Schema(
     {
         timestamps: true,
         collection: COLLECTION_NAME,
-    }
+    },
 );
 
 export default model(DOCUMENT_NAME, hoaDon, COLLECTION_NAME);

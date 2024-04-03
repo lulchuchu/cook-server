@@ -1,14 +1,11 @@
-import express from "express";
-import MonAnService from "../../services/monAn.service";
+import express from 'express';
+import MonAnController from '../../controllers/monAn.controller';
 
-const monAnRoute = express();
+const router = express();
 
-monAnRoute.post("/", async (req, res) => {
-    console.log("BODY", req.body);
-    const { ten, hinhAnh, moTa, congThuc } = req.body;
-    const monAn = new MonAnService({ ten, hinhAnh, moTa, congThuc });
-    monAn.save();
-    res.send("Tạo món thành công");
-});
+router.get('/get-all', MonAnController.getAll);
+router.get('/get-by-diet', MonAnController.getByDiet);
+router.get('/get-by-country', MonAnController.getByCountry);
+router.get('/get-detail', MonAnController.getDishDetail);
 
-export default monAnRoute;
+module.exports = router;

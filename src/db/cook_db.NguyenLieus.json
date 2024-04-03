@@ -1,0 +1,440 @@
+[
+    {
+        "_id": {
+            "$oid": "6602fe7c3904b9b4b704d5f2"
+        },
+        "ten": [
+            "chân gà rút xương",
+            "mỳ ramen",
+            "tỏi",
+            "gừng",
+            "tỏi tây",
+            "nước luộc gà",
+            "tảo kombu",
+            "nước sốt đậu lành",
+            "sake",
+            "mirin",
+            "trứng",
+            "hành lá",
+            "mầm đậu nành"
+        ],
+        "soluong": [4, 200, 6, 60, 1, 2, 1, 125, 50, 50, 2, 1, 20],
+        "donvitinh": ["cái", "g", "tép", "g", "củ", "l", "miếng", "ml", "ml", "ml", "quả", "củ", "g"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-26T16:57:32.027Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-26T16:57:32.027Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "66037b027f9728bdfe595af0"
+        },
+        "ten": [
+            "đậu khô xanh",
+            "bột nở",
+            "củ hành",
+            "tỏi",
+            "ớt",
+            "mùi tây",
+            "ngò",
+            "thì là xay",
+            "rau mùi đất",
+            "hạt mè",
+            "cây bạc hà",
+            "Greek yougurt"
+        ],
+        "soluong": [400, "½", 1, 3, "½", 40, 20, 1, 1, 2, 10, 200],
+        "donvitinh": ["g", "tsp", "củ", "tép", "", "g", "g", "tsp", "tsp", "tbsp", "g", "g"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-27T01:48:50.300Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-27T01:48:50.300Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6603819d56bf36d35832fe4f"
+        },
+        "ten": [
+            "cà tím",
+            "quả bí",
+            "ớt chuông vàng",
+            "cà chua",
+            "hành đỏ",
+            "tỏi",
+            "lá kinh giới",
+            "rau kinh giới",
+            "hương thảo",
+            "xạ hương",
+            "dầu ô liu",
+            "bột cà chua",
+            "lá nguyệt quế",
+            "giấm balsamic"
+        ],
+        "soluong": [350, 200, 200, 300, 1, 2, 5, 5, 5, 5, 4, 2, 2, 2],
+        "donvitinh": ["g", "g", "g", "g", "củ", "tép", "g", "g", "g", "g", "tbsp", "tbsp", "lá", "tbsp"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-27T02:17:01.619Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-27T02:17:01.619Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6603a16bfa8240f7beef9848"
+        },
+        "ten": [
+            "ức gà",
+            "hạt mè trắng",
+            "hạt mè đen",
+            "gạo",
+            "cải thìa trắng",
+            "tỏi",
+            "ớt",
+            "tinh bột",
+            "muối",
+            "nước cốt dừa",
+            "xì dầu",
+            "bơ đậu phộng"
+        ],
+        "soluong": [2, 4, 2, 150, 2, 1, 1, 1, "⅛", 200, 2, 50],
+        "donvitinh": ["miếng", "tbsp", "tbsp", "g", "cây", "tép", "quả", "tbsp", "tsp", "ml", "tbsp", "g"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-27T04:32:43.424Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-27T04:32:43.424Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6603ea3fa69c95c19cf26cdd"
+        },
+        "ten": ["cơm", "trứng", "đậu Hà Lan", "măng tây xanh", "cà rốt", "hành lá", "xì dầu"],
+        "soluong": [200, 3, 100, 4, 1, 2, 1],
+        "donvitinh": ["g", "quả", "g", "cây", "củ", "cây", "tsp"],
+        "gia": [10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-27T09:43:27.783Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-27T09:43:27.783Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6603f2831e9f2ad666ecb9eb"
+        },
+        "ten": [
+            "Thịt băm chay",
+            "xả",
+            "bún",
+            "tỏi",
+            "gừng",
+            "nước tương ngọt",
+            "xì dầu nhạt",
+            "đường",
+            "chanh",
+            "hành lá",
+            "cà rốt",
+            "dưa chuột",
+            "bắp cải",
+            "cà chua",
+            "ớt Thái",
+            "đậu phộng rang",
+            "húng quế",
+            "bạc hà"
+        ],
+        "soluong": [200, 3, 100, 3, 10, 1, 1, 3, 3, 1, 1, "½", "¼", 150, 1, 50, 20, 20],
+        "donvitinh": [
+            "g",
+            "cây",
+            "g",
+            "tép",
+            "g",
+            "tbsp",
+            "tbsp",
+            "tsp",
+            "quả",
+            "cây",
+            "củ",
+            "quả",
+            "cái",
+            "g",
+            "quả",
+            "g",
+            "g",
+            "g"
+        ],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-27T10:18:43.589Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-27T10:18:43.589Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6604eda1216e2cb1a066eefc"
+        },
+        "ten": [
+            "thịt heo xay",
+            "giấy gói hoành thánh (đông lạnh)",
+            "hành lá",
+            "gừng",
+            "tỏi",
+            "trứng",
+            "nước tương",
+            "rượu",
+            "dầu hào",
+            "dầu mè nướng",
+            "tiêu trắng",
+            "ớt",
+            "nước tương nhạt",
+            "bột tiêu Tứ Xuyên"
+        ],
+        "soluong": [300, 35, 3, 2, 4, 1, 2, 1, 2, 1, "¼", 4, 4, 1],
+        "donvitinh": [
+            "g",
+            "",
+            "cây",
+            "tbsp",
+            "tép",
+            "quả",
+            "tbsp",
+            "tbsp",
+            "tbsp",
+            "tbsp",
+            "tsp",
+            "tbsp",
+            "tbsp",
+            "tsp"
+        ],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-28T04:10:09.331Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-28T04:10:09.331Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6605863558f2e256c6ef9f98"
+        },
+        "ten": [
+            "súp lơ",
+            "ức gà",
+            "hương thảo",
+            "tinh bột",
+            "cà rốt",
+            "tỏi",
+            "hành củ",
+            "hành lá",
+            "hạt thông",
+            "đậu hà lan"
+        ],
+        "soluong": [500, 300, "1⅓", 1, 1, 1, 1, 2, 20, 100],
+        "donvitinh": ["g", "g", "tbsp", "tsp", "củ", "tép", "củ", "cây", "g", "g"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-28T15:01:09.564Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-28T15:01:09.564Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6605a3ca84906b0c3a8cfed3"
+        },
+        "ten": [
+            "bột ngô polenta",
+            "đậu hà lan",
+            "bông cải xanh",
+            "măng tây xanh",
+            "phô mai Parmesan",
+            "bơ không muối",
+            "dầu oliu",
+            "rau thì là",
+            "mùi tây"
+        ],
+        "soluong": [150, 90, 150, 150, 60, 2, 1, 1, 1],
+        "donvitinh": ["g", "g", "g", "g", "g", "tbsp", "tbsp", "tsp", "tsp"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-28T17:07:22.222Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-28T17:07:22.222Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6606356ba544942651840deb"
+        },
+        "ten": ["bột mì", "bột nở", "đường", "muối", "trứng", "sữa", "bơ không muối"],
+        "soluong": [270, 2, 2, 1, 2, 320, 2],
+        "donvitinh": ["g", "tsb", "tbsp", "tsb", "quả", "ml", "tbsp"],
+        "gia": [10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-29T03:28:43.173Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T03:28:43.173Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6606760f8ab99dfe9f153444"
+        },
+        "ten": [
+            "miến",
+            "dưa chuột",
+            "cà rốt",
+            "ớt chuông vàng",
+            "xoài",
+            "đậu tuyết",
+            "chanh",
+            "ớt",
+            "xả",
+            "dầu mè",
+            "nước tương",
+            "giấm gạo",
+            "rau bạc à",
+            "ngò"
+        ],
+        "soluong": [250, 1, 1, 1, 1, 150, 2, 1, 1, 2, 2, 2, 10, 10],
+        "donvitinh": ["g", "quả", "củ", "quả", "quả", "g", "quả", "quả", "cây", "tsp", "tbsp", "tsp", "g", "g"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-29T08:04:31.641Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T08:04:31.641Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6606798934289c6b3f0a6257"
+        },
+        "ten": ["đậu hũ non", "dầu đậu phộng", "cà chua", "hành lá", "tỏi", "hương thảo", "giấm", "Sriracha"],
+        "soluong": [400, 3, 500, 2, 2, 4, 1, 2],
+        "donvitinh": ["g", "tbsp", "g", "cây", "tép", "tbsp", "tbsp", "tsp"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-29T08:19:21.536Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T08:19:21.536Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "660699cbb93eedaea57a3e3b"
+        },
+        "ten": [
+            "đuôi bò",
+            "xương bò",
+            "thịt bò",
+            "thăn bò",
+            "bánh phở",
+            "hẹ tây",
+            "gừng",
+            "vỏ thảo quả",
+            "hạt thì là",
+            "thanh quế",
+            "hoa hồi",
+            "hành lá",
+            "ớt",
+            "giá đỗ",
+            "rau bạc hà",
+            "ngò"
+        ],
+        "soluong": [500, 500, 500, 200, 250, 5, 40, 1, 1, 1, 1, 5, 2, 20, 4, 4],
+        "donvitinh": ["g", "g", "g", "g", "g", "", "g", "", "tsp", "", "", "", "", "g", "nhánh", "nhánh"],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-29T10:36:59.181Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T10:36:59.181Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6606f567a6e3f1773b1bfd0c"
+        },
+        "ten": [
+            "đùi gà",
+            "dưa chuột",
+            "rượu",
+            "tiêu",
+            "gừng xay",
+            "giấm",
+            "đường nâu",
+            "hành lá",
+            "ớt",
+            "ngò",
+            "tinh bột",
+            "tỏi",
+            "sốt cà chua",
+            "Gochujang",
+            "mật ong",
+            "nước tương",
+            "dầu mè",
+            "đậu phộng"
+        ],
+        "soluong": [600, 1, 1, "½", 2, 2, "3½", 2, 1, 10, 2, 1, 5, 2, 2, 2, 2, 2],
+        "donvitinh": [
+            "g",
+            "quả",
+            "tbsp",
+            "tsp",
+            "tsp",
+            "tbsp",
+            "tbsp",
+            "nhánh",
+            "quả",
+            "g",
+            "tbsp",
+            "tép",
+            "tbsp",
+            "tbsp",
+            "tbsp",
+            "tbsp",
+            "tbsp",
+            "tbsp"
+        ],
+        "gia": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "createdAt": {
+            "$date": "2024-03-29T17:07:51.931Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T17:07:51.931Z"
+        },
+        "__v": 0
+    }
+]

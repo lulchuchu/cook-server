@@ -1,0 +1,50 @@
+[
+    {
+        "_id": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "email": "Mail@gmail.com",
+        "password": "$2b$08$I0.57Bg7nIE4UE49QzO3eepcGWJ0B/ZdvXQeMohFkQnFcPc55Y7Ae",
+        "username": "Master Chef",
+        "img": "",
+        "address": "",
+        "tel": "",
+        "createdAt": {
+            "$date": "2024-03-19T16:31:59.484Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-29T16:07:02.561Z"
+        },
+        "__v": 0,
+        "diet": "Ăn chay",
+        "selectCountry": ["Việt Nam"]
+    },
+    {
+        "_id": {
+            "$oid": "65f9cb94797575a21abc4756"
+        },
+        "email": "vutrang09022003@gmail.com",
+        "password": "$2b$08$a5yEFGVKdS7cNP5/av5bau7prSqeHX5di8ONEEHZcFxiykryde2Vm",
+        "username": "Badliar",
+        "img": "",
+        "address": "",
+        "tel": "",
+        "emailVerified": true,
+        "createdAt": {
+            "$date": "2024-03-19T17:29:56.960Z"
+        },
+        "updatedAt": {
+            "$date": "2024-03-19T17:34:41.021Z"
+        },
+        "__v": 0,
+        "diet": "",
+        "selectCountry": []
+    },
+    {
+        "_id": {
+            "$oid": "65fdad42f70cde938f20c050"
+        },
+        "username": "Kitchen Stories",
+        "img": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/admin%2Fchef.png?alt=media&token=15b2892e-cbef-4baa-9a53-26b51c8493b8"
+    }
+]

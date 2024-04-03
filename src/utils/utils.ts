@@ -3,17 +3,17 @@ interface AxiosConfig {
     url: string;
     headers: {
         Authorization: string;
-        "Content-Type": string;
+        'Content-Type': string;
     };
 }
 
 const generateConfig = (url: string, accessToken: any): AxiosConfig => {
     return {
-        method: "GET",
+        method: 'GET',
         url: url,
         headers: {
             Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
     };
 };
