@@ -74,7 +74,21 @@ export default class CommentDish {
             };
         }
 
+        // nếu state = -1 => trường hợp dislike
         if (state === -1) {
+            // kiểm tra xem đã có like hay chưa
+            const checkLike = commentDish.likes.includes(
+                new Types.ObjectId(idNguoiDung)
+            );
+
+            if (checkLike) {
+                await commentDish.updateOne({
+                    $pull: {
+                        likes: idNguoiDung,
+                    },
+                });
+            }
+
             const checkDislike = commentDish.dislikes.includes(
                 new Types.ObjectId(idNguoiDung)
             );
@@ -100,6 +114,18 @@ export default class CommentDish {
                 message: "Dislike thành công!",
             };
         } else {
+            const checkDislike = commentDish.dislikes.includes(
+                new Types.ObjectId(idNguoiDung)
+            );
+
+            if (checkDislike) {
+                await commentDish.updateOne({
+                    $pull: {
+                        dislikes: idNguoiDung,
+                    },
+                });
+            }
+
             const checkLike = commentDish.likes.includes(
                 new Types.ObjectId(idNguoiDung)
             );
