@@ -1,8 +1,6 @@
-import { ObjectId } from "mongodb";
 import MonAnModel from "../models/MonAn.model";
 import NguoiDungModel from "../models/NguoiDung.model";
 import NhomMonAnService from "../services/nhomMonAn.service";
-import mongoose from "mongoose";
 const Types = require("mongoose").Types;
 
 export default class MonAn {
