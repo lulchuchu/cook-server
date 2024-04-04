@@ -1,4 +1,3 @@
-import axios from "axios";
 import monAnRoute from "./monAn.router";
 import nguoiDungRoute from "./nguoiDung.router";
 import nguyenLieuRoute from "./nguyenLieu.router";
@@ -6,6 +5,7 @@ import congThucRouter from "./congThuc.router";
 import thanhPhanDinhDuongRouter from "./thanhPhanDinhDuong.router";
 import nhomMonAnRouter from "./nhomMonAn.router";
 import danhGiaRouter from "./danhGia.router";
+import commentDishRouter from "./commentDish.router";
 
 function route(app: any) {
     app.use(function (req: any, res: any, next: any) {
@@ -22,6 +22,7 @@ function route(app: any) {
     app.use("/thanh-phan-dinh-duong", thanhPhanDinhDuongRouter);
     app.use("/nhom-mon-an", nhomMonAnRouter);
     app.use("/danh-gia-mon-an", danhGiaRouter);
+    app.use("/comment-dish", commentDishRouter);
 }
 
 module.exports = route;
