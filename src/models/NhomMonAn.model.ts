@@ -1,28 +1,28 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
 
-const DOCUMENT_NAME = "NhomMonAn";
-const COLLECTION_NAME = "NhomMonAns";
+const DOCUMENT_NAME = 'NhomMonAn';
+const COLLECTION_NAME = 'NhomMonAns';
 
 const nhomMonAn = new Schema(
     {
-        ten: {
+        name: {
             type: String,
         },
-        nguoiDung: {
+        user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+            ref: 'NguoiDung',
         },
-        monAns: [
+        dishs: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "MonAn",
+                ref: 'MonAn',
             },
         ],
     },
     {
         timestamps: true,
         collection: COLLECTION_NAME,
-    }
+    },
 );
 
 export default model(DOCUMENT_NAME, nhomMonAn, COLLECTION_NAME);

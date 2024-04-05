@@ -1,7 +1,7 @@
-import mongoose, { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
-const DOCUMENT_NAME = "MonAn";
-const COLLECTION_NAME = "MonAns";
+const DOCUMENT_NAME = 'MonAn';
+const COLLECTION_NAME = 'MonAns';
 
 const monAn = new Schema(
     {
@@ -20,38 +20,38 @@ const monAn = new Schema(
         rating: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "DanhGia",
+                ref: 'DanhGia',
+            },
+        ],
+        storeUsers: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'NguoiDung',
+            },
+        ],
+        likes: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'NguoiDung',
             },
         ],
         defaultPortion: { type: Number },
         ingredients: {
             type: Schema.Types.ObjectId,
-            ref: "NguyenLieu",
+            ref: 'NguyenLieu',
         },
-        dungcu: {
+        utenils: {
             type: String,
         },
         nuttrition: {
             type: Array,
         },
         step: { type: Array },
-        storeUsers: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User",
-            },
-        ],
-        likes: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User",
-            },
-        ],
     },
     {
         timestamps: true,
         collection: COLLECTION_NAME,
-    }
+    },
 );
 
 export default model(DOCUMENT_NAME, monAn, COLLECTION_NAME);

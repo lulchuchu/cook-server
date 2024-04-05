@@ -1,0 +1,786 @@
+[
+    {
+        "_id": {
+            "$oid": "6603e5f865007304585bf89d"
+        },
+        "name": "Mỳ shoyu ramen thịt gà",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FEasy%20shoyu%20ramen%20with%20chicken%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=6182d51d-635a-4311-bc94-d2471e60295d",
+        "imgDes": "https://images.services.kitchenstories.io/GM9vE3FlOLksxLpKyEF0GyViT1s=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628_final_photo_309.jpg",
+        "description": "Công thức này đã được cập nhật để cải thiện trải nghiệm nấu ăn của bạn (tháng 3 năm 2024). Ramen là một món mì Nhật Bản với nước dùng đậm đà, đầy hương vị cũng như sợi mì dai, dai và là món ăn phù hợp cho mọi dịp. Biến thể của shoyu ramen này là phong cách phổ biến nhất ở Tokyo và được làm từ nước dùng được nêm với nước tương. Ngoài biến thể của shoyu, còn có miso và tonkotsu (đừng nhầm với tonkatsu; nước dùng nấu từ thịt lợn). Đối với công thức này, hãy sử dụng nước tương nhẹ của Nhật Bản để có hương vị ngon nhất và kết thúc món ăn với rắc shichimi togarashi - một hỗn hợp gia vị phổ biến ở Nhật Bản thường chứa ớt xay thô, tiêu Nhật, vỏ cam rang, hạt mè đen và trắng , hạt cây gai dầu, gừng xay, nori và hạt anh túc.",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6602fe7c3904b9b4b704d5f2",
+        "utensils": "thớt, dao, nồi lớn, kẹp, rây mịn, xoong (nhỏ), 3 tô, lò nướng, khay nướng, xoong, muôi",
+        "nuttrition": {
+            "Cal": 1263,
+            "Fat": "73 g",
+            "Protein": "82 g",
+            "Carb": "60 g"
+        },
+        "step": [
+            {
+                "time": 26,
+                "img": "https://images.services.kitchenstories.io/DvGJE57sIrjL1yLtHPk3k1eyFEk=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628-photo-step-1.jpg",
+                "ingredients": "5 tép tỏi - 40 g gừng - 1 tỏi tây - 2 l nước luộc gà - 4 chân gà (không xương) - 1 tờ kombu",
+                "utenils": "thớt- dao - cái nồi lớn - rây mịn",
+                "des": "Băm nhỏ ⅚ tỏi và ⅔ gừng. Cắt tỏi tây theo chiều dọc và cắt thành lát. Cho nước luộc gà, tỏi tây, gừng, tỏi băm nhỏ và đùi gà rút xương vào nồi lớn rồi đun sôi. Nấu trong khoảng. Khoảng 15 phút thì lấy gà ra khỏi nồi, để nguội một chút rồi đặt sang một bên. Thêm kombu vào nước kho và nấu thêm 15 phút nữa, sau đó lọc mọi thứ qua rây."
+            },
+            {
+                "time": 51,
+                "img": "https://images.services.kitchenstories.io/wl7Itk7w02vTwPGu-4VORv14eFM=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628_step_photo_313.jpg",
+                "ingredients": "1 tép tỏi - 20 g gừng - 125 ml nước tương nhạt - 50 ml rượu sake - 50 ml mirin",
+                "utenils": "xoong (nhỏ) - tô - lò nướng - khay nướng",
+                "des": "Làm nóng lò ở nhiệt độ 200°C/392°F. Gọt vỏ và băm nhuyễn phần tỏi và gừng còn lại để làm nước chấm. Thêm nước tương, rượu sake, rượu mirin, tỏi băm nhỏ và gừng vào nồi. Đun nóng mọi thứ ở lửa vừa trong khoảng. 5 phút. Cắt lát thịt gà đã nấu chín, trộn với ⅓ nước sốt gia vị ấm và nướng trong lò trên khay nướng trong khoảng. 8 phút. Lấy ra khỏi lò và để một bên."
+            },
+            {
+                "time": 61,
+                "img": "https://images.services.kitchenstories.io/CK_z5BySNUUhFPS-6QTrzE6GGYA=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628_step_photo_315.jpg",
+                "ingredients": "2 trứng",
+                "utenils": "cái soong - 2 cái bát",
+                "des": "Đối với trứng ramen, cho nước vào nồi đun sôi và nấu trong khoảng. 6 phút. (để lòng đỏ cứng hơn một chút thì nấu trong 7 phút, để lòng đỏ cứng hơn thì nấu trong 8 phút). Trứng sau khi chín, ngâm trứng trong nước lạnh, bóc vỏ rồi cho vào tô nhỏ cùng ⅓ nước mắm nêm để trứng có màu. Món này cũng có thể được chuẩn bị trước và bảo quản trong tủ lạnh tối đa một tuần."
+            },
+            {
+                "time": 70,
+                "img": "https://images.services.kitchenstories.io/optl4aTZtJd9Y1YAQ4uSdCl7skk=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628_step_photo_317.jpg",
+                "ingredients": "1 củ hành lá - 20 g giá đỗ - shichimi togarashi (để ăn) - rong biển khô (để ăn)",
+                "utenils": "muôi múc canh",
+                "des": "Cắt hành lá thành từng khoanh mỏng. Lấy trứng ra khỏi nước ướp và cắt đôi từng quả. Nấu mì ramen theo hướng dẫn trên bao bì. Đổ phần nước sốt gia vị còn lại vào bát, đặt mì đã nấu chín lên trên rồi đổ nước dùng vào. Sau đó thêm lát thịt gà, nửa quả trứng, giá đỗ, rong biển khô, hành lá và một ít shichimi togarashi nếu muốn."
+            }
+        ],
+        "country": "Nhật Bản"
+    },
+    {
+        "_id": {
+            "$oid": "6603e5f865007304585bf89e"
+        },
+        "name": "Falafel",
+        "video": "",
+        "imgDes": "https://images.services.kitchenstories.io/R0FZEANHBTbTmQzRhOTm6hOPPLk=/1080x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R412-photo-final-1-4x3.jpg",
+        "description": "Công thức yêu thích của tôi để làm món falafel xanh, giòn, đích thực. Không có phím tắt đậu xanh đóng hộp ở đây! Hãy sử dụng đậu xanh khô để có kết cấu và hương vị đích thực. Điều tuyệt vời về đậu xanh đóng hộp là gì? Công thức này chính là tính thực tế của nó: Chuẩn bị trước hỗn hợp và để nguội trong tủ lạnh (hoặc thậm chí là tủ đông), sẵn sàng chiên bất cứ khi nào có tâm trạng.",
+        "type": "Món chay",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "66037b027f9728bdfe595af0",
+        "utensils": "tô (lớn), rây, thớt, dao, máy xay thực phẩm, hộp kín, muỗng múc kem (tùy chọn), nồi (nhỏ), muôi, khăn giấy, tô (nhỏ)",
+        "nuttrition": {
+            "Cal": 475,
+            "Fat": "11 g",
+            "Protein": "26 g",
+            "Carb": "72 g"
+        },
+        "step": [
+            {
+                "time": 64800,
+                "img": "https://images.services.kitchenstories.io/vf26scuL9TIoxeUfE7Muy8OovmY=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R412-photo-step-1-4x3.jpg",
+                "ingredients": "400 g đậu xanh khô - 1½ muỗng cà phê bột nở",
+                "utenils": "bát (lớn) - sàng",
+                "des": "Trong một tô lớn, cho đậu xanh khô và bột nở vào rồi đổ nước vào, đảm bảo có ít nhất 5 cm nước phía trên đậu xanh. Để ngâm qua đêm, khoảng. 18 tiếng hoặc lâu hơn nếu đậu còn cứng. Sau đó, vớt đậu xanh ra và lau khô."
+            },
+            {
+                "time": 3600,
+                "img": "https://images.services.kitchenstories.io/p5qCkFELmFdHWU4oKBtpn6THlyU=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R412-photo-step-2-4x3.jpg",
+                "ingredients": "1 củ hành tây - 3 tép tỏi - ½ quả ớt - 40 g rau mùi tây - 20 g ngò - 1 thìa cà phê thì là - 1 thìa cà phê rau mùi xay - 2 thìa canh hạt vừng",
+                "utenils": "thớt - dao - máy xay thực phẩm - hộp kín",
+                "des": "Gọt vỏ và thái hạt lựu hành và tỏi, sau đó thái nhỏ ớt. Cho đậu xanh, rau thơm, hành, tỏi, ớt và gia vị vào máy xay thực phẩm (hoặc dùng máy xay sinh tố và tô) rồi xay cho đến khi hòa quyện. Thêm hạt vừng vào và dùng thìa khuấy đều. Đổ hỗn hợp vào thùng chứa và đậy kín. Để yên ít nhất 1 giờ."
+            },
+            {
+                "time": 300,
+                "img": "https://images.services.kitchenstories.io/Fux-ahbIYosdHdYOPPWogm-RFhA=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R412-photo-step-3-4x3.jpg",
+                "ingredients": "dầu thực vật (để chiên ngập dầu)",
+                "utenils": "muỗng múc kem (tùy chọn) - nồi (nhỏ) - muôi - khăn giấy",
+                "des": "Ngay trước khi chiên, hãy tạo hình hỗn hợp thành những miếng nhỏ bằng tay ẩm hoặc muỗng kem. Đổ đầy một nồi cỡ vừa với khoảng. 7 cm dầu hoặc đủ để phủ các miếng falafel và đun nóng trên lửa vừa cao. Làm từng mẻ nhỏ, chiên cẩn thận các miếng falafel trong dầu khoảng. 4—6 phút. cho đến khi giòn và có màu vàng nâu ở bên ngoài. Xả miếng falafel chiên lên khăn giấy."
+            },
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/kOqbRk_XhK5BcuUep41Ay7YvKHM=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R412-photo-step-4-4x3.jpg",
+                "ingredients": "10 g bạc hà - 200 g sữa chua Hy Lạp nguyên béo - muối - tiêu - dưa chuột (để trang trí) - cà chua (để trang trí) - bánh mì pita (để trang trí)",
+                "utenils": "tô (nhỏ)",
+                "des": "Cắt nhỏ lá bạc hà, cắt lát dưa chuột và cắt nhỏ cà chua. Trộn sữa chua Hy Lạp, bạc hà cắt nhỏ, muối và hạt tiêu vào một cái bát nhỏ. Phục vụ món falafel nóng trong bánh mì pita với nước chấm sữa chua, cà chua và dưa chuột. Thưởng thức!"
+            }
+        ],
+        "country": "Trung Đông"
+    },
+    {
+        "_id": {
+            "$oid": "6603e5f865007304585bf89f"
+        },
+        "name": "Ratatouille",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FRatatouille%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=01289c87-373f-4e6d-bd37-d5ae9dba9197",
+        "imgDes": "https://images.services.kitchenstories.io/orLaRlSTjuHoDbbESxwBBcPT_Dw=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1300-Ratatouille-final-photo-2.jpg",
+        "description": "Một lễ kỷ niệm thực sự của rau Địa Trung Hải! Món rau hầm cổ điển của Pháp này rất ngon miệng và ấm áp, nhưng vẫn nhẹ nhàng và chỉ là món thuần chay (chỉ cần bỏ qua món crème fraîche khi phục vụ). Ratatouille là món khai vị hoặc món chính tuyệt vời, ăn kèm với bánh mì hoặc mì ống.",
+        "type": "Món chay",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6603819d56bf36d35832fe4f",
+        "utensils": "lò nướng, dao, thớt, rây, bát, dây bếp, khay nướng, giấy nến, nồi (lớn, có nắp), thìa nấu ăn",
+        "nuttrition": {
+            "Cal": 246,
+            "Fat": "18 g",
+            "Protein": "4 g",
+            "Carb": "22 g"
+        },
+        "step": [
+            {
+                "time": 100,
+                "img": "https://images.services.kitchenstories.io/bTuzNE-9nsVKR8WTsH8XKjuUR28=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1300-step-photo-1.jpg",
+                "ingredients": "350 g cà tím - 200 g bí xanh - 200 g ớt chuông vàng - 300 g cà chua - 1 củ hành tím - 2 tép tỏi - 5 g lá kinh giới - 5 g rau kinh giới - 5 g hương thảo - 5 g xạ hương - muối",
+                "utenils": "lò nướng - dao - thớt - rây - bát - dây bếp",
+                "des": "Làm nóng lò trước ở nhiệt độ 200°C/390°F. Cắt cà tím thành bốn phần và cắt thành khối lớn. Chuyển sang một cái rây đặt trên một cái bát, muối kỹ và xoa bóp. Để ráo nước trong khoảng. 10 phút. Trong lúc đó, thái hạt lựu bí xanh và ớt chuông vàng. Cắt cà chua thành từng miếng theo chiều dọc. Thái nhỏ hành đỏ và tỏi. Cắt nhuyễn kinh giới và lá oregano rồi để sang một bên. Dùng dây nhà bếp buộc hương thảo và cỏ xạ hương thành một bó hoa trang trí nhỏ."
+            },
+            {
+                "time": 20,
+                "img": "https://images.services.kitchenstories.io/3MwKttMXJsg2mGrFZVhTGkOKqmk=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1300-step-photo-2.jpg",
+                "ingredients": "1 muỗng canh dầu ô liu",
+                "utenils": "tấm nướng bánh - giấy da",
+                "des": "Vắt bớt nước thừa ra khỏi cà tím, xoa bóp với một ít dầu ô liu rồi trải lên khay nướng có lót giấy da. Chuyển vào lò nướng và nướng trong khoảng 20 phút. ở 200°C/390°F."
+            },
+            {
+                "time": 55,
+                "img": "https://images.services.kitchenstories.io/8iqXbnxMUo13Hq79sNb-LVZ-YlE=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1300-step-photo-3.jpg",
+                "ingredients": "3 muỗng canh dầu ô liu - 2 muỗng canh tương cà chua - 2 lá nguyệt quế - 2 muỗng canh giấm balsamic",
+                "utenils": "nồi (lớn, có nắp) - thìa nấu ăn",
+                "des": "Đun nóng dầu ô liu trong nồi lớn đặt trên lửa vừa cao. Xào bột cà chua, hành tây và tỏi trong khoảng. 2 phút. Thêm bí xanh và ớt chuông vàng vào xào khoảng. 5 phút. hơn. Thêm cà chua, bó thảo mộc, lá nguyệt quế và giấm balsamic vào rồi khuấy đều. Giảm nhiệt xuống mức trung bình thấp, đậy nắp và để nấu khoảng. 15 phút, thỉnh thoảng khuấy."
+            },
+            {
+                "time": 52,
+                "img": "https://images.services.kitchenstories.io/-g-0p5BaB81CE70410oHGUUzbiM=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1300-step-photo-4.jpg",
+                "ingredients": "muối - tiêu crème fraîche (tùy chọn) - bánh mì (tùy chọn)",
+                "utenils": "",
+                "des": "Nhấc nồi ra khỏi bếp và lấy bó thảo mộc và lá nguyệt quế ra. Khi cà tím mềm, lấy ra khỏi lò và thêm vào ratatouille cùng với kinh giới cắt nhỏ và lá oregano. Mùa tốt với muối và hạt tiêu. Ăn kèm kem tươi và bánh mì mộc mạc nếu muốn."
+            }
+        ],
+        "country": "Pháp"
+    },
+    {
+        "_id": {
+            "$oid": "6603e5f865007304585bf8a0"
+        },
+        "name": "Thịt gà tẩm mè chiên giòn ăn kèm cải thìa và sốt đậu phộng",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FCrispy%20sesame%20chicken%20schnitzel%20with%20bok%20choy%20and%20peanut%20sau.mp4?alt=media&token=d5de195d-abef-4dca-baf9-f6ffecff5768",
+        "imgDes": "https://images.services.kitchenstories.io/Uk1Mz1sdljnJ75r0t2dtlGZNFuY=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2783-photo-final-1.jpg",
+        "description": "Công thức món schnitzel gà giòn theo phong cách châu Á có thể trông phức tạp nhưng chúng tôi sẽ hướng dẫn bạn thực hiện chỉ trong bốn bước. Điều làm cho món schnitzel thơm đến vậy chính là lớp nhân bánh được làm từ hạt vừng! Nước cốt dừa tạo thêm kết cấu kem khó cưỡng và hương vị đậm đà làm tôn lên độ giòn của bánh mì mè. Nếu bạn muốn ít chất béo hơn trong nước sốt, hãy thay thế nước cốt dừa bằng sữa thông thường hoặc sữa ít béo hơn.",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 2,
+        "ingredients": "6603a16bfa8240f7beef9848",
+        "utensils": "dao, thớt, tô (lớn), đĩa (lớn), xoong (nhỏ), máy đánh trứng, chảo chống dính, thìa trộn",
+        "nuttrition": {
+            "Cal": 1156,
+            "Fat": "55 g",
+            "Protein": "83 g",
+            "Carb": "87 g"
+        },
+        "step": [
+            {
+                "time": 6,
+                "img": "https://images.services.kitchenstories.io/k_TWEnK71pxUnyHhSh6rJq2c5F4=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2783-photo-step-1.jpg",
+                "ingredients": "150 g gạo thơm - 2 ức gà",
+                "utenils": "dao - thớt",
+                "des": "Nấu cơm theo hướng dẫn trên bao bì. Trong khi đó, cắt ức gà: Cắt ức gà theo chiều ngang nhưng không cắt xuyên suốt để chúng không bị rời ra mà mở ra như một cuốn sách."
+            },
+            {
+                "time": 19,
+                "img": "https://images.services.kitchenstories.io/98LbbkLQ_B99EGq3Gc1wYf7ULsY=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2783-photo-step-2.jpg",
+                "ingredients": "2 cải chíp - 1 tép tỏi - 1 quả ớt (để trang trí) - 1 thìa canh tinh bột - 1 thìa cà phê nước - ⅛ thìa cà phê muối - 4 thìa canh mè trắng - 2 thìa canh mè đen",
+                "utenils": "bát (lớn) - đĩa (lớn)",
+                "des": "Cắt cải chíp thành từng phần theo chiều dọc. Băm nhuyễn tỏi. Cắt ớt và để dành cho lần sau. Trong một tô lớn, trộn kỹ phi lê gà với tinh bột, nước và muối cho đến khi tinh bột hơi dính. Trộn mè trắng và mè đen trên đĩa sâu lòng. Lăn gà vào hỗn hợp vừng. Nhấn xuống bánh mì mè."
+            },
+            {
+                "time": 15,
+                "img": "https://images.services.kitchenstories.io/kbicye3JzgV3-OFtNcfVDKQeYZ4=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2783-photo-step-3.jpg",
+                "ingredients": "200 ml nước cốt dừa - 2 thìa canh nước tương - 50 g kem bơ đậu phộng - muối - tiêu - dầu (để chiên)",
+                "utenils": "xoong (nhỏ) - máy đánh trứng - chảo chống dính - thìa",
+                "des": "Trong một cái chảo nhỏ, trộn nước cốt dừa, nước tương và bơ đậu phộng. Đun sôi trong khi khuấy và đun nhỏ lửa trong khoảng. 2–3 phút. cho đến khi nước sốt hơi đặc lại. Đánh đều cho đến khi mịn. Nêm muối và tiêu cho vừa ăn. Đặt sang một bên và giữ ấm. Trong khi đó, trong một chảo chống dính lớn, đun nóng dầu. Áp chảo phi lê gà trong khoảng. 4–6 phút. ở mỗi bên để bánh mì có màu nâu nhạt. Lấy gà ra khỏi chảo một cách nhanh chóng."
+            },
+            {
+                "time": 20,
+                "img": "https://images.services.kitchenstories.io/tIyJIFrkkFoWU8jiw15ZQddReTU=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2783-photo-step-4.jpg",
+                "ingredients": "",
+                "utenils": "",
+                "des": "Thêm cải chíp vào chảo và xào khoảng. 3–5 phút. Thêm tỏi và xào khoảng. 1 phút nữa. Xếp cơm, ức gà và cải chíp cạnh nhau trên đĩa. Ăn kèm với nước sốt đậu phộng và trang trí thêm lát ớt tùy ý."
+            }
+        ],
+        "country": "Việt Nam"
+    },
+    {
+        "_id": {
+            "$oid": "6603ed0f65007304585bf8a2"
+        },
+        "name": "Cơm chiên trứng",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FCrispy%20sesame%20chicken%20schnitzel%20with%20bok%20choy%20and%20peanut%20sau.mp4?alt=media&token=d5de195d-abef-4dca-baf9-f6ffecff5768",
+        "imgDes": "https://images.services.kitchenstories.io/2q59wxxCG9oEKc1723k6ZIlmzfs=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2619-final-photo-_2.jpg",
+        "description": "Đã bao giờ nấu với trứng đà điểu chưa? Bây giờ tôi có thể gạch bỏ điều đó khỏi danh sách nhóm của mình. (Đừng lo lắng: Chúng tôi chỉ thưởng thức món ngon thú vị này trong video, ở trên và trên YouTube. Công thức này được thiết kế cho trứng gà thông thường). Cơm chiên trứng là món ăn mà tôi đã lớn lên và đã làm vô số lần, một trong những món ăn thoải mái nhất của tôi. Nó cực kỳ linh hoạt, bạn có thể thêm các loại rau và protein khác nhau. Tôi muốn thêm ngô, thư rác, giăm bông và tôm. Đó có thể là một bữa ăn nhẹ lúc nửa đêm hoặc một bữa ăn thịnh soạn đầy đủ. Món ăn này sinh ra để dành cho cơm thừa, nhưng nếu nấu cơm ngay trong ngày, bạn nên để nguội cơm ở nhiệt độ phòng - một mẹo nhỏ là đặt chúng lên một khay nướng lớn. Lý tưởng nhất là chảo stell carbon dày dặn, nhưng nếu không có bếp ga, bạn có thể dùng chảo gang hoặc chỉ một chiếc chảo rán đủ lớn để chiên cơm. Tôi thích cho trứng vào trước, tuy nhiên, bạn có thể thêm cơm trước rồi đổ nước trứng nếu thích",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 2,
+        "ingredients": "6603ea3fa69c95c19cf26cdd",
+        "utensils": "thớt, dao, dụng cụ gọt vỏ, bát (nhỏ), máy đánh trứng, chảo, thìa cao su, bát, khăn giấy",
+        "nuttrition": {
+            "Cal": 656,
+            "Fat": "49 g",
+            "Protein": "15 g",
+            "Carb": "42 g"
+        },
+        "step": [
+            {
+                "time": 805,
+                "img": "",
+                "ingredients": "100 g đậu Hà Lan - 4 măng tây xanh - 1 củ cà rốt - 2 hành lá - 3 quả trứng - 200 g gạo (nấu chín) - muối",
+                "utenils": "thớt - dao - dụng cụ gọt vỏ - bát (nhỏ) - máy đánh trứng",
+                "des": "Gọt vỏ đậu Hà Lan nếu cần. Loại bỏ phần đầu gỗ của măng tây và cắt chéo thành từng miếng vừa ăn, để nguyên phần đầu. Gọt vỏ và thái hạt lựu cà rốt. Cắt lòng trắng hành lá thành những khoanh dày và hành lá thành những khoanh mỏng. Trong một cái bát nhỏ, đánh trứng và nêm muối. Dùng tay bẻ nhỏ cơm nếu cơm còn sót lại, nguội và vón cục."
+            },
+            {
+                "time": 155,
+                "img": "",
+                "ingredients": "dầu thực vật (để chiên)",
+                "utenils": "chảo - thìa cao su - bát",
+                "des": "Đun nóng dầu thực vật trong chảo trên lửa vừa. Thêm lòng trắng hành lá và chiên cho đến khi có mùi thơm và các cạnh bắt đầu chuyển sang màu vàng. Thêm đậu Hà Lan, chiên khoảng. 1 phút, sau đó thêm cà rốt và măng tây. Nấu trong khoảng. 2 – 3 phút, sau đó vớt hết rau ra và để riêng vào tô."
+            },
+            {
+                "time": 110,
+                "img": "",
+                "ingredients": " vegetable oil (for frying)",
+                "utenils": "khăn giấy",
+                "des": "Làm sạch chảo bằng khăn giấy. Thêm nhiều dầu hơn và đun nóng trên lửa vừa cao cho đến khi dầu gần như bốc khói. Thêm trứng vào và chiên khoảng. Sau 30 giây, các cạnh sẽ có màu vàng và phồng lên nhưng phần giữa vẫn còn nước. Bây giờ thêm gạo và trộn với trứng. Chia trứng thành từng miếng nhỏ nhưng lưu ý đừng làm vỡ cơm quá nhiều."
+            },
+            {
+                "time": 267,
+                "img": "",
+                "ingredients": "1 muỗng cà phê nước tương - tiêu trắng (tùy chọn) - dầu mè (để trang trí)",
+                "utenils": "",
+                "des": "Tiếp tục chiên cho đến khi cơm và trứng có màu vàng và không bị ướt. Sau đó cho rau củ xào vào và nêm thêm nước tương và một ít tiêu trắng nếu muốn. Để hoàn tất, thêm hành lá xanh và một chút dầu mè. Phục vụ ngay và thưởng thức!"
+            }
+        ],
+        "country": "Việt Nam"
+    },
+    {
+        "_id": {
+            "$oid": "6604e8eeddf06c219cd83aaa"
+        },
+        "name": "Gỏi bún thịt viên sả chay",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FRice%20noodle%20salad%20with%20vegan%20lemongrass%20meatballs%20Recipe%20Kit.mp4?alt=media&token=0e871c61-89eb-4c41-b2d5-50e428e4314d",
+        "imgDes": "https://images.services.kitchenstories.io/_pBa__1tnL7s5VOAXu7hba7mlOU=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-final-1.jpg",
+        "description": "Thật dễ dàng để thấy nguồn cảm hứng cho công thức làm đầy nhưng mới mẻ này: bún chả Việt Nam. Đây là phiên bản thuần chay sử dụng thịt xay thuần chay để làm món thịt viên sả thơm ngon. Bạn có thể chế biến thịt xay thuần chay giống hệt như cách làm với thịt “thông thường”, thêm gia vị mong muốn để tạo hương vị. Nếu thịt viên của bạn không đủ dính để dính vào nhau, hãy thêm một ít vụn bánh mì và một chút nước. Nếu bạn có quyền sử dụng bạc hà Việt Nam, hãy thêm nó vào bằng mọi cách — và trên lưu ý đó, hãy thoải mái thay đổi lựa chọn loại thảo mộc theo ý muốn, chẳng hạn như rau mùi hoặc ngò. Bạn có thể đổi nước tương lấy nước mắm trong nước sốt để có nước chấm đậm đà hơn.",
+        "type": "Món chay",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 2,
+        "ingredients": "6603f2831e9f2ad666ecb9eb",
+        "utensils": "máy xay mịn, bát lớn, đĩa, thớt, dao, bát, máy xay thực phẩm, nồi (nhỏ), rây, chảo rán (lớn), thìa, đĩa (lớn), bát (nhỏ)",
+        "nuttrition": {
+            "Cal": 836,
+            "Fat": "43 g",
+            "Protein": "42 g",
+            "Carb": "131 g"
+        },
+        "step": [
+            {
+                "time": 30,
+                "img": "https://images.services.kitchenstories.io/j4axI_DfUminoiYQNKcnjOWv0Eo=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-1.jpg",
+                "ingredients": "3 cọng sả - 2 tép tỏi - 10 g gừng - 200 g Thịt băm Garden Gourmet Sensational - 2½ muỗng canh nước tương ngọt - 1½ muỗng canh nước tương nhạt - ½ quả chanh",
+                "utenils": "máy xay mịn - tô lớn - đĩa",
+                "des": "Loại bỏ các lớp gỗ ở thân cây sả, sau đó tách phần trắng ra khỏi phần xanh. Dùng máy bào nhỏ để bào mịn phần màu trắng, loại bỏ phần màu xanh. Sử dụng cùng một máy bào nhỏ để nghiền mịn gừng và phần lớn tỏi. Cho thịt xay thuần chay vào tô cùng với sả, tỏi và gừng bào sợi, nước tương ngọt, phần lớn nước tương nhạt và nước cốt của nửa quả chanh. Dùng tay trộn đều, sau đó làm ướt tay và viên hỗn hợp thịt viên thành những viên tròn cỡ quả óc chó. Hãy ngồi đi."
+            },
+            {
+                "time": 20,
+                "img": "https://images.services.kitchenstories.io/W5cKiS2uiCp3KMAXdvAMljzXlK0=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-3.jpg",
+                "ingredients": "1 củ hành lá - 1 củ cà rốt - ½ quả dưa chuột - 150g cà chua - ¼ bắp cải nhọn - 1 quả ớt Thái",
+                "utenils": "dao - thớt",
+                "des": "Đối với món salad, cắt lát mỏng hành lá và thái sợi cà rốt. Dưa chuột bỏ hạt và thái hạt lựu. Cà chua bi cắt đôi, ớt Thái cắt lát và bắp cải cạo sạch. Nếu đó là một ngày nắng nóng, hãy bảo quản rau trong tủ lạnh hoặc một bát nước có pha nước cốt chanh và tùy ý một ít muối và đường."
+            },
+            {
+                "time": 30,
+                "img": "https://images.services.kitchenstories.io/CGLeBIjK3ah-0euKd96wV7SPNto=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-4.jpg",
+                "ingredients": "2½ quả chanh - 1 tép tỏi - 2 thìa đường - 1 thìa canh nước tương nhạt - 2 thìa canh nước - 50 hạt lạc rang - 1 thìa cà phê đường - muối - 100 g bún",
+                "utenils": "tô - máy xay thực phẩm - nồi (nhỏ) - rây",
+                "des": "Để làm nước sốt, vắt chanh còn lại vào tô, xay nhuyễn tép tỏi còn lại, đường, nước tương nhạt, nước và ớt Thái. Cho đậu phộng rang vào máy xay thực phẩm (thêm đường và muối nếu muốn) rồi xay thành bột thô. Chuẩn bị bún theo hướng dẫn trên bao bì; nếu điều này liên quan đến việc đun nóng, hãy nhớ rửa mì dưới nước lạnh và để ráo nước trước khi dùng."
+            },
+            {
+                "time": 10,
+                "img": "https://images.services.kitchenstories.io/UxKxXEQvTJX6hcrnSEr1fYJvZqU=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-5.jpg",
+                "ingredients": "1½ muỗng canh dầu thực vật",
+                "utenils": "chảo rán (lớn) - thìa",
+                "des": "Đun nóng dầu thực vật trong chảo rán trên lửa vừa. Thêm thịt viên thuần chay và chiên cho đến khi có màu nâu đậm ở tất cả các mặt, khoảng. 7 phút."
+            },
+            {
+                "time": 30,
+                "img": "https://images.services.kitchenstories.io/9oVAeROuImcDQ4b87gYv7fqiGYQ=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-6.jpg",
+                "ingredients": "20 g húng quế Thái - 20 g bạc hà - nướng - dầu mè (để ăn)",
+                "utenils": "đĩa (lớn) - bát (nhỏ)",
+                "des": "Dọn salad riêng lẻ hoặc trên một đĩa lớn, xếp húng quế Thái, bạc hà, hành lá, dưa chuột, bắp cải, cà rốt và cà chua xung quanh mép đĩa, thêm tổ bún, một bát nhỏ đựng nước sốt và thịt viên. Rưới một ít nước sốt lên các nguyên liệu tươi và rưới dầu mè nướng nếu muốn. Trang trí mì (hoặc mọi thứ!) bằng cách rắc bột đậu phộng. Thưởng thức!"
+            }
+        ],
+        "country": "Việt Nam"
+    },
+    {
+        "_id": {
+            "$oid": "66051904ddf06c219cd83aac"
+        },
+        "name": "Hoành thánh ớt Tứ Xuyên",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FXueci%20makes%20Sichuan%20chili%20wontons%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=5442b1ad-4d56-4a96-9778-eb0cc2c5869b",
+        "imgDes": "https://images.services.kitchenstories.io/f10euQ0V8iejTPHEr8XlxeUi36I=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-final-1.jpg",
+        "description": "Những chiếc hoành thánh ớt (红油抄手) này là một món ăn đường phố nổi tiếng ở Tứ Xuyên, nơi tôi đến—hãy xem video ở trên để tìm hiểu thêm về chúng từ tôi, đồng thời tìm hiểu kỹ thuật gấp *dễ dàng*. Khi lớn lên, chúng là bữa tối tiêu chuẩn, nhanh chóng vào các buổi tối trong tuần: Bà tôi sẽ làm chúng theo mẻ lớn và đông lạnh, đó là điều tôi cũng làm bây giờ. Công thức này tạo ra khoảng 35 đến 40 miếng hoành thánh (Tôi luôn khuyên bạn nên mua thêm giấy gói khi thực hiện công thức này lần đầu tiên, vì kích cỡ mua tại cửa hàng khác nhau — bạn không muốn hết giấy gói!). Để hâm nóng bánh bao đông lạnh, hãy dùng phương pháp này mà bà tôi đã dạy: Cho hoành thánh đông lạnh vào nồi nước sôi, khi sôi trở lại thì cho một bát nước lạnh nhỏ vào, khi nước sôi lần thứ 3 thì cho hoành thánh vào. đang nổi, hoành thánh nên được nấu chín!",
+        "country": "Trung Quốc",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6604eda1216e2cb1a066eefc",
+        "utensils": "thớt, dao, 2 bát (nhỏ), ép tỏi, bát (lớn), đũa, nồi (lớn), thìa có rãnh",
+        "nuttrition": {
+            "Cal": 445,
+            "Fat": "22 g",
+            "Protein": "22 g",
+            "Carb": "39 g"
+        },
+        "step": [
+            {
+                "time": 97,
+                "img": "https://images.services.kitchenstories.io/EAG1K-26vesPYz1v6A8oaHNV1lQ=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-step-1.jpg",
+                "ingredients": "35 giấy gói hoành thánh (đông lạnh) - 2 muỗng canh gừng - 3 hành lá - 4 tép tỏi - 100 ml nước - muối",
+                "utenils": "thớt - dao - bát (nhỏ) - máy ép tỏi",
+                "des": "Để giấy gói hoành thánh đông lạnh ở nhiệt độ phòng trong khoảng 1 giờ. Gừng băm nhuyễn, hành lá thái lát mỏng và dự trữ 1/3 hành lá để trang trí. Để làm nước tỏi để trang trí, sử dụng máy ép tỏi để ép tép tỏi vào một bát nhỏ, sau đó thêm một ít nước và muối."
+            },
+            {
+                "time": 148,
+                "img": "https://images.services.kitchenstories.io/sSo4FOBUjBtYmejRp9xzH7hw3S8=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-step-2.jpg",
+                "ingredients": "300 g thịt lợn xay - 2 muỗng canh nước tương - 1 muỗng canh rượu Thiệu Hưng - 2 muỗng canh dầu hào - 1 muỗng canh dầu mè nướng - 1/4 muỗng cà phê tiêu trắng - 1 trứng - đường - muối - 100 ml nước",
+                "utenils": "bát (lớn) - đũa",
+                "des": "Thêm thịt lợn xay vào bát trộn lớn. Thêm nước tương, rượu Thiệu Hưng, dầu hào, dầu mè nướng, tiêu trắng và muối. Sau đó thêm một quả trứng đánh. Trộn với một đôi đũa hoặc nĩa. Trong quá trình này, thêm một ít nước lạnh, mỗi lần một thìa, cho đến khi một hỗn hợp dính hình thành (bạn có thể không cần tất cả nước). Sau đó, thêm gừng băm, 2/3 hành lá và trộn để kết hợp."
+            },
+            {
+                "time": 295,
+                "img": "https://images.services.kitchenstories.io/UyM6ObEOGkgK99UfSZguM4M8gX0=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-portrait-2.jpg",
+                "ingredients": "",
+                "utenils": "bát (nhỏ)",
+                "des": "Để làm hoành thánh, đầu tiên hãy chuẩn bị một bát nước nhỏ. Đặt khoảng 1 muỗng cà phê nhân thịt lợn lên giấy gói, quét các cạnh bằng một ít nước và gấp đôi để tạo thành hình tam giác, sau đó ấn dọc theo các cạnh để bịt kín. Xoay hoành thánh sao cho đỉnh của tam giác hướng về phía bạn. Bây giờ bạn sẽ làm việc với các góc ở bên trái và bên phải: Làm ẩm một trong các góc và gấp cả hai góc về phía nhau để chồng lên nhau theo hình chữ X, sau đó nhấn để niêm phong (xem video trên để xem kỹ thuật!). Lặp lại quá trình này với các giấy gói còn lại và đổ đầy cho đến khi sử dụng hết."
+            },
+            {
+                "time": 65,
+                "img": "https://images.services.kitchenstories.io/UxKxXEQvTJX6hcrnSEr1fYJvZqU=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2387-photo-step-5.jpg",
+                "ingredients": "",
+                "utenils": "nồi lớn - muỗng (có rãnh)",
+                "des": "Để nấu hoành thánh, thêm lượng mong muốn vào một nồi nước sôi lớn trên lửa vừa-cao. Bạn có thể bảo quản hoành thánh còn lại, chưa nấu chín trong tủ đông tối đa 1 tháng). Nấu cho đến khi hoành thánh nổi và giấy gói gần như mờ, khoảng 5 phút."
+            },
+            {
+                "time": 73,
+                "img": "https://images.services.kitchenstories.io/G9rHKE0ZnRUfTflcJNIkU6A3bEg=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-step-5.jpg",
+                "ingredients": "4 thìa canh ớt cay giòn - 4 thìa canh nước tương nhạt - 1 thìa cà phê bột tiêu Tứ Xuyên - muối - đường",
+                "utenils": "",
+                "des": "Trong khi chờ đợi, hãy chia các nguyên liệu nước sốt vào các bát trang trí (mỗi người một bát) bằng cách thêm một lượng đều ớt giòn, nước tương nhạt và nước tỏi (chúng tôi khuyên bạn nên dùng một thìa canh mỗi bát, cùng với một chút tiêu Tứ Xuyên). bột). Khuấy đều, nêm muối và đường. Dùng thìa có rãnh múc hoành thánh đã nấu chín vào tô rồi trộn đều với nước sốt. Trang trí với hành lá và thưởng thức!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "660588b2def01e12147b1efc"
+        },
+        "name": "Cơm súp lơ chiên gà",
+        "video": "",
+        "imgDes": "https://images.services.kitchenstories.io/8dirlahq1N509ll4yPq7bhR4cks=/1080x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2736-final-photo-_2.jpg",
+        "description": "Cơm súp lơ là một biến thể ít carb của gạo trắng và đã phổ biến trong một thời gian. Tôi đã ngần ngại thử (vì cơm là sự sống) nhưng kết quả khiến tôi bất ngờ. Món cơm chiên súp lơ này chứa đầy chất dinh dưỡng và hương vị, lại nhẹ bụng hơn. Đây là bữa trưa hoàn hảo vào các ngày trong tuần nếu bạn không muốn bị hôn mê vì thức ăn vào lúc 2 giờ chiều. Thêm hạt thông vào cơm chiên là mẹo mình học được từ công thức cơm chiên trứng trên kênh youtube 'Thành phần kỳ diệu', giúp tăng thêm hương thơm và chiều sâu cho món ăn này",
+        "country": "Việt Nam",
+        "type": "Giảm cân",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 2,
+        "ingredients": "6605863558f2e256c6ef9f98",
+        "utensils": "máy xay thực phẩm, thớt, dao, bát (nhỏ), dụng cụ gọt vỏ, chảo rán, thìa",
+        "nuttrition": {
+            "Cal": 482,
+            "Fat": "22 g",
+            "Protein": "42 g",
+            "Carb": "33 g"
+        },
+        "step": [
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/XHZ9vFo4o9nulNa-RhPhnuI3o8A=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2736-step-photo-_0.jpg",
+                "ingredients": "500 g súp lơ - 300 g ức gà - 1 muỗng cà phê xì dầu - 1 muỗng cà phê tinh bột - muối",
+                "utenils": "máy xay thực phẩm - thớt - dao - tô (nhỏ)",
+                "des": "Đối với cơm súp lơ, đầu tiên hãy chia súp lơ thành những bông hoa lớn hơn. Sau đó xay các bông hoa cùng với thân cây trong máy xay thực phẩm cho đến khi tạo thành những miếng cỡ hạt gạo. Để qua một bên. Cắt ức gà thành từng miếng nhỏ vừa ăn. Cho các miếng thịt gà vào tô nhỏ với muối, một ít nước tương và bột ngô rồi ướp một lúc."
+            },
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/n8qObdEVCeDFoyTl3pYyiHblluM=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2736-step-photo-_1.jpg",
+                "ingredients": "1 củ cà rốt - 1 tép tỏi - 1 hành củ - 2 rọc hành",
+                "utenils": "đồ gọt vỏ",
+                "des": "Trong lúc đó, gọt vỏ cà rốt và cắt thành khối nhỏ. Gọt vỏ và thái nhỏ hành và tỏi. Hành lá cắt thành từng khoanh nhỏ, tách riêng phần trắng và xanh."
+            },
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/UyM6ObEOGkgK99UfSZguM4M8gX0=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2441-photo-portrait-2.jpg",
+                "ingredients": "20g hạt thông - dầu thực vật",
+                "utenils": "chảo rán - thìa",
+                "des": "Trong một chảo rán lớn, nướng hạt thông trên lửa vừa cho đến khi có màu nâu nhạt. Loại bỏ và đặt sang một bên. Thêm dầu thực vật vào chảo và đun nóng trên lửa vừa. Thêm miếng phi lê gà và nướng trên lửa vừa cao trong khoảng. 3–4 phút. ở tất cả các mặt, sau đó lấy ra khỏi chảo và đặt sang một bên."
+            },
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/ogegzCpZAbHwTntKTvmKKmn6L30=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2736-step-photo-_3.jpg",
+                "ingredients": "100 g đậu hà lan - dầu thực vật - muối",
+                "utenils": "",
+                "des": "Trong cùng một chảo, đun nóng thêm dầu nếu cần. Thêm cà rốt, hành tây, tỏi và hành lá trắng vào xào khoảng. 1 phút. cho đến khi thơm. Thêm cơm súp lơ, nêm nhiều muối và xào khoảng. 5–8 phút. cho đến khi lượng nước thoát ra từ súp lơ bay hơi và được nướng nhẹ. Thêm đậu Hà Lan và xào thêm 3–4 phút nữa. cho đến khi đậu chín."
+            },
+            {
+                "time": 0,
+                "img": "https://images.services.kitchenstories.io/I_NtHYkdPlEbs6X9OG2HMdhu9CE=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2736-step-photo-_4.jpg",
+                "ingredients": "1 muỗng canh nước tương - dầu mè (để ăn) - muối - tiêu",
+                "utenils": "",
+                "des": "Sau đó cho gà trở lại chảo, hâm nóng và nêm mọi thứ với nước tương còn lại, muối và một ít hạt tiêu cho vừa ăn. Cuối cùng, rưới một ít dầu mè và trang trí với hành lá. Phục vụ ngay lập tức."
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "6605a552def01e12147b1efd"
+        },
+        "name": "Kem parmesan polenta với măng tây và bông cải xanh",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FCreamy%20parmesan%20polenta%20with%20asparagus%20and%20broccoli%20Recipe%20K.mp4?alt=media&token=d177dd74-6dd5-405f-bec3-c2d3bb7e2866",
+        "imgDes": "https://images.services.kitchenstories.io/3i9DX98P4c6KFmxXqPdSqNxCywI=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2880_photo_final_1_3x2.jpg",
+        "description": "Xanh hơn, xanh hơn, xanh nhất! Cuối cùng, mặt trời cũng tắt. Điều đó đòi hỏi các loại rau mùa xuân xanh mướt phủ lên trên lớp kem polenta đầy hương vị - và đừng quên phô mai! Chúng tôi đã chọn bông cải xanh đông lạnh, đậu Hà Lan và các loại thảo mộc ở đây để công thức không quá đắt mà vẫn tươi và giòn. Ngoài ra còn tiết kiệm được thời gian chuẩn bị.",
+        "country": "Châu Âu",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 2,
+        "ingredients": "6605a3ca84906b0c3a8cfed3",
+        "utensils": "máy xay, dao, thớt, chảo rán, thìa, nồi",
+        "nuttrition": {
+            "Cal": 634,
+            "Fat": "28 g",
+            "Protein": "22 g",
+            "Carb": "75 g"
+        },
+        "step": [
+            {
+                "time": 10,
+                "img": "https://images.services.kitchenstories.io/JCkEKP2OLw3-8ze2aP55AGGdf_8=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2880_photo_step_1.jpg",
+                "ingredients": "90 g đậu Hà Lan - 150 g bông cải xanh - 1 thìa cà phê thì là - 1 thìa cà phê rau mùi tây - 60 g phô mai Parmesan - 150 g măng tây xanh",
+                "utenils": "dụng cụ bào - dao - thớt",
+                "des": "Lấy rau và thảo mộc đông lạnh ra khỏi tủ đông, đặt chúng sang một bên để rã đông, sau đó cắt đôi miếng bông cải xanh lớn hơn. Trong khi chờ đợi, hãy bào parmesan. Cắt bỏ phần cuối của măng tây và cắt thành miếng vừa ăn."
+            },
+            {
+                "time": 5,
+                "img": "https://images.services.kitchenstories.io/PakUhjGZ4kVXYlQWBnE_1S0S4Jw=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2880_photo_step_2.jpg",
+                "ingredients": "1 muỗng canh bơ nhạt - 50ml nước luộc rau - muối - tiêu",
+                "utenils": "chảo rán - thìa",
+                "des": "Đun nóng một nửa bơ trong chảo. Thêm bông cải xanh và chiên khoảng. 2-3 phút. Sau đó thêm măng tây và chiên thêm 1 phút nữa. Cuối cùng, thêm đậu Hà Lan đông lạnh. Thêm một ít nước dùng và các loại thảo mộc đông lạnh và nấu thêm 2 phút nữa. Nêm muối và hạt tiêu và đặt sang một bên."
+            },
+            {
+                "time": 14,
+                "img": "https://images.services.kitchenstories.io/mbU0ceFw7qJFeJKhEi4mlsU5214=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2880_photo_step_3.jpg",
+                "ingredients": "1 muỗng canh dầu ô liu - 1 muỗng canh bơ lạt - 550ml nước dùng rau củ - 150g polenta ăn liền",
+                "utenils": "nồi",
+                "des": "Trong nồi, đun nóng dầu ô liu trên lửa vừa cao, sau đó cho polenta vào. Thêm nước luộc rau còn lại và nấu trong khoảng. 2–4 phút. đồng thời khuấy mạnh. Trộn với parmesan và bơ còn lại rồi nêm muối và hạt tiêu. Ăn polenta với rau và thêm parmesan nếu muốn."
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "66063bd6e6e9a12dcc8c44e3"
+        },
+        "name": "Bánh pancake bông xốp kiểu Mỹ",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FFluffy%20American%20pancakes%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=653b7323-df84-4bcb-ba7f-fc0a8dfed249",
+        "imgDes": "https://images.services.kitchenstories.io/9J86ddtpXL0pYanrdR30oZ1k8Jk=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R481-final-photo.jpg",
+        "description": "Bữa sáng cổ điển cuối tuần: Bánh xèo kiểu Mỹ mềm mại! Mặc dù có vô số công thức và mẹo khác nhau để làm những chiếc bánh kếp hoàn hảo, nhưng ở đây chúng tôi chỉ đơn giản hóa để tạo ra những chồng bánh kếp mềm xốp chắc chắn, lấy ngay từ bộ phim sitcom Hoa Kỳ yêu thích của bạn. Ăn kèm với bơ và xi-rô cây phong, hoặc ăn kèm với một vài miếng thịt xông khói giòn, nhiều siro. Bữa ăn sáng của nhà vô địch!",
+        "country": "Mỹ",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6606356ba544942651840deb",
+        "utensils": "2 cốc đo chất lỏng, máy đánh trứng, chảo rán, thìa",
+        "nuttrition": {
+            "Cal": 376,
+            "Fat": "10 g",
+            "Protein": "12 g",
+            "Carb": "19 g"
+        },
+        "step": [
+            {
+                "time": 25,
+                "img": "https://images.services.kitchenstories.io/7VBEwoDWZHwXwqOg1_FehoI9l9I=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R481-step-photo-1.jpg",
+                "ingredients": "270 g bột mì - 2 thìa cà phê bột nở - 2 thìa canh đường - 1 thìa cà phê muối",
+                "utenils": "cốc đo chất lỏng - máy đánh trứng",
+                "des": "Trộn bột mì, bột nở, đường và muối vào cốc đo lớn và đặt sang một bên."
+            },
+            {
+                "time": 18,
+                "img": "https://images.services.kitchenstories.io/iOFVltr33npDqKZIqdxS_j6OvA0=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R481-step-photo-2.jpg",
+                "ingredients": "2 quả trứng - 320 ml sữa - 2 muỗng canh bơ không muối",
+                "utenils": "cốc đo chất lỏng",
+                "des": "Đánh trứng và sữa trong cốc đo nhỏ. Sau đó cho bơ tan chảy vào trộn đều."
+            },
+            {
+                "time": 13,
+                "img": "https://images.services.kitchenstories.io/ko2xKECjBZRdauofDyYXaL4SUYU=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R481-step-photo-3.jpg",
+                "ingredients": "",
+                "utenils": "",
+                "des": "Bây giờ, đổ hỗn hợp lỏng vào các nguyên liệu khô trong cốc đo lớn và trộn cho đến khi mọi thứ vừa hòa quyện - nó sẽ trông hơi vón cục."
+            },
+            {
+                "time": 70,
+                "img": "https://images.services.kitchenstories.io/rDPKdD20hqFP8r2r_p940rOYnv8=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R481-step-photo-4a.jpg",
+                "ingredients": "bơ không muối (để chiên) xirô phong (để trang trí)",
+                "utenils": "chảo rán - thìa",
+                "des": "Đun chảy một ít bơ trong chảo ở lửa vừa và đổ từng mẻ bột vào chảo. Khi bong bóng hình thành trên bề mặt, lật bánh và nấu thêm 1–2 phút nữa. Cho đến khi vàng nâu. Dùng nhiều bơ hơn để chống dính hoặc cháy. Múc ra đĩa và thưởng thức cùng bơ và siro phong."
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "660677e16eb51e8ea0640b55"
+        },
+        "name": "Gỏi miến sốt sả",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FGlass%20noodle%20salad%20with%20lemongrass%20dressing%20Recipe%20Kitchen%20S.mp4?alt=media&token=81e0db77-5d93-44b4-818a-dfb5bc9c54d8",
+        "imgDes": "https://images.services.kitchenstories.io/SipM-TOzaSwOixPFF_95f8VsiKE=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1713-photo-final-01.jpg",
+        "description": "Salad miến là món ăn chủ yếu của ẩm thực Thái Lan và Việt Nam. Phiên bản thuần chay hoàn toàn này được đóng gói với các loại rau thơm ngon, xoài trái cây và các loại thảo mộc đầy hương vị. Phủ lên trên là nước sốt sả chanh tươi mát và rắc đậu phộng rang. Hãy xem video công thức của chúng tôi để biết bạn có thể chuẩn bị món salad miến đơn giản này tại nhà nhanh như thế nào.",
+        "country": "Thái Lan, Việt Nam",
+        "type": "Món chay",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6606760f8ab99dfe9f153444",
+        "utensils": "dao, thớt, nồi, xoong, dụng cụ ép cam, 5 bát",
+        "nuttrition": {
+            "Cal": 385,
+            "Fat": "6 g",
+            "Protein": "5 g",
+            "Carb": "75 g"
+        },
+        "step": [
+            {
+                "time": 600,
+                "img": "https://images.services.kitchenstories.io/7P88hiJpHDM0HWYWLshfJHkF8Iw=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1713-photo-step-01.jpg",
+                "ingredients": "1 quả dưa chuột - 1 củ cà rốt - 1 quả ớt chuông vàng - 1 quả xoài - đậu phộng rang (để trang trí)",
+                "utenils": "dao - thớt",
+                "des": "Cắt đôi dưa chuột và cắt thành nửa mặt trăng. Cắt cà rốt, ớt chuông và xoài thành từng que diêm. Đậu phộng băm nhỏ."
+            },
+            {
+                "time": 900,
+                "img": "https://images.services.kitchenstories.io/8K9NIfk1WWD4igSJC9Qwy2OYTl4=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1713-photo-step-02.jpg",
+                "ingredients": "150g đậu tuyết - 250g miến",
+                "utenils": "nồi - chảo",
+                "des": "Đánh trứng và sữa trong cốc đo nhỏ. Sau đó cho bơ tan chảy vào trộn đều."
+            },
+            {
+                "time": 720,
+                "img": "https://images.services.kitchenstories.io/w7llU-zJxlMnoRejud9gS1CTOWY=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1713-photo-step-03.jpg",
+                "ingredients": "2 quả chanh - ½ quả ớt - 1 cọng sả - 2 thìa cà phê dầu mè - 2 thìa canh nước tương - 2 thìa cà phê đường - 2 thìa cà phê giấm gạo",
+                "utenils": "đồ vắt chanh - tô",
+                "des": "Nước cốt chanh và ớt thái lát mỏng. Dùng sống dao làm mềm sả rồi thái lát mỏng. Trong một bát, trộn sả, nước cốt chanh, dầu mè, nước tương, đường, giấm gạo và ớt. Trộn đều."
+            },
+            {
+                "time": 480,
+                "img": "https://images.services.kitchenstories.io/F_ZdvFOH80V3wdC92OexIm34q8Y=/750x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1713-photo-step-04.jpg",
+                "ingredients": "10g rau bạc hà - 10g ngò - hạt mè",
+                "utenils": "1 bát",
+                "des": "Chia miến vào bát phục vụ. Phủ rau củ thái lát, xoài và nước sốt salad lên trên. Trang trí với bạc hà tươi và ngò, đậu phộng và hạt vừng. Thưởng thức!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "66067c356eb51e8ea0640b56"
+        },
+        "name": "Đậu sốt cà chua",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FDownload.mp4?alt=media&token=6c10cfe2-914e-4b4f-b83e-e79a3ad2a7b1",
+        "imgDes": "https://images.services.kitchenstories.io/7avZcxDebEdxJWaghGMKz5j9XSI=/1080x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/vietnamesischer-tomaten-tofu-6-960x6402x.jpg",
+        "description": "Một trong những món cà chua được chúng tôi yêu thích nhất từ ​​trước đến nay: Đậu hũ sốt cà chua kiểu Việt Nam hoặc ĐẬU SỐT CÀ CHUA. Tự hỏi tại sao chúng ta yêu nó rất nhiều? Bởi vì: nó cực kỳ dễ làm và nhanh chóng được bày lên bàn ăn, nó tôn vinh cà chua mà không món ăn nào khác có thể làm được và nó cũng phù hợp với ngân sách. Điều cần thiết chỉ có hai thứ: đậu phụ ngon và tất nhiên là cà chua ngon. Lời khuyên của chúng tôi: Đậu phụ cà chua Việt Nam của chúng tôi tất nhiên là món ăn hoàn hảo để tận dụng tối đa những quả cà chua tươi ngon của mùa hè. Nếu cà chua không đúng mùa, bạn cũng có thể sử dụng cà chua đóng hộp và sử dụng xi-rô ít hơn một chút.",
+        "country": "Việt Nam",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6606798934289c6b3f0a6257",
+        "utensils": "dao, thớt, chảo, thìa nấu ăn",
+        "nuttrition": {
+            "Cal": 283,
+            "Fat": "19 g",
+            "Protein": "18 g",
+            "Carb": "14 g"
+        },
+        "step": [
+            {
+                "time": 60,
+                "img": "",
+                "ingredients": "400g đậu hũ non",
+                "utenils": "dao - thớt",
+                "des": "Đậu phụ thấm khô và cắt thành khối 1 1/2 cm/0,6 inch."
+            },
+            {
+                "time": 540,
+                "img": "",
+                "ingredients": "2tbsp dầu đậu phộng",
+                "utenils": "thìa - chảo",
+                "des": "Cho 2 thìa dầu vào chảo nóng và chiên đậu phụ trên lửa vừa cao trong khoảng. 6–8 phút. cho đến khi có màu vàng nâu đều các mặt. Sau đó lấy ra khỏi chảo."
+            },
+            {
+                "time": 10,
+                "img": "",
+                "ingredients": "2 tép tỏi - 2 rọc hành",
+                "utenils": "",
+                "des": "Băm tỏi. Cắt phần trắng của hành lá thành từng khoanh."
+            },
+            {
+                "time": 120,
+                "img": "",
+                "ingredients": "1 tbsp dầu đậu phộng",
+                "utenils": "",
+                "des": "Thêm dầu còn lại vào chảo và xào tỏi và hành lá trên lửa vừa trong khoảng. 2 phút, xào cho đến khi có mùi thơm."
+            },
+            {
+                "time": 300,
+                "img": "",
+                "ingredients": "500g cà chua - 4 tbsp xì dầu - 1 tbsp giấm - 2 tsp Sriracha",
+                "utenils": "",
+                "des": "Cắt nhỏ cà chua và thêm vào chảo. Khuấy nước tương và xi-rô gạo và đun nhỏ lửa trong khoảng. 5 phút. cho đến khi cà chua mềm và bắt đầu nát. Nêm Siracha cho vừa miệng."
+            },
+            {
+                "time": 120,
+                "img": "",
+                "ingredients": "",
+                "utenils": "",
+                "des": "Thêm đậu phụ vào nước sốt và đun nhỏ lửa thêm khoảng nữa. 2 phút. Cắt hành lá thành từng khoanh."
+            },
+            {
+                "time": 120,
+                "img": "",
+                "ingredients": "gạo lài (để trang trí)",
+                "utenils": "",
+                "des": "Dọn đậu phụ cà chua với gạo lài và phủ thêm hành lá lên trên."
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "66069ba46eb51e8ea0640b59"
+        },
+        "name": "Phở bò Việt Nam",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FPho%20(Vietnamese%20beef%20noodle%20soup)%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=eba70dc4-8616-499b-9f70-5436f193ad48",
+        "imgDes": "https://images.services.kitchenstories.io/9wc742ZJgfdzlhsQU6N017GP2Qg=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-final-1.jpg",
+        "description": "Một tô phở bốc khói sẽ luôn khiến bạn hạnh phúc! Mặc dù nước luộc thịt bò cần phải đun sôi trong vài giờ nhưng bạn không nên rút ngắn hoặc thậm chí bỏ qua bước này, vì nước dùng là yếu tố cơ bản quyết định để có một món phở thơm ngon.",
+        "country": "Việt Nam",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 6,
+        "ingredients": "660699cbb93eedaea57a3e3b",
+        "utensils": "2 thớt, 2 dao, nồi (lớn), thìa có rãnh, 2 chảo rán, tô, nồi, rây",
+        "nuttrition": {
+            "Cal": 687,
+            "Fat": "32 g",
+            "Protein": "56 g",
+            "Carb": "45 g"
+        },
+        "step": [
+            {
+                "time": 60,
+                "img": "https://images.services.kitchenstories.io/IsafwYpEa_1lVkBmNj1WCyI5D5o=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-step-01.jpg",
+                "ingredients": "500 g đuôi bò - 500 g xương bò - 500 g thịt bò luộc - 5 l nước",
+                "utenils": "thớt - dao - nồi (lớn) - muỗng có rãnh",
+                "des": "Cắt đuôi bò thành từng khúc nhỏ rồi cho vào nồi lớn cùng xương bò và thịt luộc. Đổ đầy nước và đun sôi. Đun nhỏ lửa ở lửa vừa và thỉnh thoảng hớt bọt."
+            },
+            {
+                "time": 7200,
+                "img": "https://images.services.kitchenstories.io/GFB2vTMsmyQ1Ncxr8o0bces2NtU=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-step-02.jpg",
+                "ingredients": "5 hành khô - 40g gừng",
+                "utenils": "chảo - bát ăn",
+                "des": "Gọt vỏ hẹ và cho vào chảo rán cùng gừng. Chiên cho đến khi chúng bắt đầu chuyển sang màu nâu đậm thì cho vào nồi. Để nước dùng sôi ở lửa vừa-thấp trong khoảng. 2 giờ. Bỏ xương bò, đuôi bò, gừng và hẹ tây. Thịt bò luộc chín vớt ra cho vào tô nước lạnh."
+            },
+            {
+                "time": 1800,
+                "img": "https://images.services.kitchenstories.io/9PJBKnSlN7EfG3o7HDRzRjTGOsY=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-step-03.jpg",
+                "ingredients": "1 thảo quả - 1 thìa cà phê hạt thì là - 1 thanh quế - 1 hoa hồi - 3 thìa canh nước mắm - 1 thìa cà phê muối - 1 thìa cà phê đường",
+                "utenils": "chảo",
+                "des": "Cho vỏ bạch đậu khấu, hạt thì là, quế và hoa hồi vào chảo rán cho đến khi có mùi thơm. Thêm vào nồi. Nêm nước dùng với nước mắm, muối và đường. Để lửa nhỏ trong khoảng. 30 phút."
+            },
+            {
+                "time": 120,
+                "img": "https://images.services.kitchenstories.io/yGL02ipunsrPGTqc-9PbFbW0bqc=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-step-04.jpg",
+                "ingredients": "250g bánh phở - 5 nhánh hành lá - 2 ớt - 200g thịt bò",
+                "utenils": "nồi - ray - thớt - dao",
+                "des": "Nấu bún theo hướng dẫn trên bao bì, sau đó để ráo nước. Cắt nhỏ hành lá và ớt. Cắt miếng thịt bò luộc và thăn bò sống."
+            },
+            {
+                "time": 120,
+                "img": "https://images.services.kitchenstories.io/ZbQ6vhb_qkEWovudhMSaVKTbVwE=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-step-05.jpg",
+                "ingredients": "20 g giá đỗ - 4 nhánh bạc hà - 4 nhánh ngò - ớt (để ăn) - nước mắm (để ăn) - chanh (để ăn)",
+                "utenils": "",
+                "des": "Loại bỏ vỏ bạch đậu khấu, hạt thì là, thanh quế và hoa hồi rồi đun sôi lại nước dùng. Cho bún đã nấu chín, thịt bò sống và thịt bò chín vào tô rồi múc nước dùng nóng vào tô. Rắc thêm giá đỗ, hành lá, bạc hà, ngò và ớt lên trên. Ăn kèm thêm ớt, nước mắm và nước cốt chanh cho mọi người nêm nếm vừa ăn. Thưởng thức!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "6606f7425076cbf650217aed"
+        },
+        "name": "Gà rán Hàn Quốc kèm salad dưa leo",
+        "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FKorean%20fried%20chicken%20with%20cucumber%20salad%20Recipe%20Kitchen%20Stor.mp4?alt=media&token=d7737768-e37e-4e0d-b3f8-7d31f0d3e856",
+        "imgDes": "https://images.services.kitchenstories.io/aHIa5bQvvrnVbkCGYei4pvX6NOE=/750x0/filters:quality(80)/images.kitchenstories.io/recipeImages/R870-photo-final-4x3.jpg",
+        "description": "",
+        "country": "Hàn Quốc",
+        "type": "Bình thường",
+        "rating": [],
+        "storeUsers": [],
+        "likes": [],
+        "defaultPortion": 4,
+        "ingredients": "6606f567a6e3f1773b1bfd0c",
+        "utensils": "tô trộn lớn, dụng cụ gọt rau củ, thớt, dao, chảo rán, khăn giấy, bát nhỏ",
+        "nuttrition": {
+            "Cal": 434,
+            "Fat": "26 g",
+            "Protein": "34 g",
+            "Carb": "16 g"
+        },
+        "step": [
+            {
+                "time": 120,
+                "img": "https://images.services.kitchenstories.io/-0QPNA9qESwIw75QfTlkfW1mD4w=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-1.jpg",
+                "ingredients": "600 g chân gà - 1 thìa canh rượu gạo - 1 thìa cà phê muối - ½ thìa cà phê tiêu - 2 thìa cà phê gừng xay",
+                "utenils": "tô trộn lớn",
+                "des": "Trộn rượu gạo, muối, tiêu, gừng vào tô rồi thêm chân gà vào. Quăng để phủ và để ướp trong khoảng. 30 phút."
+            },
+            {
+                "time": 180,
+                "img": "https://images.services.kitchenstories.io/vF-EKv8GGzP-JPShuLbwQVzTjQQ=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-2.jpg",
+                "ingredients": "½ thìa cà phê muối - 2 thìa canh giấm gạo - 1½ thìa canh đường nâu - 1 quả dưa chuột - 2 củ hành lá - 1 quả ớt - 10 g ngò",
+                "utenils": "dụng cụ gọt - thớt - dao - tô trộn lớn",
+                "des": "Đối với món salad, trộn muối, giấm và đường để làm nước sốt. Gọt vỏ dưa chuột, cắt đôi theo chiều dọc và bỏ hạt. Cắt đôi một lần nữa theo chiều dọc, sau đó cắt lát. Cắt nhỏ hành lá. Cắt nhỏ ớt và ngò. Cho dưa chuột, ớt và ngò vào tô, thêm nước sốt rồi trộn đều. Để qua một bên."
+            },
+            {
+                "time": 600,
+                "img": "https://images.services.kitchenstories.io/waawHiiQnRq7-Os6xSv2XCBrClY=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-3.jpg",
+                "ingredients": "2 muỗng canh tinh bột - dầu để chiên",
+                "utenils": "chảo - khăn giấy",
+                "des": "Lấy chân gà ra khỏi nước xốt và cho tinh bột vào cho đến khi phủ kín. Đun nóng dầu trong chảo rồi chiên chân gà ở lửa lớn trong khoảng. 6 – 8 phút. cho đến khi giòn. Loại bỏ và tẩy nhờn trên khăn giấy."
+            },
+            {
+                "time": 150,
+                "img": "https://images.services.kitchenstories.io/fpbQc4RBcp-sGz1kp89ZPUpTVgs=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-4.jpg",
+                "ingredients": "1 tép tỏi - 5 thìa canh sốt cà chua = 2 thìa canh Gochujang - 2 thìa canh mật ong - 2 thìa canh đường nâu - 2 thìa canh nước tương - 2 thìa canh dầu mè - 2 thìa canh đậu phộng",
+                "utenils": "bát nhỏ",
+                "des": "Băm tỏi và cho vào tô nhỏ. Thêm sốt cà chua, Gochujang, mật ong, đường, nước tương và dầu mè. Đun nóng nước sốt trong chảo rán và đun nhỏ lửa khoảng. 1 – 2 phút. để dày lên. Tắt bếp và thêm chân gà vào. Trộn đều và rắc đậu phộng cắt nhỏ lên trên. Ăn kèm salad dưa chuột và thưởng thức!"
+            }
+        ]
+    }
+]
