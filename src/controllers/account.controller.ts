@@ -243,7 +243,28 @@ class AccountController {
                     },
                 );
                 if (update) {
-                    res.status(200).send({ message: 'Success!' });
+                    const user = await NguoiDungModel.findById(_id);
+                    const token = jwt.sign(
+                        {
+                            email: user?.email,
+                            username
+                        },
+                        SECRET_KEY,
+                    );
+        
+                    const dataUser = {
+                        _id: user?._id,
+                        email: user?.email,
+                        username,
+                        img: user?.img,
+                        tel: tel,
+                        address: address,
+                        token: token,
+                        emailVerified: user?.emailVerified,
+                        diet: user?.diet,
+                        selectCountry: user?.selectCountry,
+                    };
+                    res.status(200).send(dataUser);
                 } else {
                     res.status(401).send({ message: 'Failed' });
                 }
@@ -259,7 +280,28 @@ class AccountController {
                     },
                 );
                 if (update) {
-                    res.status(200).send({ message: 'Success!' });
+                    const user = await NguoiDungModel.findById(_id);
+                    const token = jwt.sign(
+                        {
+                            email: user?.email,
+                            username
+                        },
+                        SECRET_KEY,
+                    );
+        
+                    const dataUser = {
+                        _id: user?._id,
+                        email: user?.email,
+                        username,
+                        img: user?.img,
+                        tel: tel,
+                        address: address,
+                        token: token,
+                        emailVerified: user?.emailVerified,
+                        diet: user?.diet,
+                        selectCountry: user?.selectCountry,
+                    };
+                    res.status(200).send(dataUser);
                 } else {
                     res.status(401).send({ message: 'Failed' });
                 }

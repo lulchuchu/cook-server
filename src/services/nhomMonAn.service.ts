@@ -1,44 +1,42 @@
-import MonAnModel from "../models/MonAn.model";
-import NguoiDungModel from "../models/NguoiDung.model";
-import NhomMonAnModel from "../models/NhomMonAn.model";
+import MonAnModel from '../models/MonAn.model';
+import NguoiDungModel from '../models/NguoiDung.model';
+import NhomMonAnModel from '../models/NhomMonAn.model';
 
 export default class NguyenLieu {
-    static async taoNhomMonAn(idNguoiDung: string, tenNhomMonAn: string) {
+    static async taoNhomMonAn(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {
         const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này.",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
-        const nhomMonAns = await NhomMonAnModel.find({
+        const nhomMonAn = await NhomMonAnModel.findOne({
             nguoiDung: idNguoiDung,
+            ten: tenNhomMonAn,
         });
 
-        const kiemTraTomTaiNhom = nhomMonAns.find(
-            (item) => item.ten === tenNhomMonAn
-        );
-
-        if (kiemTraTomTaiNhom) {
+        if (nhomMonAn) {
             return {
-                error: "Nhóm món ăn này đã tồn tại.",
+                error: 'Nhóm món ăn này đã tồn tại.',
             };
         }
 
         const newNhomMonAn = new NhomMonAnModel({
-            ten: tenNhomMonAn,
-            nguoiDung: nguoiDung?._id,
+            name: tenNhomMonAn,
+            user: nguoiDung?._id,
+            dishs: [idMonAn]
         });
 
         const saveNhomMA = await newNhomMonAn.save();
 
         if (saveNhomMA) {
             return {
-                message: "Tạo nhóm món ăn thành công",
+                saveNhomMA,
             };
         } else {
             return {
-                error: "Tạo nhóm món ăn thất bại.",
+                error: 'Tạo nhóm món ăn thất bại.',
             };
         }
     }
@@ -48,12 +46,12 @@ export default class NguyenLieu {
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này.",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
         const nhomMonAns = await NhomMonAnModel.find({
-            nguoiDung: idNguoiDung,
+            user: idNguoiDung,
         });
 
         return {
@@ -66,26 +64,22 @@ export default class NguyenLieu {
 
         if (!nhomMonAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
-        const nhomMA = (await nhomMonAn.populate("monAns")).monAns;
+        const nhomMA = (await nhomMonAn.populate('monAns')).dishs;
         return nhomMA.map((ma: any) => {
             return { _id: ma._id, name: ma.name, imgDes: ma.imgDes };
         });
     }
 
-    static async luuMonAn(
-        idNguoiDung: string,
-        idMonAn: string,
-        idNhomMonAn: string
-    ) {
+    static async luuMonAn(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
         const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này',
             };
         }
 
@@ -93,7 +87,7 @@ export default class NguyenLieu {
 
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
@@ -101,11 +95,11 @@ export default class NguyenLieu {
 
         if (!nhomMonAn) {
             return {
-                error: "Không tìm thấy nhóm món ăn.",
+                error: 'Không tìm thấy nhóm món ăn.',
             };
         }
 
-        nhomMonAn.monAns.push(monAn?._id);
+        nhomMonAn.dishs.push(monAn?._id);
         const saveNhomMA = await nhomMonAn.save();
 
         await MonAnModel.findByIdAndUpdate(idMonAn, {
@@ -113,11 +107,11 @@ export default class NguyenLieu {
         });
         if (saveNhomMA) {
             return {
-                message: "Lưu món ăn thành công.",
+                message: 'Lưu món ăn thành công.',
             };
         } else {
             return {
-                error: "Lưu món ăn thành công.",
+                error: 'Lưu món ăn thành công.',
             };
         }
     }
@@ -127,7 +121,7 @@ export default class NguyenLieu {
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này.",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
@@ -135,7 +129,7 @@ export default class NguyenLieu {
 
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
@@ -143,13 +137,11 @@ export default class NguyenLieu {
             nguoiDung: idNguoiDung,
         });
 
-        const nhomMonAn = nhomMonAns.find((item) =>
-            item.monAns.find((i) => i.toString() === idMonAn)
-        );
+        const nhomMonAn = nhomMonAns.find((item) => item.dishs.find((i) => i.toString() === idMonAn));
 
         if (!nhomMonAn) {
             return {
-                error: "Không tìm thấy nhóm món ăn chứa món ăn này.",
+                error: 'Không tìm thấy nhóm món ăn chứa món ăn này.',
             };
         }
 
@@ -157,34 +149,27 @@ export default class NguyenLieu {
             $pull: { storeUsers: idNguoiDung },
         });
 
-        const boIdMonAn = await NhomMonAnModel.findByIdAndUpdate(
-            nhomMonAn?._id,
-            {
-                $pull: { monAns: idMonAn },
-            }
-        );
+        const boIdMonAn = await NhomMonAnModel.findByIdAndUpdate(nhomMonAn?._id, {
+            $pull: { monAns: idMonAn },
+        });
 
         if (boIdMonAn && boIdNguoiDung) {
             return {
-                message: "Bỏ lưu thành công.",
+                message: 'Bỏ lưu thành công.',
             };
         }
 
         return {
-            error: "Bỏ lưu không thành công.",
+            error: 'Bỏ lưu không thành công.',
         };
     }
 
-    static async xoaMonAnKhoiNhom(
-        idNguoiDung: string,
-        idMonAn: string,
-        idNhomMonAn: string
-    ) {
+    static async xoaMonAnKhoiNhom(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
         const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này.",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
@@ -192,7 +177,7 @@ export default class NguyenLieu {
 
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
@@ -200,7 +185,7 @@ export default class NguyenLieu {
 
         if (!nhomMonAn) {
             return {
-                error: "Không tìm thấy nhóm món ăn.",
+                error: 'Không tìm thấy nhóm món ăn.',
             };
         }
 
@@ -213,7 +198,7 @@ export default class NguyenLieu {
         });
 
         return {
-            message: "Xóa khỏi nhóm thành công",
+            message: 'Xóa khỏi nhóm thành công',
         };
     }
 
@@ -222,20 +207,20 @@ export default class NguyenLieu {
 
         if (!nhomMA) {
             return {
-                error: "Không tìm thấy nhóm món ăn.",
+                error: 'Không tìm thấy nhóm món ăn.',
             };
         }
 
-        nhomMA.monAns.forEach((item) => {
+        nhomMA.dishs.forEach((item) => {
             const xuLyXoaIdNguoiDungKhoiMonAn = async () => {
                 const monAn = await MonAnModel.findById(item);
                 if (!monAn) {
                     return {
-                        error: "Không tìm thấy món ăn trong nhóm món ăn.",
+                        error: 'Không tìm thấy món ăn trong nhóm món ăn.',
                     };
                 }
                 await MonAnModel.findByIdAndUpdate(item, {
-                    $pull: { storeUsers: nhomMA?.nguoiDung },
+                    $pull: { storeUsers: nhomMA?.user },
                 });
                 return;
             };
@@ -244,7 +229,7 @@ export default class NguyenLieu {
 
         await NhomMonAnModel.findByIdAndDelete(idNhomMonAn);
         return {
-            message: "Xóa nhóm món ăn thành công",
+            message: 'Xóa nhóm món ăn thành công',
         };
     }
 }

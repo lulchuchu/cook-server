@@ -2,7 +2,6 @@ import NguyenLieuModel from '../models/NguyenLieu.model';
 import { Request, Response } from 'express';
 import axios from 'axios';
 import StoreModel from '../models/Store.model';
-import getDistance from 'geolib/es/getPreciseDistance';
 
 class createDB {
     async createIngredients(req: Request, res: Response): Promise<void> {

@@ -11,7 +11,7 @@ interface Post {
     numberLike: number;
     imgDes: string[];
     comments: string[];
-};
+}
 
 class BlogController {
     async createBlog(req: Request, res: Response): Promise<void> {
@@ -70,15 +70,18 @@ class BlogController {
         } catch (error: any) {
             res.status(500).send({ message: error.message });
         }
-    };
+    }
 
     async handleLike(req: Request, res: Response): Promise<void> {
         try {
             const data = req.body;
-            const updated = await BlogModels.updateOne({_id: data.idBlog}, {
-                $push: {accountLike: data.idUser},
-                $inc: {numberLike: 1}
-            });
+            const updated = await BlogModels.updateOne(
+                { _id: data.idBlog },
+                {
+                    $push: { accountLike: data.idUser },
+                    $inc: { numberLike: 1 },
+                },
+            );
 
             if (updated) {
                 res.status(200).send({ message: 'Updated successfully!' });
@@ -93,10 +96,13 @@ class BlogController {
     async handleDislike(req: Request, res: Response): Promise<void> {
         try {
             const data = req.body;
-            const updated = await BlogModels.updateOne({_id: data.idBlog}, {
-                $pull: {accountLike: data.idUser},
-                $inc: {numberLike: -1}
-            });
+            const updated = await BlogModels.updateOne(
+                { _id: data.idBlog },
+                {
+                    $pull: { accountLike: data.idUser },
+                    $inc: { numberLike: -1 },
+                },
+            );
 
             if (updated) {
                 res.status(200).send({ message: 'Updated successfully!' });

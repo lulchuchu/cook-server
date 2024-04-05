@@ -1,9 +1,9 @@
-import { ObjectId } from "mongodb";
-import MonAnModel from "../models/MonAn.model";
-import NguoiDungModel from "../models/NguoiDung.model";
-import NhomMonAnService from "../services/nhomMonAn.service";
-import mongoose from "mongoose";
-const Types = require("mongoose").Types;
+import { ObjectId } from 'mongodb';
+import MonAnModel from '../models/MonAn.model';
+import NguoiDungModel from '../models/NguoiDung.model';
+import NhomMonAnService from '../services/nhomMonAn.service';
+import mongoose from 'mongoose';
+const Types = require('mongoose').Types;
 
 export default class MonAn {
     static async themMon({
@@ -34,16 +34,8 @@ export default class MonAn {
         return await MonAnModel.findById(id);
     }
 
-    static async xuLuLuuMonAn(
-        idNguoiDung: string,
-        idMonAn: string,
-        idNhomMonAn: string
-    ) {
-        const data = await NhomMonAnService.luuMonAn(
-            idNguoiDung,
-            idMonAn,
-            idNhomMonAn
-        );
+    static async xuLuLuuMonAn(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
+        const data = await NhomMonAnService.luuMonAn(idNguoiDung, idMonAn, idNhomMonAn);
         return data;
     }
 
@@ -57,7 +49,7 @@ export default class MonAn {
 
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này.",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
@@ -65,13 +57,11 @@ export default class MonAn {
 
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn",
+                error: 'Không tìm thấy món ăn',
             };
         }
 
-        const checkLikeNguoiDung = monAn.likes.includes(
-            new Types.ObjectId(idNguoiDung)
-        );
+        const checkLikeNguoiDung = monAn.likes.includes(new Types.ObjectId(idNguoiDung));
 
         if (checkLikeNguoiDung) {
             const boLike = await MonAnModel.findByIdAndUpdate(idMonAn, {
@@ -79,11 +69,11 @@ export default class MonAn {
             });
             if (boLike) {
                 return {
-                    message: "Bỏ like thành công",
+                    message: 'Bỏ like thành công',
                 };
             }
             return {
-                error: "Bỏ like không thành côg",
+                error: 'Bỏ like không thành côg',
             };
         } else {
             const thaLike = await MonAnModel.findByIdAndUpdate(idMonAn, {
@@ -92,11 +82,11 @@ export default class MonAn {
 
             if (thaLike) {
                 return {
-                    message: "Thả like thành công.",
+                    message: 'Thả like thành công.',
                 };
             }
             return {
-                error: "Thả like không thành công",
+                error: 'Thả like không thành công',
             };
         }
     }

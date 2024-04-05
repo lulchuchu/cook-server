@@ -1,32 +1,38 @@
-import DanhGiaModel from "../models/DanhGia.model";
-import MonAnModel from "../models/MonAn.model";
-import NguoiDungModel from "../models/NguoiDung.model";
+import DanhGiaModel from '../models/DanhGia.model';
+import MonAnModel from '../models/MonAn.model';
+import NguoiDungModel from '../models/NguoiDung.model';
+import bucket from '../configs/firebase';
+
+interface Image {
+    uri: string;
+    type: string;
+}
 
 export default class DanhGia {
     static async themDanhGiaMonAn(
         idMonAn: string,
         idNguoiDung: string,
         diemDanhGia: number,
-        img: string,
-        noiDung: string
+        img: Image,
+        noiDung: string,
     ) {
         if (!diemDanhGia) {
             return {
-                error: "Vui lòng đánh giá Star cho công thức.",
+                error: 'Vui lòng đánh giá Star cho công thức.',
             };
         }
 
         const monAn = await MonAnModel.findById(idMonAn);
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
         const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này!",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
             };
         }
 
@@ -34,14 +40,32 @@ export default class DanhGia {
             nguoiDung: idNguoiDung,
             monAn: idMonAn,
         });
+        var url = '';
+        if (img.uri !== '') {
+            const decodedImage = Buffer.from(img.uri, 'base64');
+
+            const filename = `ratingImage/${Date.now()}.png`;
+            const file = bucket.file(filename);
+
+            await file.save(decodedImage, {
+                metadata: {
+                    contentType: `image/png`,
+                },
+            });
+            const urlFibase = await file.getSignedUrl({
+                action: 'read',
+                expires: '03-09-2491',
+            });
+            url = urlFibase[0];
+        }
         if (danhGia) {
             if (
                 diemDanhGia.toString() !== danhGia.diemDanhGia?.toString() ||
-                img !== danhGia.img ||
+                url !== danhGia.img ||
                 noiDung !== danhGia.noiDung
             ) {
                 danhGia.diemDanhGia = diemDanhGia || danhGia.diemDanhGia;
-                danhGia.img = img || danhGia.img;
+                danhGia.img = url || danhGia.img;
                 danhGia.noiDung = noiDung || danhGia.noiDung;
 
                 const currentDanhGia = await danhGia.save();
@@ -51,21 +75,21 @@ export default class DanhGia {
                     };
                 } else {
                     return {
-                        error: "Đánh giá khong thành công.",
+                        error: 'Đánh giá khong thành công.',
                     };
                 }
             } else {
                 return {
-                    message: "Không có thay đổi nào cả",
+                    message: 'Không có thay đổi nào cả',
                 };
             }
         }
 
         const newDanhGia = new DanhGiaModel({
-            monAn: monAn._id,
-            nguoiDung: nguoiDung._id,
+            monAn: idMonAn,
+            nguoiDung: idNguoiDung,
             diemDanhGia: diemDanhGia,
-            img: img,
+            img: url,
             noiDung: noiDung,
         });
 
@@ -82,7 +106,7 @@ export default class DanhGia {
         }
 
         return {
-            error: "Đánh giá không thành công, vui lòng thử lại",
+            error: 'Đánh giá không thành công, vui lòng thử lại',
         };
     }
 
@@ -91,14 +115,14 @@ export default class DanhGia {
 
         if (!danhGia) {
             return {
-                error: "Không tìm thấy đánh giá.",
+                error: 'Không tìm thấy đánh giá.',
             };
         }
 
         const monAn = await MonAnModel.findById(idMonAn);
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
@@ -108,7 +132,7 @@ export default class DanhGia {
 
         await danhGia.deleteOne();
         return {
-            message: "Xóa đánh giá thành công.",
+            message: 'Xóa đánh giá thành công.',
         };
     }
 
@@ -117,18 +141,15 @@ export default class DanhGia {
 
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn.",
+                error: 'Không tìm thấy món ăn.',
             };
         }
 
         const danhGiaList = await DanhGiaModel.find({ monAn: idMonAn });
 
-        const tongDiemDanhGia = danhGiaList.reduce(
-            (totalValue, currentValue) => {
-                return totalValue + Number(currentValue.diemDanhGia);
-            },
-            0
-        );
+        const tongDiemDanhGia = danhGiaList.reduce((totalValue, currentValue) => {
+            return totalValue + Number(currentValue.diemDanhGia);
+        }, 0);
 
         const trungBinhDanhGia = tongDiemDanhGia / danhGiaList.length;
         return {

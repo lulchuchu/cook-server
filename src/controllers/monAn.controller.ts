@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import MonAnModel from '../models/MonAn.model';
-import MonAnService from "../services/monAn.service";
+import MonAnService from '../services/monAn.service';
 
 class MonAnController {
     async getAll(req: Request, res: Response): Promise<void> {
@@ -99,7 +99,7 @@ class MonAnController {
     taoMon = async (req: any, res: any) => {
         const { ten, hinhAnh, moTa, congThuc } = req.body;
         MonAnService.themMon({ ten, hinhAnh, moTa, congThuc });
-        res.send("Tạo món thành công");
+        res.send('Tạo món thành công');
     };
 
     layTatCaMon = async (req: any, res: any) => {
@@ -117,11 +117,7 @@ class MonAnController {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
 
         try {
-            const data = await MonAnService.xuLuLuuMonAn(
-                idNguoiDung,
-                idMonAn,
-                idNhomMonAn
-            );
+            const data = await MonAnService.xuLuLuuMonAn(idNguoiDung, idMonAn, idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -129,7 +125,7 @@ class MonAnController {
 
             return res.status(200).json(data);
         } catch (e) {
-            return res.status(500).json({ error: "Lỗi server!" });
+            return res.status(500).json({ error: 'Lỗi server!' });
         }
     };
 
@@ -137,10 +133,7 @@ class MonAnController {
         const { idNguoiDung, idMonAn } = req.body;
 
         try {
-            const data = await MonAnService.xuLyBoLuuMonAn(
-                idNguoiDung,
-                idMonAn
-            );
+            const data = await MonAnService.xuLyBoLuuMonAn(idNguoiDung, idMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -148,7 +141,7 @@ class MonAnController {
 
             return res.status(200).json(data);
         } catch (e) {
-            return res.status(500).json({ message: "Lỗi server!" });
+            return res.status(500).json({ message: 'Lỗi server!' });
         }
     };
 
@@ -162,7 +155,7 @@ class MonAnController {
             }
             return res.status(200).json(data);
         } catch (e) {
-            return res.status(500).json({ message: "Lỗi server!" });
+            return res.status(500).json({ message: 'Lỗi server!' });
         }
     };
 }
