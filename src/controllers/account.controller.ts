@@ -267,7 +267,7 @@ class AccountController {
                     res.status(200).send(dataUser);
                 } else {
                     res.status(401).send({ message: 'Failed' });
-                }
+                };
             } else {
                 const update = await NguoiDungModel.updateOne(
                     { _id: _id },
