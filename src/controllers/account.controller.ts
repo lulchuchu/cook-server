@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import jwt, { Secret } from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import bcrypt from 'bcrypt';
-import NguoiDungModel from '../models/NguoiDung.model';
+import AccountModel from '../models/Account.model';
 import { OAuth2Client } from 'google-auth-library';
 import bucket from '../configs/firebase';
 
@@ -39,7 +39,7 @@ class AccountController {
 
         try {
             const passwordHash = await bcrypt.hash(password, 8);
-            const newUser = new NguoiDungModel({
+            const newUser = new AccountModel({
                 email: email,
                 password: passwordHash,
                 username: username,
@@ -91,7 +91,7 @@ class AccountController {
         const { email, password } = req.body;
 
         try {
-            const user = await NguoiDungModel.findOne({ email: email });
+            const user = await AccountModel.findOne({ email: email });
 
             if (!user) {
                 return res.status(404).send({ message: 'Không tìm thấy tài khoản.' });
@@ -159,7 +159,7 @@ class AccountController {
             const storedCode = temporaryCode[email];
 
             if (code === storedCode) {
-                await NguoiDungModel.updateOne({ email: email }, { $set: { emailVerified: true } });
+                await AccountModel.updateOne({ email: email }, { $set: { emailVerified: true } });
                 delete temporaryCode[email];
                 res.send({ message: 'Verified email successfully' });
             } else {
@@ -175,7 +175,7 @@ class AccountController {
             const diet = req.body.diet;
             const _id = req.body._id;
 
-            const update = await NguoiDungModel.updateOne(
+            const update = await AccountModel.updateOne(
                 { _id: _id },
                 {
                     $set: { diet: diet },
@@ -196,7 +196,7 @@ class AccountController {
             const country = req.body.country;
             const _id = req.body._id;
 
-            const update = await NguoiDungModel.updateOne(
+            const update = await AccountModel.updateOne(
                 { _id: _id },
                 {
                     $set: { selectCountry: country },
@@ -231,7 +231,7 @@ class AccountController {
                     expires: '03-09-2491',
                 });
                 let imgUri = url[0];
-                const update = await NguoiDungModel.updateOne(
+                const update = await AccountModel.updateOne(
                     { _id: _id },
                     {
                         $set: {
@@ -243,15 +243,15 @@ class AccountController {
                     },
                 );
                 if (update) {
-                    const user = await NguoiDungModel.findById(_id);
+                    const user = await AccountModel.findById(_id);
                     const token = jwt.sign(
                         {
                             email: user?.email,
-                            username
+                            username,
                         },
                         SECRET_KEY,
                     );
-        
+
                     const dataUser = {
                         _id: user?._id,
                         email: user?.email,
@@ -267,9 +267,9 @@ class AccountController {
                     res.status(200).send(dataUser);
                 } else {
                     res.status(401).send({ message: 'Failed' });
-                };
+                }
             } else {
-                const update = await NguoiDungModel.updateOne(
+                const update = await AccountModel.updateOne(
                     { _id: _id },
                     {
                         $set: {
@@ -280,15 +280,15 @@ class AccountController {
                     },
                 );
                 if (update) {
-                    const user = await NguoiDungModel.findById(_id);
+                    const user = await AccountModel.findById(_id);
                     const token = jwt.sign(
                         {
                             email: user?.email,
-                            username
+                            username,
                         },
                         SECRET_KEY,
                     );
-        
+
                     const dataUser = {
                         _id: user?._id,
                         email: user?.email,

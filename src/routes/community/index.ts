@@ -9,4 +9,4 @@ router.get('/getAll', blogController.getBlogs);
 router.post('/like', blogController.handleLike);
 router.post('/dislike', blogController.handleDislike);
 
-module.exports = router;
+export default router;

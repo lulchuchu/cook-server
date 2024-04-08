@@ -7,7 +7,7 @@ const CommentBlog = new Schema(
     {
         author: {
             type: Schema.Types.ObjectId,
-            ref: 'Nguoidung',
+            ref: 'Account',
             required: true,
         },
         content: { type: String, required: true },

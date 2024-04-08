@@ -1,0 +1,47 @@
+[
+    {
+        "_id": {
+            "$oid": "660fa4788ed281365ff379dd"
+        },
+        "name": "Tráng miệng",
+        "user": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "dishs": [
+            {
+                "$oid": "6603e5f865007304585bf89e"
+            },
+            {
+                "$oid": "6603e5f865007304585bf89d"
+            }
+        ],
+        "createdAt": {
+            "$date": "2024-04-05T07:12:56.891Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-05T08:31:34.546Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "660fa6b1bd9fdf42cdfb17e6"
+        },
+        "name": "Món chay",
+        "user": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "dishs": [
+            {
+                "$oid": "6603e5f865007304585bf8a0"
+            }
+        ],
+        "createdAt": {
+            "$date": "2024-04-05T07:22:25.410Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-05T07:22:25.410Z"
+        },
+        "__v": 0
+    }
+]

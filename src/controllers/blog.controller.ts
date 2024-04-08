@@ -54,7 +54,7 @@ class BlogController {
         try {
             const savedBlog = await newBlog.save();
             if (savedBlog) {
-                res.status(200).send({ message: 'Successfully' });
+                res.status(200).send(savedBlog);
             } else {
                 res.status(401).send({ message: 'Failed' });
             }

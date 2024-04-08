@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
 
-const DOCUMENT_NAME = 'Nguoidung';
-const COLLECTION_NAME = 'Nguoidungs';
+const DOCUMENT_NAME = 'Account';
+const COLLECTION_NAME = 'Accounts';
 
-const NguoiDung = new Schema(
+const Account = new Schema(
     {
         email: { type: String, required: true },
         password: { type: String, required: true },
@@ -21,4 +21,4 @@ const NguoiDung = new Schema(
     },
 );
 
-export default model(DOCUMENT_NAME, NguoiDung, COLLECTION_NAME);
+export default model(DOCUMENT_NAME, Account, COLLECTION_NAME);

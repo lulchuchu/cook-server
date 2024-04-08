@@ -1,85 +1,101 @@
-import MonAnModel from "../models/MonAn.model";
-import NguoiDungModel from "../models/NguoiDung.model";
-import CommentDishModel from "../models/CommentDish.model";
-const Types = require("mongoose").Types;
+import DishModel from '../models/Dish.model';
+import AccountModel from '../models/Account.model';
+import CommentDishModel from '../models/CommentDish.model';
+import bucket from '../configs/firebase';
+const Types = require('mongoose').Types;
+
+interface Image {
+    uri: string;
+    type: string;
+}
 
 export default class CommentDish {
     static async getAllCommentDish(idDish: string) {
-        const monAn = await MonAnModel.findById(idDish);
+        const monAn = await DishModel.findById(idDish);
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn!",
+                error: 'Không tìm thấy món ăn!',
             };
         }
 
         const arrayCommentDish = await CommentDishModel.find({
             idDish: idDish,
-        });
+        })
+            .populate('user')
+            .lean()
+            .exec();
 
         return {
             list_comment_dish: arrayCommentDish,
         };
     }
 
-    static async addCommentDish(
-        idDish: string,
-        idNguoiDung: string,
-        content: string,
-        img: string
-    ) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async addCommentDish(idDish: string, idUser: string, content: string, img: Image) {
+        const nguoiDung = await AccountModel.findById(idUser);
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này!",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
             };
         }
 
-        const monAn = await MonAnModel.findById(idDish);
+        const monAn = await DishModel.findById(idDish);
         if (!monAn) {
             return {
-                error: "Không tìm thấy món ăn!",
+                error: 'Không tìm thấy món ăn!',
             };
         }
+        var url = '';
+        if (img.uri !== '') {
+            const decodeImage = Buffer.from(img.uri, 'base64');
+            const filename = `cmtRecipeImages/${Date.now()}.png`;
+            const file = bucket.file(filename);
 
+            await file.save(decodeImage, {
+                metadata: {
+                    contentType: `image/png`,
+                },
+            });
+            const urlFirebase = await file.getSignedUrl({
+                action: 'read',
+                expires: '03-09-2041',
+            });
+            url = urlFirebase[0];
+        }
         const commentDish = new CommentDishModel({
             idDish: idDish,
-            idNguoiDung: idNguoiDung,
+            user: idUser,
             content: content,
-            img: img,
+            img: url,
+            likes: [],
+            dislikes: [],
         });
 
-        await commentDish.save();
+        const saved = await commentDish.save();
 
         return {
-            comment_dish: commentDish,
+            comment_dish: saved,
         };
     }
 
-    static async addFeeling(
-        idCommentDish: string,
-        idNguoiDung: string,
-        state: number
-    ) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async addFeeling(idCommentDish: string, idNguoiDung: string, state: number) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này!",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
             };
         }
 
         const commentDish = await CommentDishModel.findById(idCommentDish);
         if (!commentDish) {
             return {
-                error: "Không tìm bình luân món ăn!",
+                error: 'Không tìm bình luân món ăn!',
             };
         }
 
         // nếu state = -1 => trường hợp dislike
         if (state === -1) {
             // kiểm tra xem đã có like hay chưa
-            const checkLike = commentDish.likes.includes(
-                new Types.ObjectId(idNguoiDung)
-            );
+            const checkLike = commentDish.likes.includes(new Types.ObjectId(idNguoiDung));
 
             if (checkLike) {
                 await commentDish.updateOne({
@@ -89,9 +105,7 @@ export default class CommentDish {
                 });
             }
 
-            const checkDislike = commentDish.dislikes.includes(
-                new Types.ObjectId(idNguoiDung)
-            );
+            const checkDislike = commentDish.dislikes.includes(new Types.ObjectId(idNguoiDung));
 
             if (checkDislike) {
                 await commentDish.updateOne({
@@ -101,7 +115,7 @@ export default class CommentDish {
                 });
 
                 return {
-                    message: "Bỏ dislike thành công!",
+                    message: 'Bỏ dislike thành công!',
                 };
             }
 
@@ -111,12 +125,10 @@ export default class CommentDish {
                 },
             });
             return {
-                message: "Dislike thành công!",
+                message: 'Dislike thành công!',
             };
         } else {
-            const checkDislike = commentDish.dislikes.includes(
-                new Types.ObjectId(idNguoiDung)
-            );
+            const checkDislike = commentDish.dislikes.includes(new Types.ObjectId(idNguoiDung));
 
             if (checkDislike) {
                 await commentDish.updateOne({
@@ -126,9 +138,7 @@ export default class CommentDish {
                 });
             }
 
-            const checkLike = commentDish.likes.includes(
-                new Types.ObjectId(idNguoiDung)
-            );
+            const checkLike = commentDish.likes.includes(new Types.ObjectId(idNguoiDung));
 
             if (checkLike) {
                 await commentDish.updateOne({
@@ -138,7 +148,7 @@ export default class CommentDish {
                 });
 
                 return {
-                    message: "Bỏ like thành công!",
+                    message: 'Bỏ like thành công!',
                 };
             }
 
@@ -148,36 +158,36 @@ export default class CommentDish {
                 },
             });
             return {
-                message: "Like thành công!",
+                message: 'Like thành công!',
             };
         }
     }
 
     static async deleteCommentDish(idNguoiDung: string, idCommentDish: string) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
         if (!nguoiDung) {
             return {
-                error: "Vui lòng đăng nhập để thực hiện chức năng này!",
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
             };
         }
 
         const commentDish = await CommentDishModel.findById(idCommentDish);
         if (!commentDish) {
             return {
-                error: "Không tìm bình luân món ăn!",
+                error: 'Không tìm bình luân món ăn!',
             };
         }
 
-        if (idNguoiDung !== commentDish.idNguoiDung?.toString()) {
+        if (idNguoiDung !== commentDish.user?.toString()) {
             return {
-                error: "Bạn không phải chủ nhân của bình luận này!",
+                error: 'Bạn không phải chủ nhân của bình luận này!',
             };
         }
 
         await commentDish.deleteOne();
 
         return {
-            message: "Xóa bình luận thành công!",
+            message: 'Xóa bình luận thành công!',
         };
     }
 }
