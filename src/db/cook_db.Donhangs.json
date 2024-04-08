@@ -1,0 +1,52 @@
+[
+    {
+        "_id": {
+            "$oid": "660bb4c66e256f93e7f09a5b"
+        },
+        "img": "https://images.services.kitchenstories.io/GM9vE3FlOLksxLpKyEF0GyViT1s=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1628_final_photo_309.jpg",
+        "nameDish": "Mỳ shoyu ramen thịt gà",
+        "dish": {
+            "$oid": "6603e5f865007304585bf89d"
+        },
+        "customer": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "ingredient": {
+            "$oid": "6602fe7c3904b9b4b704d5f2"
+        },
+        "meal": 4,
+        "createdAt": {
+            "$date": "2024-04-02T07:33:26.807Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-07T09:00:43.405Z"
+        },
+        "__v": 0,
+        "state": "Đang chờ"
+    },
+    {
+        "_id": {
+            "$oid": "661171529c24b966f31c923b"
+        },
+        "img": "https://images.services.kitchenstories.io/9wc742ZJgfdzlhsQU6N017GP2Qg=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R1343-photo-final-1.jpg",
+        "nameDish": "Phở bò Việt Nam",
+        "dish": {
+            "$oid": "66069ba46eb51e8ea0640b59"
+        },
+        "customer": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "ingredient": {
+            "$oid": "660699cbb93eedaea57a3e3b"
+        },
+        "meal": 6,
+        "state": "Đang chờ",
+        "createdAt": {
+            "$date": "2024-04-06T15:59:14.743Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-06T15:59:14.743Z"
+        },
+        "__v": 0
+    }
+]

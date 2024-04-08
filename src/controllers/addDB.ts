@@ -1,4 +1,4 @@
-import NguyenLieuModel from '../models/NguyenLieu.model';
+import IngredientModel from '../models/Ingredient.model';
 import { Request, Response } from 'express';
 import axios from 'axios';
 import StoreModel from '../models/Store.model';
@@ -11,7 +11,7 @@ class createDB {
             const units = req.body.units;
             const prices = req.body.prices;
 
-            const newIngredients = new NguyenLieuModel({
+            const newIngredients = new IngredientModel({
                 ten: keyIngre,
                 soluong: valueIngre,
                 donvitinh: units,

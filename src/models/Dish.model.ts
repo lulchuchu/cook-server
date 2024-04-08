@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
 
-const DOCUMENT_NAME = 'MonAn';
-const COLLECTION_NAME = 'MonAns';
+const DOCUMENT_NAME = 'Dish';
+const COLLECTION_NAME = 'Dishs';
 
-const monAn = new Schema(
+const Dish = new Schema(
     {
         name: {
             type: String,
@@ -20,25 +20,25 @@ const monAn = new Schema(
         rating: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'DanhGia',
+                ref: 'Rating',
             },
         ],
         storeUsers: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'NguoiDung',
+                ref: 'Account',
             },
         ],
         likes: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'NguoiDung',
+                ref: 'Account',
             },
         ],
         defaultPortion: { type: Number },
         ingredients: {
             type: Schema.Types.ObjectId,
-            ref: 'NguyenLieu',
+            ref: 'Ingredient',
         },
         utenils: {
             type: String,
@@ -54,4 +54,4 @@ const monAn = new Schema(
     },
 );
 
-export default model(DOCUMENT_NAME, monAn, COLLECTION_NAME);
+export default model(DOCUMENT_NAME, Dish, COLLECTION_NAME);

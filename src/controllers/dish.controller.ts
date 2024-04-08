@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
-import MonAnModel from '../models/MonAn.model';
-import MonAnService from '../services/monAn.service';
+import DishModel from '../models/Dish.model';
+import DishService from '../services/dish.service';
+import { Types } from 'mongoose';
 
-class MonAnController {
+class DishController {
     async getAll(req: Request, res: Response): Promise<void> {
         try {
-            const dishs = await MonAnModel.find({});
+            const dishs = await DishModel.find({});
             const data = [];
             for (const dish of dishs) {
                 const item = {
@@ -36,7 +37,7 @@ class MonAnController {
             if (diet === 'Ăn chay') {
                 type = 'Món chay';
             }
-            const dishs = await MonAnModel.find({ type: type });
+            const dishs = await DishModel.find({ type: type });
             const data = [];
             for (const dish of dishs) {
                 const item = {
@@ -63,7 +64,7 @@ class MonAnController {
     async getByCountry(req: Request, res: Response): Promise<void> {
         try {
             const country = req.query.key;
-            const dishs = await MonAnModel.find({ country: country });
+            const dishs = await DishModel.find({ country: country });
             const data = [];
             for (const dish of dishs) {
                 const item = {
@@ -90,34 +91,18 @@ class MonAnController {
     async getDishDetail(req: Request, res: Response): Promise<void> {
         try {
             const _id = req.query._id;
-            const dish = await MonAnModel.findById(_id).populate('ingredients').exec();
+            const dish = await DishModel.findById(_id).populate('ingredients').exec();
             res.status(200).send(dish);
         } catch (err: any) {
             res.status(500).send({ message: err.message });
         }
     }
-    taoMon = async (req: any, res: any) => {
-        const { ten, hinhAnh, moTa, congThuc } = req.body;
-        MonAnService.themMon({ ten, hinhAnh, moTa, congThuc });
-        res.send('Tạo món thành công');
-    };
 
-    layTatCaMon = async (req: any, res: any) => {
-        const monAn = await MonAnService.getAll();
-        res.send(monAn);
-    };
-
-    layMonTheoId = async (req: any, res: any) => {
-        const { id } = req.params;
-        const monAn = await MonAnService.getById(id);
-        res.send(monAn);
-    };
-
-    luuMonAn = async (req: any, res: any) => {
+    saveDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
 
         try {
-            const data = await MonAnService.xuLuLuuMonAn(idNguoiDung, idMonAn, idNhomMonAn);
+            const data = await DishService.saveDish(idNguoiDung, idMonAn, idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -129,11 +114,11 @@ class MonAnController {
         }
     };
 
-    boLuuMonAn = async (req: any, res: any) => {
+    unsaveDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn } = req.body;
 
         try {
-            const data = await MonAnService.xuLyBoLuuMonAn(idNguoiDung, idMonAn);
+            const data = await DishService.unsaveDish(idNguoiDung, idMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -145,10 +130,10 @@ class MonAnController {
         }
     };
 
-    likeMonAn = async (req: any, res: any) => {
+    likeDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn } = req.body;
         try {
-            const data = await MonAnService.thaLikeMonAn(idNguoiDung, idMonAn);
+            const data = await DishService.likeDish(idNguoiDung, idMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -158,6 +143,23 @@ class MonAnController {
             return res.status(500).json({ message: 'Lỗi server!' });
         }
     };
+
+    async getLikedOfUser(req: Request, res: Response): Promise<void> {
+        try {
+            const user = req.query.user as string;
+            const dishs = await DishModel.find();
+            var dishLiked = [];
+            for (const dish of dishs) {
+                if (dish.likes.includes(new Types.ObjectId(user))) {
+                    dishLiked.push(dish);
+                }
+            }
+
+            res.status(200).send(dishLiked);
+        } catch (err: any) {
+            res.status(500).send({ message: err.message });
+        }
+    }
 }
 
-export default new MonAnController();
+export default new DishController();

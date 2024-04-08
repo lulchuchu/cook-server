@@ -7,18 +7,18 @@ const hoaDon = new Schema(
     {
         cart: {
             type: Schema.Types.ObjectId,
-            ref: 'Donhang',
+            ref: 'Cart',
         },
         store: {
             type: Schema.Types.ObjectId,
             ref: 'Store',
         },
-        tongTien: {
+        total: {
             type: Number,
         },
         customer: {
             type: Schema.Types.ObjectId,
-            ref: 'NguoiDung',
+            ref: 'Account',
         },
         tel: String,
     },

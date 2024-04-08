@@ -1,6 +1,6 @@
-import DanhGiaModel from '../models/DanhGia.model';
-import MonAnModel from '../models/MonAn.model';
-import NguoiDungModel from '../models/NguoiDung.model';
+import RatingModel from '../models/Rating.model';
+import DishModel from '../models/Dish.model';
+import AccountModel from '../models/Account.model';
 import bucket from '../configs/firebase';
 
 interface Image {
@@ -9,36 +9,30 @@ interface Image {
 }
 
 export default class DanhGia {
-    static async themDanhGiaMonAn(
-        idMonAn: string,
-        idNguoiDung: string,
-        diemDanhGia: number,
-        img: Image,
-        noiDung: string,
-    ) {
+    static async createRating(idMonAn: string, idNguoiDung: string, diemDanhGia: number, img: Image, noiDung: string) {
         if (!diemDanhGia) {
             return {
                 error: 'Vui lòng đánh giá Star cho công thức.',
             };
         }
 
-        const monAn = await MonAnModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idMonAn);
         if (!monAn) {
             return {
                 error: 'Không tìm thấy món ăn.',
             };
         }
 
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
             };
         }
 
-        const danhGia = await DanhGiaModel.findOne({
-            nguoiDung: idNguoiDung,
-            monAn: idMonAn,
+        const danhGia = await RatingModel.findOne({
+            account: idNguoiDung,
+            dish: idMonAn,
         });
         var url = '';
         if (img.uri !== '') {
@@ -60,13 +54,13 @@ export default class DanhGia {
         }
         if (danhGia) {
             if (
-                diemDanhGia.toString() !== danhGia.diemDanhGia?.toString() ||
+                diemDanhGia.toString() !== danhGia.score?.toString() ||
                 url !== danhGia.img ||
-                noiDung !== danhGia.noiDung
+                noiDung !== danhGia.content
             ) {
-                danhGia.diemDanhGia = diemDanhGia || danhGia.diemDanhGia;
+                danhGia.score = diemDanhGia || danhGia.score;
                 danhGia.img = url || danhGia.img;
-                danhGia.noiDung = noiDung || danhGia.noiDung;
+                danhGia.content = noiDung || danhGia.content;
 
                 const currentDanhGia = await danhGia.save();
                 if (currentDanhGia) {
@@ -85,17 +79,17 @@ export default class DanhGia {
             }
         }
 
-        const newDanhGia = new DanhGiaModel({
-            monAn: idMonAn,
-            nguoiDung: idNguoiDung,
-            diemDanhGia: diemDanhGia,
+        const newDanhGia = new RatingModel({
+            dish: idMonAn,
+            account: idNguoiDung,
+            score: diemDanhGia,
             img: url,
-            noiDung: noiDung,
+            content: noiDung,
         });
 
         const saveDanhGia = await newDanhGia.save();
 
-        await MonAnModel.findByIdAndUpdate(idMonAn, {
+        await DishModel.findByIdAndUpdate(idMonAn, {
             $push: { rating: saveDanhGia._id },
         });
 
@@ -110,8 +104,8 @@ export default class DanhGia {
         };
     }
 
-    static async xoaDanhGiaMonAn(idDanhGia: string, idMonAn: string) {
-        const danhGia = await DanhGiaModel.findById(idDanhGia);
+    static async eraseRating(idDanhGia: string, idMonAn: string) {
+        const danhGia = await RatingModel.findById(idDanhGia);
 
         if (!danhGia) {
             return {
@@ -119,14 +113,14 @@ export default class DanhGia {
             };
         }
 
-        const monAn = await MonAnModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idMonAn);
         if (!monAn) {
             return {
                 error: 'Không tìm thấy món ăn.',
             };
         }
 
-        await MonAnModel.findByIdAndUpdate(idMonAn, {
+        await DishModel.findByIdAndUpdate(idMonAn, {
             $pull: { rating: idDanhGia },
         });
 
@@ -136,8 +130,8 @@ export default class DanhGia {
         };
     }
 
-    static async layDanhGiaMonAn(idMonAn: string) {
-        const monAn = await MonAnModel.findById(idMonAn);
+    static async getRating(idMonAn: string) {
+        const monAn = await DishModel.findById(idMonAn);
 
         if (!monAn) {
             return {
@@ -145,10 +139,10 @@ export default class DanhGia {
             };
         }
 
-        const danhGiaList = await DanhGiaModel.find({ monAn: idMonAn });
+        const danhGiaList = await RatingModel.find({ dish: idMonAn });
 
         const tongDiemDanhGia = danhGiaList.reduce((totalValue, currentValue) => {
-            return totalValue + Number(currentValue.diemDanhGia);
+            return totalValue + Number(currentValue.score);
         }, 0);
 
         const trungBinhDanhGia = tongDiemDanhGia / danhGiaList.length;

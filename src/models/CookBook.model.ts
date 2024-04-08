@@ -1,21 +1,21 @@
 import mongoose, { model, Schema } from 'mongoose';
 
-const DOCUMENT_NAME = 'NhomMonAn';
-const COLLECTION_NAME = 'NhomMonAns';
+const DOCUMENT_NAME = 'CookBook';
+const COLLECTION_NAME = 'CookBooks';
 
-const nhomMonAn = new Schema(
+const CookBook = new Schema(
     {
         name: {
             type: String,
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'NguoiDung',
+            ref: 'Account',
         },
         dishs: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'MonAn',
+                ref: 'Dish',
             },
         ],
     },
@@ -25,4 +25,4 @@ const nhomMonAn = new Schema(
     },
 );
 
-export default model(DOCUMENT_NAME, nhomMonAn, COLLECTION_NAME);
+export default model(DOCUMENT_NAME, CookBook, COLLECTION_NAME);

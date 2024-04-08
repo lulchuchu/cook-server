@@ -1,19 +1,19 @@
-import MonAnModel from '../models/MonAn.model';
-import NguoiDungModel from '../models/NguoiDung.model';
-import NhomMonAnModel from '../models/NhomMonAn.model';
+import DishModel from '../models/Dish.model';
+import AccountModel from '../models/Account.model';
+import CookBookModel from '../models/CookBook.model';
 
 export default class NguyenLieu {
-    static async taoNhomMonAn(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async createCookBook(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
-        const nhomMonAn = await NhomMonAnModel.findOne({
-            nguoiDung: idNguoiDung,
-            ten: tenNhomMonAn,
+        const nhomMonAn = await CookBookModel.findOne({
+            user: idNguoiDung,
+            name: tenNhomMonAn,
         });
 
         if (nhomMonAn) {
@@ -22,10 +22,10 @@ export default class NguyenLieu {
             };
         }
 
-        const newNhomMonAn = new NhomMonAnModel({
+        const newNhomMonAn = new CookBookModel({
             name: tenNhomMonAn,
             user: nguoiDung?._id,
-            dishs: [idMonAn]
+            dishs: [idMonAn],
         });
 
         const saveNhomMA = await newNhomMonAn.save();
@@ -41,8 +41,8 @@ export default class NguyenLieu {
         }
     }
 
-    static async layTatCaNhomMonAnCuaNguoiDung(idNguoiDung: string) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async getAllCookBook(idNguoiDung: string) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
@@ -50,7 +50,7 @@ export default class NguyenLieu {
             };
         }
 
-        const nhomMonAns = await NhomMonAnModel.find({
+        const nhomMonAns = await CookBookModel.find({
             user: idNguoiDung,
         });
 
@@ -59,23 +59,33 @@ export default class NguyenLieu {
         };
     }
 
-    static async layTatCaMonAnTrongNhomMonAn(idNhomMonAn: string) {
-        const nhomMonAn = await NhomMonAnModel.findById(idNhomMonAn);
+    static async getDishOfCookBook(idNhomMonAn: string) {
+        try {
+            const nhomMonAn = await CookBookModel.findOne({ _id: idNhomMonAn }).populate('dishs').lean().exec();
 
-        if (!nhomMonAn) {
+            if (!nhomMonAn) {
+                return {
+                    error: 'Không tìm thấy món ăn.',
+                };
+            }
+
+            const formattedMonAns = nhomMonAn.dishs.map((ma: any) => ({
+                _id: ma._id,
+                name: ma.name,
+                imgDes: ma.imgDes,
+                likes: ma.likes,
+            }));
+
+            return formattedMonAns;
+        } catch (error) {
             return {
-                error: 'Không tìm thấy món ăn.',
+                error: 'Đã xảy ra lỗi trong quá trình xử lý.',
             };
         }
-
-        const nhomMA = (await nhomMonAn.populate('monAns')).dishs;
-        return nhomMA.map((ma: any) => {
-            return { _id: ma._id, name: ma.name, imgDes: ma.imgDes };
-        });
     }
 
-    static async luuMonAn(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async saveDish(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
@@ -83,7 +93,7 @@ export default class NguyenLieu {
             };
         }
 
-        const monAn = await MonAnModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idMonAn);
 
         if (!monAn) {
             return {
@@ -91,7 +101,7 @@ export default class NguyenLieu {
             };
         }
 
-        const nhomMonAn = await NhomMonAnModel.findById(idNhomMonAn);
+        const nhomMonAn = await CookBookModel.findById(idNhomMonAn);
 
         if (!nhomMonAn) {
             return {
@@ -102,7 +112,7 @@ export default class NguyenLieu {
         nhomMonAn.dishs.push(monAn?._id);
         const saveNhomMA = await nhomMonAn.save();
 
-        await MonAnModel.findByIdAndUpdate(idMonAn, {
+        await DishModel.findByIdAndUpdate(idMonAn, {
             $push: { storeUsers: idNguoiDung },
         });
         if (saveNhomMA) {
@@ -116,8 +126,8 @@ export default class NguyenLieu {
         }
     }
 
-    static async boLuuMonAn(idNguoiDung: string, idMonAn: String) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async unSaveDish(idNguoiDung: string, idMonAn: String) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
@@ -125,7 +135,7 @@ export default class NguyenLieu {
             };
         }
 
-        const monAn = await MonAnModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idMonAn);
 
         if (!monAn) {
             return {
@@ -133,8 +143,8 @@ export default class NguyenLieu {
             };
         }
 
-        const nhomMonAns = await NhomMonAnModel.find({
-            nguoiDung: idNguoiDung,
+        const nhomMonAns = await CookBookModel.find({
+            user: idNguoiDung,
         });
 
         const nhomMonAn = nhomMonAns.find((item) => item.dishs.find((i) => i.toString() === idMonAn));
@@ -145,12 +155,12 @@ export default class NguyenLieu {
             };
         }
 
-        const boIdNguoiDung = await MonAnModel.findByIdAndUpdate(idMonAn, {
+        const boIdNguoiDung = await DishModel.findByIdAndUpdate(idMonAn, {
             $pull: { storeUsers: idNguoiDung },
         });
 
-        const boIdMonAn = await NhomMonAnModel.findByIdAndUpdate(nhomMonAn?._id, {
-            $pull: { monAns: idMonAn },
+        const boIdMonAn = await CookBookModel.findByIdAndUpdate(nhomMonAn?._id, {
+            $pull: { dishs: idMonAn },
         });
 
         if (boIdMonAn && boIdNguoiDung) {
@@ -164,8 +174,8 @@ export default class NguyenLieu {
         };
     }
 
-    static async xoaMonAnKhoiNhom(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
-        const nguoiDung = await NguoiDungModel.findById(idNguoiDung);
+    static async eraseDishOfCookBook(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
+        const nguoiDung = await AccountModel.findById(idNguoiDung);
 
         if (!nguoiDung) {
             return {
@@ -173,7 +183,7 @@ export default class NguyenLieu {
             };
         }
 
-        const monAn = await MonAnModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idMonAn);
 
         if (!monAn) {
             return {
@@ -181,7 +191,7 @@ export default class NguyenLieu {
             };
         }
 
-        const nhomMonAn = await NhomMonAnModel.findById(idNhomMonAn);
+        const nhomMonAn = await CookBookModel.findById(idNhomMonAn);
 
         if (!nhomMonAn) {
             return {
@@ -189,11 +199,11 @@ export default class NguyenLieu {
             };
         }
 
-        await NhomMonAnModel.findByIdAndUpdate(idNhomMonAn, {
-            $pull: { monAns: idMonAn },
+        await CookBookModel.findByIdAndUpdate(idNhomMonAn, {
+            $pull: { dishs: idMonAn },
         });
 
-        await MonAnModel.findByIdAndUpdate(idMonAn, {
+        await DishModel.findByIdAndUpdate(idMonAn, {
             $pull: { storeUsers: idNguoiDung },
         });
 
@@ -202,8 +212,8 @@ export default class NguyenLieu {
         };
     }
 
-    static async xoaNhomMonAn(idNhomMonAn: string) {
-        const nhomMA = await NhomMonAnModel.findById(idNhomMonAn);
+    static async eraseCookBook(idNhomMonAn: string) {
+        const nhomMA = await CookBookModel.findById(idNhomMonAn);
 
         if (!nhomMA) {
             return {
@@ -213,13 +223,13 @@ export default class NguyenLieu {
 
         nhomMA.dishs.forEach((item) => {
             const xuLyXoaIdNguoiDungKhoiMonAn = async () => {
-                const monAn = await MonAnModel.findById(item);
+                const monAn = await DishModel.findById(item);
                 if (!monAn) {
                     return {
                         error: 'Không tìm thấy món ăn trong nhóm món ăn.',
                     };
                 }
-                await MonAnModel.findByIdAndUpdate(item, {
+                await DishModel.findByIdAndUpdate(item, {
                     $pull: { storeUsers: nhomMA?.user },
                 });
                 return;
@@ -227,7 +237,7 @@ export default class NguyenLieu {
             xuLyXoaIdNguoiDungKhoiMonAn();
         });
 
-        await NhomMonAnModel.findByIdAndDelete(idNhomMonAn);
+        await CookBookModel.findByIdAndDelete(idNhomMonAn);
         return {
             message: 'Xóa nhóm món ăn thành công',
         };

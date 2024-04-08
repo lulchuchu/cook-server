@@ -5,15 +5,15 @@
         },
         "email": "Mail@gmail.com",
         "password": "$2b$08$I0.57Bg7nIE4UE49QzO3eepcGWJ0B/ZdvXQeMohFkQnFcPc55Y7Ae",
-        "username": "Master Chef",
+        "username": "Bad Liar",
         "img": "",
-        "address": "",
-        "tel": "",
+        "address": "43 Đại Mỗ, Nam Từ Liêm, Hà Nội",
+        "tel": "0942305938",
         "createdAt": {
             "$date": "2024-03-19T16:31:59.484Z"
         },
         "updatedAt": {
-            "$date": "2024-03-29T16:07:02.561Z"
+            "$date": "2024-04-05T10:04:01.921Z"
         },
         "__v": 0,
         "diet": "Ăn chay",

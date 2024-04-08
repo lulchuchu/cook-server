@@ -1,11 +1,11 @@
-import DonhangModel from '../models/Donhang.model';
+import CartModel from '../models/Cart.model';
 import { Request, Response } from 'express';
 
 class CartController {
     async addCart(req: Request, res: Response): Promise<void> {
         try {
             const { img, nameDish, idDish, idUser, idIngre, meal } = req.body;
-            const cart = new DonhangModel({
+            const cart = new CartModel({
                 img: img,
                 nameDish: nameDish,
                 dish: idDish,
@@ -28,7 +28,7 @@ class CartController {
     async getCart(req: Request, res: Response): Promise<void> {
         try {
             const idUser = req.query.idUser;
-            const carts = await DonhangModel.find({ customer: idUser }).populate('ingredient').exec();
+            const carts = await CartModel.find({ customer: idUser }).populate('ingredient').exec();
             if (carts) {
                 res.status(200).send(carts);
             } else {
@@ -41,8 +41,8 @@ class CartController {
 
     async getCartDetail(req: Request, res: Response): Promise<void> {
         try {
-            const _idCart = req.query.idCart;
-            const cart = await DonhangModel.findById(_idCart).populate('nguyenlieu').exec();
+            const idCart = req.query.idCart;
+            const cart = await CartModel.findById(idCart).populate('nguyenlieu').exec();
 
             if (cart) {
                 res.status(200).send(cart);
@@ -56,20 +56,46 @@ class CartController {
 
     async updateCart(req: Request, res: Response): Promise<void> {
         try {
-            const _idCart = req.body.idCart;
-            const updated = await DonhangModel.updateOne(
-                { _id: _idCart },
+            const idCart = req.body.idCart;
+            const state = req.body.state;
+            CartModel.updateOne(
+                { _id: idCart },
                 {
                     $set: {
-                        state: 'Đang giao',
+                        state: state,
                     },
                 },
-            );
-            if (updated) {
-                res.status(200).send({ message: 'Updated successfully!' });
-            } else {
-                res.status(401).send({ message: 'Updated Failed!' });
-            }
+                { new: true },
+            )
+                .then((updated) => {
+                    res.status(200).send(updated);
+                })
+                .catch((err: any) => {
+                    res.status(401).send({ message: 'Updated Failed!' });
+                });
+        } catch (err: any) {
+            res.status(500).send({ message: err.message });
+        }
+    }
+
+    async cancelCart(req: Request, res: Response) {
+        try {
+            const idCart = req.body.idCart;
+            CartModel.updateOne(
+                { _id: idCart },
+                {
+                    $set: {
+                        state: 'Đã hủy',
+                    },
+                },
+                { new: true },
+            )
+                .then((updated) => {
+                    res.status(200).send(updated);
+                })
+                .catch((err: any) => {
+                    res.status(401).send({ message: 'Updated Failed!' });
+                });
         } catch (err: any) {
             res.status(500).send({ message: err.message });
         }

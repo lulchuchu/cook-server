@@ -1,25 +1,25 @@
 import { model, Schema, Types } from 'mongoose';
 
-const DOCUMENT_NAME = 'DanhGia';
-const COLLECTION_NAME = 'DanhGias';
+const DOCUMENT_NAME = 'Rating';
+const COLLECTION_NAME = 'Ratings';
 
-const danhGia = new Schema(
+const Rating = new Schema(
     {
-        monAn: {
+        dish: {
             type: Schema.Types.ObjectId,
-            ref: 'MonAn',
+            ref: 'Dish',
         },
-        nguoiDung: {
+        account: {
             type: Schema.Types.ObjectId,
-            ref: 'NguoiDung',
+            ref: 'Account',
         },
-        diemDanhGia: {
+        score: {
             type: Number,
         },
         img: {
             type: String,
         },
-        noiDung: {
+        content: {
             type: String,
         },
     },
@@ -29,4 +29,4 @@ const danhGia = new Schema(
     },
 );
 
-export default model(DOCUMENT_NAME, danhGia, COLLECTION_NAME);
+export default model(DOCUMENT_NAME, Rating, COLLECTION_NAME);
