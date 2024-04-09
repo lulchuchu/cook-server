@@ -2,6 +2,7 @@ import CommentDishService from '../services/commentDish.service';
 import { Request, Response } from 'express';
 
 class commentDishController {
+    // tạo comment món ăn
     createCommentDish = async (req: Request, res: Response): Promise<void> => {
         const { idDish, idUser, content, img } = req.body;
         try {
@@ -17,6 +18,7 @@ class commentDishController {
         }
     };
 
+    // tạo cảm xúc cho comment món ăn
     createFeelingCommentDish = async (req: Request, res: Response) => {
         const { idCommentDish, idNguoiDung, state } = req.body;
         try {
@@ -32,6 +34,7 @@ class commentDishController {
         }
     };
 
+    // lấy tất cả comment của 1 món ăn
     getListCommentDish = async (req: Request, res: Response): Promise<void> => {
         const idDish = req.query.idDish as string;
         try {
@@ -47,6 +50,7 @@ class commentDishController {
         }
     };
 
+    // xóa 1 comment món ăn
     deleteCommentDish = async (req: Request, res: Response) => {
         const { idNguoiDung, idCommentDish } = req.body;
 

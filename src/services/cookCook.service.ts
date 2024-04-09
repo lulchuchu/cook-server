@@ -3,6 +3,7 @@ import AccountModel from '../models/Account.model';
 import CookBookModel from '../models/CookBook.model';
 
 export default class NguyenLieu {
+    // tạo nhóm món ăn
     static async createCookBook(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 
@@ -41,6 +42,7 @@ export default class NguyenLieu {
         }
     }
 
+    // lấy tất cả nhóm món ăn của 1 người
     static async getAllCookBook(idNguoiDung: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 
@@ -59,8 +61,12 @@ export default class NguyenLieu {
         };
     }
 
+    // lấy tất cả món ăn trong nhóm món ăn
     static async getDishOfCookBook(idNhomMonAn: string) {
         try {
+            // Phương thức .lean() trong Mongoose là một trong những phương thức được
+            // sử dụng để tăng hiệu suất và giảm bộ nhớ khi
+            // truy vấn dữ liệu từ cơ sở dữ liệu MongoDB bằng Mongoose.
             const nhomMonAn = await CookBookModel.findOne({ _id: idNhomMonAn }).populate('dishs').lean().exec();
 
             if (!nhomMonAn) {
@@ -84,6 +90,7 @@ export default class NguyenLieu {
         }
     }
 
+    // lưu món ăn
     static async saveDish(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 
@@ -126,6 +133,7 @@ export default class NguyenLieu {
         }
     }
 
+    // bỏ lưu món ăn
     static async unSaveDish(idNguoiDung: string, idMonAn: String) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 
@@ -174,6 +182,7 @@ export default class NguyenLieu {
         };
     }
 
+    // xóa món ăn khỏi nhóm món ăn
     static async eraseDishOfCookBook(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 
@@ -212,6 +221,7 @@ export default class NguyenLieu {
         };
     }
 
+    // xóa nhóm món ăn
     static async eraseCookBook(idNhomMonAn: string) {
         const nhomMA = await CookBookModel.findById(idNhomMonAn);
 
