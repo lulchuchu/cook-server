@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import NguoiDungModel from '../models/NguoiDung.model';
+import NguoiDungModel from '../models/Account.model';
 
 class VerifySignUp {
     async verify(req: Request, res: Response, next: NextFunction) {

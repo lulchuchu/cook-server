@@ -26,9 +26,7 @@ class CmtBlogController {
 
     async getCommentOfBlog(req: Request, res: Response): Promise<void> {
         try {
-            const cmts = await CommentBlogModels.find({ idBlog: req.param('idBlog') })
-                .populate('author')
-                .exec();
+            const cmts = await CommentBlogModels.find({ idBlog: req.query.idBlog }).populate('author').exec();
             res.status(200).send(cmts.reverse());
         } catch (err: any) {
             res.status(500).send({ message: err.message });

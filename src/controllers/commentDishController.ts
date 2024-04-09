@@ -1,76 +1,65 @@
-import CommentDishService from "../services/commentDish.service";
+import CommentDishService from '../services/commentDish.service';
+import { Request, Response } from 'express';
 
 class commentDishController {
-    createCommentDish = async (req: any, res: any) => {
-        const { idDish, idNguoiDung, content, img } = req.body;
+    createCommentDish = async (req: Request, res: Response): Promise<void> => {
+        const { idDish, idUser, content, img } = req.body;
         try {
-            const data = await CommentDishService.addCommentDish(
-                idDish,
-                idNguoiDung,
-                content,
-                img
-            );
+            const data = await CommentDishService.addCommentDish(idDish, idUser, content, img);
 
             if (data?.error) {
-                return res.status(400).json({ error: data.error });
+                res.status(400).send({ message: data.error });
             }
 
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ error: "Lỗi server!" });
+            res.status(200).send(data.comment_dish);
+        } catch (e: any) {
+            res.status(500).send({ message: 'Lỗi server!' });
         }
     };
 
-    createFeelingCommentDish = async (req: any, res: any) => {
+    createFeelingCommentDish = async (req: Request, res: Response) => {
         const { idCommentDish, idNguoiDung, state } = req.body;
         try {
-            const data = await CommentDishService.addFeeling(
-                idCommentDish,
-                idNguoiDung,
-                state
-            );
+            const data = await CommentDishService.addFeeling(idCommentDish, idNguoiDung, state);
 
             if (data?.error) {
-                return res.status(400).json({ error: data.error });
+                res.status(400).send({ message: data.error });
             }
 
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ error: "Lỗi server!" });
+            res.status(200).send(data);
+        } catch (error: any) {
+            res.status(500).json({ message: error.message });
         }
     };
 
-    getListCommentDish = async (req: any, res: any) => {
-        const { idDish } = req.params;
+    getListCommentDish = async (req: Request, res: Response): Promise<void> => {
+        const idDish = req.query.idDish as string;
         try {
             const data = await CommentDishService.getAllCommentDish(idDish);
 
             if (data?.error) {
-                return res.status(400).json({ error: data.error });
+                res.status(400).send({ message: data.error });
             }
 
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ error: "Lỗi server!" });
+            res.status(200).send(data.list_comment_dish);
+        } catch (error: any) {
+            res.status(500).json({ message: error.message });
         }
     };
 
-    deleteCommentDish = async (req: any, res: any) => {
+    deleteCommentDish = async (req: Request, res: Response) => {
         const { idNguoiDung, idCommentDish } = req.body;
 
         try {
-            const data = await CommentDishService.deleteCommentDish(
-                idNguoiDung,
-                idCommentDish
-            );
+            const data = await CommentDishService.deleteCommentDish(idNguoiDung, idCommentDish);
 
             if (data?.error) {
-                return res.status(400).json({ error: data.error });
+                res.status(400).send({ message: data.error });
             }
 
-            return res.status(200).json(data);
+            res.status(200).send(data);
         } catch (e) {
-            return res.status(500).json({ error: "Lỗi server!" });
+            res.status(500).send({ message: 'Lỗi server!' });
         }
     };
 }

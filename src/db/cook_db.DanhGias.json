@@ -1,0 +1,44 @@
+[
+    {
+        "_id": {
+            "$oid": "660ec7f0aba2c24860ca2a6f"
+        },
+        "dish": {
+            "$oid": "6604e8eeddf06c219cd83aaa"
+        },
+        "account": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "score": 4,
+        "img": "https://storage.googleapis.com/kitchenstories-7031c.appspot.com/ratingImage/1712245256112.png?GoogleAccessId=firebase-adminsdk-w1g4h%40kitchenstories-7031c.iam.gserviceaccount.com&Expires=16446992400&Signature=okyRcuXgUIKoYLk1BDL7c6IfCFPY%2F89TMzDtlZuR5OoTntX2YSAZZi%2FuhiagKhtFBwdQYou0ynQxyUfGX61IhYa3zkfyxMexjRarHCWsB4HYM5rUUx8FWmKKUq2ld5HxRnJF%2BEpLA7RikDbqtLQWuvGvoTW4FVBHy8cbEN9a9YywMNBvwXhVYJ%2BQ93z%2FTkjVDWr6fgdKEaLAduTJodSG8lVl08vB4ukSzn0yvYU1L7HBVtvtDc%2BdSSboGXsoeLRNsNg4405GlMw7LlxxOp9XAa91aBmGu6Sw2%2FWlfUGs6vVcNz5KHg5RU7sqTujgiYv9NpZIHsMxlqbhn8xnbHl4DQ%3D%3D",
+        "content": "Good!",
+        "createdAt": {
+            "$date": "2024-04-04T15:32:00.198Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-04T15:40:57.337Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "660ecc97ef60be1685c5b30c"
+        },
+        "dish": {
+            "$oid": "6603e5f865007304585bf8a0"
+        },
+        "account": {
+            "$oid": "65f9bdfff3fdc3f41a688899"
+        },
+        "score": 5,
+        "img": "",
+        "content": "",
+        "createdAt": {
+            "$date": "2024-04-04T15:51:51.342Z"
+        },
+        "updatedAt": {
+            "$date": "2024-04-04T15:51:51.342Z"
+        },
+        "__v": 0
+    }
+]

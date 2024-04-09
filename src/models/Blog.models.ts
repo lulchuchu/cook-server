@@ -8,13 +8,13 @@ const Blog = new Schema(
         imgDes: { type: Array },
         author: {
             type: Schema.Types.ObjectId,
-            ref: 'Nguoidung',
+            ref: 'Account',
             required: true,
         },
         accountLike: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Nguoidung',
+                ref: 'Account',
             },
         ],
         numberLike: { type: Number },
