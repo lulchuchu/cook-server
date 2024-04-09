@@ -2,12 +2,14 @@ import ratingService from '../services/rating.service';
 import { Request, Response } from 'express';
 
 class ratingController {
+    // tạo đánh giá hoặc sửa đánh giá
     createRating = async (req: Request, res: Response) => {
         const { idMonAn, idNguoiDung, diemDanhGia, img, noiDung } = req.body;
 
         try {
+            console.log(idMonAn, idNguoiDung, diemDanhGia, img, noiDung);
             const data = await ratingService.createRating(idMonAn, idNguoiDung, diemDanhGia, img, noiDung);
-
+            console.log(data);
             if (data?.error) {
                 return res.status(400).send({ message: data.error });
             }
@@ -18,6 +20,7 @@ class ratingController {
         }
     };
 
+    // xóa 1 đánh giá
     eraseRating = async (req: any, res: any) => {
         const { idDanhGia, idMonAn } = req.body;
         try {
@@ -33,6 +36,7 @@ class ratingController {
         }
     };
 
+    // lấy ra các đánh giá và điểm trung bình của nó
     getRating = async (req: Request, res: Response) => {
         const idMonAn = req.query.idMonAn as string;
         try {

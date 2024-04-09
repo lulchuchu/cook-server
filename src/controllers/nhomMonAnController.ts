@@ -1,13 +1,12 @@
-import CookBookModel from '../models/GroupDish.model';
-import CookBookService from '../services/groupDish.service';
+import NhomMonAnModel from '../models/NhomMonAn.model';
+import nhomCongThucService from '../services/cookCook.service';
 import { Request, Response } from 'express';
 
 class nhomCongThucController {
-    // tạo nhóm món ăn
-    async addCookBook(req: Request, res: Response): Promise<void> {
+    async themNhomMonAn(req: Request, res: Response): Promise<void> {
         const { idNguoiDung, tenNhomMonAn, idMonAn } = req.body;
         try {
-            const data = await CookBookService.createCookBook(idNguoiDung, tenNhomMonAn, idMonAn);
+            const data = await nhomCongThucService.taoNhomMonAn(idNguoiDung, tenNhomMonAn, idMonAn);
 
             if (data?.error) {
                 res.status(400).send({ message: data.error });
@@ -19,12 +18,11 @@ class nhomCongThucController {
         }
     }
 
-    // Thêm món ăn vào nhóm món ăn
     async addDishToCookBook(req: Request, res: Response): Promise<void> {
         const { idCookBook, idDish, idUser } = req.body;
 
         try {
-            const cookBook = await CookBookModel.findOne({ _id: idCookBook, user: idUser });
+            const cookBook = await NhomMonAnModel.findOne({ _id: idCookBook, user: idUser });
 
             if (cookBook?.dishs.includes(idDish)) {
                 res.status(400).send({ message: 'Món đã được thêm trước đó!' });
@@ -45,11 +43,10 @@ class nhomCongThucController {
         }
     }
 
-    // lấy tất cả nhóm món ăn của 1 người dùng
-    async getAllCookBook(req: Request, res: Response): Promise<void> {
+    async layTatCaNhomMonAnCuaND(req: Request, res: Response): Promise<void> {
         const idNguoiDung = req.query.idNguoiDung as string;
         try {
-            const data = await CookBookService.getAllCookBook(idNguoiDung);
+            const data = await nhomCongThucService.layTatCaNhomMonAnCuaNguoiDung(idNguoiDung);
 
             if (data?.error) {
                 res.status(400).send({ message: data.error });
@@ -61,27 +58,25 @@ class nhomCongThucController {
         }
     }
 
-    // lấy tất cả món ăn của 1 nhóm món ăn
-    getAllDishOfCookBook = async (req: Request, res: Response) => {
-        const idNhomMonAn = req.query.idNhomMonAn as string;
+    layTatCaMonAnTrongNhomMA = async (req: any, res: any) => {
+        const { idNhomMonAn } = req.params;
         try {
-            const data = await CookBookService.getDishOfCookBook(idNhomMonAn);
+            const data = await nhomCongThucService.layTatCaMonAnTrongNhomMonAn(idNhomMonAn);
 
             // if (data?.error) {
             //     return res.status(400).json({ message: data.error });
             // }
 
-            return res.status(200).send(data);
+            return res.status(200).json(data);
         } catch (e) {
-            return res.status(500).send({ message: 'Lỗi server!' });
+            return res.status(500).json({ message: 'Lỗi server!' });
         }
     };
 
-    // xóa 1 món ăn từ nhóm món ăn
-    eraseDishFromCookBook = async (req: any, res: any) => {
+    xoaMonAnKhoiNhom = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
         try {
-            const data = await CookBookService.eraseDishOfCookBook(idNguoiDung, idMonAn, idNhomMonAn);
+            const data = await nhomCongThucService.xoaMonAnKhoiNhom(idNguoiDung, idMonAn, idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -93,11 +88,10 @@ class nhomCongThucController {
         }
     };
 
-    // xóa nhóm món ăn
-    eraseCookBook = async (req: any, res: any) => {
-        const { idCookBook } = req.params;
+    xoaNhomMonAn = async (req: any, res: any) => {
+        const { idNhomMonAn } = req.params;
         try {
-            const data = await CookBookService.eraseCookBook(idCookBook);
+            const data = await nhomCongThucService.xoaNhomMonAn(idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
