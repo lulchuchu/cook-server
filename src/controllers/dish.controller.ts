@@ -98,6 +98,7 @@ class DishController {
         }
     }
 
+    // lưu món ăn
     saveDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
 
@@ -114,6 +115,7 @@ class DishController {
         }
     };
 
+    // bỏ lưu món ăn
     unsaveDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn } = req.body;
 
@@ -130,6 +132,7 @@ class DishController {
         }
     };
 
+    // thả tym món ăn
     likeDish = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn } = req.body;
         try {
@@ -154,7 +157,6 @@ class DishController {
                     dishLiked.push(dish);
                 }
             }
-
             res.status(200).send(dishLiked);
         } catch (err: any) {
             res.status(500).send({ message: err.message });

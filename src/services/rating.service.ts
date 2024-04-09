@@ -9,6 +9,7 @@ interface Image {
 }
 
 export default class DanhGia {
+    // tại 1 đánh giá, nếu đã có đánh giá rồi thì sửa đánh giá
     static async createRating(idMonAn: string, idNguoiDung: string, diemDanhGia: number, img: Image, noiDung: string) {
         if (!diemDanhGia) {
             return {
@@ -34,8 +35,9 @@ export default class DanhGia {
             account: idNguoiDung,
             dish: idMonAn,
         });
+
         var url = '';
-        if (img.uri !== '') {
+        if (img && img?.uri !== '') {
             const decodedImage = Buffer.from(img.uri, 'base64');
 
             const filename = `ratingImage/${Date.now()}.png`;
@@ -52,6 +54,7 @@ export default class DanhGia {
             });
             url = urlFibase[0];
         }
+
         if (danhGia) {
             if (
                 diemDanhGia.toString() !== danhGia.score?.toString() ||
@@ -104,6 +107,7 @@ export default class DanhGia {
         };
     }
 
+    // xóa đánh giá
     static async eraseRating(idDanhGia: string, idMonAn: string) {
         const danhGia = await RatingModel.findById(idDanhGia);
 
@@ -130,6 +134,7 @@ export default class DanhGia {
         };
     }
 
+    // lấy ra các đánh giá và điểm trung bình đánh giá 1 món ăn
     static async getRating(idMonAn: string) {
         const monAn = await DishModel.findById(idMonAn);
 

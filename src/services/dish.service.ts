@@ -4,16 +4,19 @@ import CookBookService from './cookCook.service';
 const Types = require('mongoose').Types;
 
 export default class MonAn {
+    // lưu món ăn
     static async saveDish(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
         const data = await CookBookService.saveDish(idNguoiDung, idMonAn, idNhomMonAn);
         return data;
     }
 
+    // bỏ lưu món ăn
     static async unsaveDish(idNguoiDung: string, idMonAn: String) {
         const data = await CookBookService.unSaveDish(idNguoiDung, idMonAn);
         return data;
     }
 
+    // thả tym món ăn
     static async likeDish(idNguoiDung: string, idMonAn: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
 

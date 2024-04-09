@@ -10,6 +10,7 @@ interface Image {
 }
 
 export default class CommentDish {
+    // lấy tất cả comment của 1 món ăn
     static async getAllCommentDish(idDish: string) {
         const monAn = await DishModel.findById(idDish);
         if (!monAn) {
@@ -18,18 +19,35 @@ export default class CommentDish {
             };
         }
 
-        const arrayCommentDish = await CommentDishModel.find({
+        // const arrayCommentDish = await CommentDishModel.find({
+        //     idDish: idDish,
+        // })
+        //     .populate('user')
+        //     .lean()
+        //     .exec();
+
+        const listCommentDishes = await CommentDishModel.find({
             idDish: idDish,
         })
             .populate('user')
             .lean()
             .exec();
 
+        const arrayCommentDish = listCommentDishes.map((item) => {
+            return {
+                ...item,
+                user: {
+                    ...item.user,
+                    password: null,
+                },
+            };
+        });
         return {
             list_comment_dish: arrayCommentDish,
         };
     }
 
+    // tạo 1 comment món ăn
     static async addCommentDish(idDish: string, idUser: string, content: string, img: Image) {
         const nguoiDung = await AccountModel.findById(idUser);
         if (!nguoiDung) {
@@ -45,7 +63,7 @@ export default class CommentDish {
             };
         }
         var url = '';
-        if (img.uri !== '') {
+        if (img && img.uri !== '') {
             const decodeImage = Buffer.from(img.uri, 'base64');
             const filename = `cmtRecipeImages/${Date.now()}.png`;
             const file = bucket.file(filename);
@@ -77,6 +95,7 @@ export default class CommentDish {
         };
     }
 
+    // thả cảm xúc vào comment món ăn
     static async addFeeling(idCommentDish: string, idNguoiDung: string, state: number) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
         if (!nguoiDung) {
@@ -163,6 +182,7 @@ export default class CommentDish {
         }
     }
 
+    // xóa 1 comment món ăn
     static async deleteCommentDish(idNguoiDung: string, idCommentDish: string) {
         const nguoiDung = await AccountModel.findById(idNguoiDung);
         if (!nguoiDung) {
