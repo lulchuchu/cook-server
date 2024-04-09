@@ -70,7 +70,7 @@ class DishController {
             .join('.*')}.*`;
     }
 
-    async searchDish(req: Request, res: Response) : Promise<void> {
+    async searchDish(req: Request, res: Response): Promise<void> {
         try {
             const key = req.query.key as string;
             const diacriticsMap: Record<DiacriticKey, string> = {
@@ -81,24 +81,26 @@ class DishController {
                 u: '[uúùủũụưứừửữự]',
                 y: '[yýỳỷỹỵ]',
             };
-    
-            const keyword = `.*${key.split('').map((char) => diacriticsMap[char as DiacriticKey] || char).join('.*')}.*`;
+
+            const keyword = `.*${key
+                .split('')
+                .map((char) => diacriticsMap[char as DiacriticKey] || char)
+                .join('.*')}.*`;
             // const regexPattern =  await this.prepareRegexPattern(key);
-            const query : FilterQuery<WithId<any>> = {
+            const query: FilterQuery<WithId<any>> = {
                 $or: [
                     { name: { $regex: keyword, $options: 'i' } },
                     { country: { $regex: keyword, $options: 'i' } },
                     { type: { $regex: keyword, $options: 'i' } },
-                    {desciption: { $regex: keyword, $options: 'i' }}
+                    { desciption: { $regex: keyword, $options: 'i' } },
                 ],
-            }
+            };
 
             const data = await DishModel.find(query).select('_id name imgDes');
             res.status(200).send(data);
-        }
-        catch(err: any) {
+        } catch (err: any) {
             res.status(500).send({ message: err.message });
-        };
+        }
     }
 
     async getByDiet(req: Request, res: Response): Promise<void> {
@@ -168,40 +170,6 @@ class DishController {
             res.status(500).send({ message: err.message });
         }
     }
-
-    // lưu món ăn
-    saveDish = async (req: any, res: any) => {
-        const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
-
-        try {
-            const data = await DishService.saveDish(idNguoiDung, idMonAn, idNhomMonAn);
-
-            if (data?.error) {
-                return res.status(400).json({ message: data.error });
-            }
-
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ error: 'Lỗi server!' });
-        }
-    };
-
-    // bỏ lưu món ăn
-    unsaveDish = async (req: any, res: any) => {
-        const { idNguoiDung, idMonAn } = req.body;
-
-        try {
-            const data = await DishService.unsaveDish(idNguoiDung, idMonAn);
-
-            if (data?.error) {
-                return res.status(400).json({ message: data.error });
-            }
-
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ message: 'Lỗi server!' });
-        }
-    };
 
     // thả tym món ăn
     likeDish = async (req: any, res: any) => {

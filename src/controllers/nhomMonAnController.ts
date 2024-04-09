@@ -1,12 +1,12 @@
-import NhomMonAnModel from '../models/NhomMonAn.model';
-import nhomCongThucService from '../services/cookCook.service';
+import NhomMonAnModel from '../models/GroupDish.model';
+import groupDishService from '../services/groupDish.service';
 import { Request, Response } from 'express';
 
 class nhomCongThucController {
     async themNhomMonAn(req: Request, res: Response): Promise<void> {
         const { idNguoiDung, tenNhomMonAn, idMonAn } = req.body;
         try {
-            const data = await nhomCongThucService.taoNhomMonAn(idNguoiDung, tenNhomMonAn, idMonAn);
+            const data = await groupDishService.createCookBook(idNguoiDung, tenNhomMonAn, idMonAn);
 
             if (data?.error) {
                 res.status(400).send({ message: data.error });
@@ -46,7 +46,7 @@ class nhomCongThucController {
     async layTatCaNhomMonAnCuaND(req: Request, res: Response): Promise<void> {
         const idNguoiDung = req.query.idNguoiDung as string;
         try {
-            const data = await nhomCongThucService.layTatCaNhomMonAnCuaNguoiDung(idNguoiDung);
+            const data = await groupDishService.getAllCookBook(idNguoiDung);
 
             if (data?.error) {
                 res.status(400).send({ message: data.error });
@@ -61,7 +61,7 @@ class nhomCongThucController {
     layTatCaMonAnTrongNhomMA = async (req: any, res: any) => {
         const { idNhomMonAn } = req.params;
         try {
-            const data = await nhomCongThucService.layTatCaMonAnTrongNhomMonAn(idNhomMonAn);
+            const data = await groupDishService.getDishOfCookBook(idNhomMonAn);
 
             // if (data?.error) {
             //     return res.status(400).json({ message: data.error });
@@ -76,7 +76,7 @@ class nhomCongThucController {
     xoaMonAnKhoiNhom = async (req: any, res: any) => {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
         try {
-            const data = await nhomCongThucService.xoaMonAnKhoiNhom(idNguoiDung, idMonAn, idNhomMonAn);
+            const data = await groupDishService.eraseDishOfCookBook(idNguoiDung, idMonAn, idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });
@@ -91,7 +91,7 @@ class nhomCongThucController {
     xoaNhomMonAn = async (req: any, res: any) => {
         const { idNhomMonAn } = req.params;
         try {
-            const data = await nhomCongThucService.xoaNhomMonAn(idNhomMonAn);
+            const data = await groupDishService.eraseCookBook(idNhomMonAn);
 
             if (data?.error) {
                 return res.status(400).json({ message: data.error });

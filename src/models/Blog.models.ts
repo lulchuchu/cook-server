@@ -17,7 +17,6 @@ const Blog = new Schema(
                 ref: 'Account',
             },
         ],
-        numberLike: { type: Number },
         numberShare: { type: Number },
         comments: [
             {

@@ -92,10 +92,6 @@ export default class DanhGia {
 
         const saveDanhGia = await newDanhGia.save();
 
-        await DishModel.findByIdAndUpdate(idMonAn, {
-            $push: { rating: saveDanhGia._id },
-        });
-
         if (saveDanhGia) {
             return {
                 danh_gia: saveDanhGia,
@@ -123,10 +119,6 @@ export default class DanhGia {
                 error: 'Không tìm thấy món ăn.',
             };
         }
-
-        await DishModel.findByIdAndUpdate(idMonAn, {
-            $pull: { rating: idDanhGia },
-        });
 
         await danhGia.deleteOne();
         return {
