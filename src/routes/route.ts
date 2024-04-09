@@ -4,13 +4,13 @@ import cmtBlogRoute from './commentBlog/index';
 const initDbRoute = require('./initDb/index');
 import storeRoute from './store.route';
 import dishRoute from './dish.router';
-import cookBookRoute from './cookbook.router';
+import cookBookRoute from './groupDish.router';
 import ratingRoute from './rating.router';
 import commentDishRouter from './commentDish.router';
 
 function route(app: any) {
     app.use(function (req: any, res: any, next: any) {
-        res.header('Access-Control-Allow-Headers', 'x-access-token, Origin, Content-Type, Accept, Authorization');
+        res.header('Access-Control-Allow-Headers', 'x-access-token, Origin, Content-Type, Accept, Authorization, Access-Control-Allow-Origin');
         next();
     });
     app.use('/user', accountRoute);

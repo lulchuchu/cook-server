@@ -35,7 +35,7 @@ export default class DanhGia {
             dish: idMonAn,
         });
         var url = '';
-        if (img.uri !== '') {
+        if (img.uri.length > 0) {
             const decodedImage = Buffer.from(img.uri, 'base64');
 
             const filename = `ratingImage/${Date.now()}.png`;

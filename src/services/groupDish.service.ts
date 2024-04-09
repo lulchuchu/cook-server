@@ -1,6 +1,6 @@
 import DishModel from '../models/Dish.model';
 import AccountModel from '../models/Account.model';
-import CookBookModel from '../models/CookBook.model';
+import CookBookModel from '../models/GroupDish.model';
 
 export default class NguyenLieu {
     static async createCookBook(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {

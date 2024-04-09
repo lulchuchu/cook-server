@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import DishModel from '../models/Dish.model';
 import DishService from '../services/dish.service';
-import { Types } from 'mongoose';
+import { FilterQuery, Types } from 'mongoose';
+import { WithId } from 'mongodb';
+
+type DiacriticKey = 'a' | 'e' | 'i' | 'o' | 'u' | 'y';
 
 class DishController {
     async getAll(req: Request, res: Response): Promise<void> {
@@ -28,6 +31,74 @@ class DishController {
         } catch (err: any) {
             res.status(500).send({ message: err.message });
         }
+    }
+
+    async getAllDish(req: Request, res: Response): Promise<void> {
+        try {
+            const dishs = await DishModel.find({});
+            const data = [];
+            for (const dish of dishs) {
+                const item = {
+                    _id: dish._id,
+                    img: dish.imgDes,
+                    name: dish.name,
+                    numberLike: dish.likes.length,
+                    type: dish.type,
+                    country: dish.country,
+                };
+                data.push(item);
+            }
+            res.status(200).send(data);
+        } catch (err: any) {
+            res.status(500).send({ message: err.message });
+        }
+    }
+
+    async prepareRegexPattern(keyword: string): Promise<string> {
+        const diacriticsMap: Record<DiacriticKey, string> = {
+            a: '[aáàảãạăắằẳẵặâấầẩẫậ]',
+            e: '[eéèẻẽẹêếềểễệ]',
+            i: '[iíìỉĩị]',
+            o: '[oóòỏõọôốồổỗộơớờởỡợ]',
+            u: '[uúùủũụưứừửữự]',
+            y: '[yýỳỷỹỵ]',
+        };
+
+        return `.*${keyword
+            .split('')
+            .map((char) => diacriticsMap[char as DiacriticKey] || char)
+            .join('.*')}.*`;
+    }
+
+    async searchDish(req: Request, res: Response) : Promise<void> {
+        try {
+            const key = req.query.key as string;
+            const diacriticsMap: Record<DiacriticKey, string> = {
+                a: '[aáàảãạăắằẳẵặâấầẩẫậ]',
+                e: '[eéèẻẽẹêếềểễệ]',
+                i: '[iíìỉĩị]',
+                o: '[oóòỏõọôốồổỗộơớờởỡợ]',
+                u: '[uúùủũụưứừửữự]',
+                y: '[yýỳỷỹỵ]',
+            };
+    
+            const keyword = `.*${key.split('').map((char) => diacriticsMap[char as DiacriticKey] || char).join('.*')}.*`;
+            // const regexPattern =  await this.prepareRegexPattern(key);
+            const query : FilterQuery<WithId<any>> = {
+                $or: [
+                    { name: { $regex: keyword, $options: 'i' } },
+                    { country: { $regex: keyword, $options: 'i' } },
+                    { type: { $regex: keyword, $options: 'i' } },
+                    {desciption: { $regex: keyword, $options: 'i' }}
+                ],
+            }
+
+            const data = await DishModel.find(query).select('_id name imgDes');
+            res.status(200).send(data);
+        }
+        catch(err: any) {
+            res.status(500).send({ message: err.message });
+        };
     }
 
     async getByDiet(req: Request, res: Response): Promise<void> {

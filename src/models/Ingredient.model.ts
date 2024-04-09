@@ -5,7 +5,7 @@ const COLLECTION_NAME = 'Ingredients';
 
 const Ingredient = new Schema(
     {
-        listName: {
+        name: {
             type: Array,
         },
         quantity: {

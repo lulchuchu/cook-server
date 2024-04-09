@@ -1,6 +1,6 @@
 import express from 'express';
 const cookBookRouter = express.Router();
-import cookBookController from '../controllers/cookBookController';
+import cookBookController from '../controllers/groupDishController';
 
 cookBookRouter.post('/create', cookBookController.addCookBook);
 cookBookRouter.post('/add-dish', cookBookController.addDishToCookBook);

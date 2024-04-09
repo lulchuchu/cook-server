@@ -1,6 +1,6 @@
 import DishModel from '../models/Dish.model';
 import AccountModel from '../models/Account.model';
-import CookBookService from './cookCook.service';
+import CookBookService from './groupDish.service';
 const Types = require('mongoose').Types;
 
 export default class MonAn {
