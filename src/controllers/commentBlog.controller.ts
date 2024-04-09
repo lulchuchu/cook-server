@@ -8,7 +8,8 @@ class CmtBlogController {
         const newComment = new CommentBlogModels({
             author: bodyData.author,
             content: bodyData.content,
-            numberLike: 0,
+            likes: [],
+            img: '',
             idBlog: bodyData.idBlog,
         });
         try {

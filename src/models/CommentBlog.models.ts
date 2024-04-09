@@ -11,7 +11,11 @@ const CommentBlog = new Schema(
             required: true,
         },
         content: { type: String, required: true },
-        numberLike: { type: Number },
+        img: { type: String},
+        likes: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Account',
+        }],
         idBlog: {
             type: Schema.Types.ObjectId,
             ref: 'Blog',

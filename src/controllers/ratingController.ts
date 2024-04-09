@@ -15,8 +15,8 @@ class ratingController {
             }
 
             return res.status(200).send(data.danh_gia);
-        } catch (e) {
-            return res.status(500).send({ message: 'Lỗi server!' });
+        } catch (e: any) {
+            return res.status(500).send({ message: e.message });
         }
     };
 
