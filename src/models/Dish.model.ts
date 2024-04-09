@@ -17,18 +17,6 @@ const Dish = new Schema(
         },
         country: { type: String },
         type: { type: String },
-        rating: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Rating',
-            },
-        ],
-        storeUsers: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Account',
-            },
-        ],
         likes: [
             {
                 type: Schema.Types.ObjectId,

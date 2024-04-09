@@ -7,8 +7,6 @@ dishRouter.get('/get-all', dishController.getAll);
 dishRouter.get('/get-by-diet', dishController.getByDiet);
 dishRouter.get('/get-by-country', dishController.getByCountry);
 dishRouter.get('/get-detail', dishController.getDishDetail);
-dishRouter.post('/save-dish', dishController.saveDish);
-dishRouter.post('/unsave-dish', dishController.unsaveDish);
 dishRouter.post('/like-dish', dishController.likeDish);
 dishRouter.get('/search', dishController.searchDish);
 
