@@ -2,7 +2,7 @@ import CookBookModel from '../models/GroupDish.model';
 import CookBookService from '../services/groupDish.service';
 import { Request, Response } from 'express';
 
-class nhomCongThucController {
+class groupDishController {
     // tạo nhóm món ăn
     async addCookBook(req: Request, res: Response): Promise<void> {
         const { idNguoiDung, tenNhomMonAn, idMonAn } = req.body;
@@ -110,4 +110,4 @@ class nhomCongThucController {
     };
 }
 
-export default new nhomCongThucController();
+export default new groupDishController();
