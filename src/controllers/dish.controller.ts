@@ -174,11 +174,12 @@ class DishController {
             const _id = req.query._id;
             const currentDish = await DishModel.findById(_id).populate('ingredients').exec();
             const numLikesOfDish = await AccountLikeDishModel.find({ dish: _id });
+            const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
             const dish = {
                 _id: currentDish?._id,
                 name: currentDish?.name,
                 video: currentDish?.video,
-                likes: numLikesOfDish.length || 0,
+                likes: arrayIdAccountLike,
                 imgDes: currentDish?.imgDes,
                 description: currentDish?.description,
                 type: currentDish?.type,
