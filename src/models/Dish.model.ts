@@ -17,18 +17,12 @@ const Dish = new Schema(
         },
         country: { type: String },
         type: { type: String },
-        likes: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Account',
-            },
-        ],
         defaultPortion: { type: Number },
         ingredients: {
             type: Schema.Types.ObjectId,
             ref: 'Ingredient',
         },
-        utenils: {
+        utensils: {
             type: String,
         },
         nuttrition: {
