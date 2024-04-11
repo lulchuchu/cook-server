@@ -30,10 +30,8 @@ export default class CommentDish {
         var arrayCommentDish: any = [];
 
         for (const item of listCommentDishes) {
-            console.log(item._id);
             const getLikesCommentDish = async () => {
                 const likesCommentDish = await LikeAndUnlikeCommentDishModel.find({ commentDish: item._id, state: 1 });
-                console.log(likesCommentDish);
                 const likesAccount = likesCommentDish.map((item) => item.account);
                 return likesAccount;
             };
@@ -43,15 +41,12 @@ export default class CommentDish {
                     commentDish: item._id,
                     state: -1,
                 });
-                console.log(dislikesCommentDish);
                 const dislikesAccount = dislikesCommentDish.map((item) => item.account);
                 return dislikesAccount;
             };
 
             const idAccountsLike = await getLikesCommentDish();
             const idAccountsDislike = await getDislikesCommentDish();
-            console.log('idAccountsLike: ', idAccountsLike);
-            console.log('idAccountsDislike: ', idAccountsDislike);
             if (idAccountsLike && idAccountsDislike) {
                 arrayCommentDish.push({
                     ...item,
@@ -219,8 +214,8 @@ export default class CommentDish {
     }
 
     // xóa 1 comment món ăn
-    static async deleteCommentDish(idNguoiDung: string, idCommentDish: string) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async deleteCommentDish(idAccount: string, idCommentDish: string) {
+        const nguoiDung = await AccountModel.findById(idAccount);
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
@@ -234,18 +229,26 @@ export default class CommentDish {
             };
         }
 
-        if (idNguoiDung !== commentDish.user?.toString()) {
+        if (idAccount !== commentDish.user?.toString()) {
             return {
                 error: 'Bạn không phải chủ nhân của bình luận này!',
             };
         }
 
-        await LikeAndUnlikeCommentDishModel.deleteMany({ commentDish: idCommentDish });
+        // await LikeAndUnlikeCommentDishModel.deleteMany({ commentDish: idCommentDish });
 
-        await commentDish.deleteOne();
+        // await commentDish.deleteOne();
 
+        const success1 = await LikeAndUnlikeCommentDishModel.deleteMany({ commentDish: idCommentDish });
+        const success2 = await commentDish.deleteOne();
+
+        if (success1 && success2) {
+            return {
+                message: 'Xóa bình luận món ăn thành công',
+            };
+        }
         return {
-            message: 'Xóa bình luận thành công!',
+            error: 'Xóa bình luận món ăn không thành công',
         };
     }
 }
