@@ -12,12 +12,12 @@ const CookBook = new Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Account',
         },
-        dishs: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Dish',
-            },
-        ],
+        // dishs: [
+        //     {
+        //         type: mongoose.Schema.Types.ObjectId,
+        //         ref: 'Dish',
+        //     },
+        // ],
     },
     {
         timestamps: true,

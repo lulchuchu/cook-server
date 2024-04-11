@@ -1,39 +1,47 @@
 import DishModel from '../models/Dish.model';
 import AccountModel from '../models/Account.model';
 import CookBookModel from '../models/GroupDish.model';
+import DishInCookBookModel from '../models/DishInCookBook.model';
+import AccountLikeDishModel from '../models/AccountLikeDish.model';
 
-export default class NguyenLieu {
+export default class GroupDish {
     // tạo nhóm món ăn
-    static async createCookBook(idNguoiDung: string, tenNhomMonAn: string, idMonAn: string) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async createCookBook(idAccount: string, nameGroupDish: string, idDish: string) {
+        const account = await AccountModel.findById(idAccount);
 
-        if (!nguoiDung) {
+        if (!account) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
-        const nhomMonAn = await CookBookModel.findOne({
-            user: idNguoiDung,
-            name: tenNhomMonAn,
+        const groupDish = await CookBookModel.findOne({
+            user: idAccount,
+            name: nameGroupDish,
         });
 
-        if (nhomMonAn) {
+        if (groupDish) {
             return {
                 error: 'Nhóm món ăn này đã tồn tại.',
             };
         }
 
-        const newNhomMonAn = new CookBookModel({
-            name: tenNhomMonAn,
-            user: nguoiDung?._id,
-            dishs: [idMonAn],
+        const newGroupDish = new CookBookModel({
+            name: nameGroupDish,
+            user: account?._id,
         });
 
-        const saveNhomMA = await newNhomMonAn.save();
+        const saveGroupDish = await newGroupDish.save();
 
-        if (saveNhomMA) {
+        const newDishInGroupDish = new DishInCookBookModel({
+            cookBook: saveGroupDish._id,
+            dish: idDish,
+        });
+
+        const saveDishInGroupDish = await newDishInGroupDish.save();
+
+        if (saveGroupDish && saveDishInGroupDish) {
             return {
-                saveNhomMA,
+                saveGroupDish,
             };
         } else {
             return {
@@ -42,45 +50,99 @@ export default class NguyenLieu {
         }
     }
 
-    // lấy tất cả nhóm món ăn của 1 người
-    static async getAllCookBook(idNguoiDung: string) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async addDishToCookBook(idCookBook: string, idDish: string, idUser: string) {
+        const account = await AccountModel.findById(idUser);
+        if (!account) {
+            return {
+                error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
+            };
+        }
+        const groupDish = await CookBookModel.findById(idCookBook);
+        if (!groupDish) {
+            return {
+                error: 'Không tìm thấy nhóm món ăn.',
+            };
+        }
 
-        if (!nguoiDung) {
+        const dishInCookBook = await DishInCookBookModel.findOne({
+            cookBook: idCookBook,
+            dish: idDish,
+        });
+
+        if (dishInCookBook) {
+            return {
+                error: 'Món đã được thêm trước đó!',
+            };
+        }
+
+        const newDishInGroupDish = new DishInCookBookModel({
+            cookBook: idCookBook,
+            dish: idDish,
+        });
+
+        const checkSuccess = await newDishInGroupDish.save();
+
+        if (checkSuccess) {
+            return { message: 'Thêm món ăn vào nhóm thành công' };
+        }
+        return { message: 'Thêm món ăn vào nhóm thất bại' };
+    }
+
+    // lấy tất cả nhóm món ăn của 1 người
+    static async getAllCookBook(idAccount: string) {
+        const account = await AccountModel.findById(idAccount);
+
+        if (!account) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
-        const nhomMonAns = await CookBookModel.find({
-            user: idNguoiDung,
+        const groupDishes = await CookBookModel.find({
+            user: idAccount,
         });
 
         return {
-            nhomMonAns,
+            groupDishes,
         };
     }
 
     // lấy tất cả món ăn trong nhóm món ăn
-    static async getDishOfCookBook(idNhomMonAn: string) {
+    static async getDishesOfCookBook(idGroupDish: string) {
         try {
             // Phương thức .lean() trong Mongoose là một trong những phương thức được
             // sử dụng để tăng hiệu suất và giảm bộ nhớ khi
             // truy vấn dữ liệu từ cơ sở dữ liệu MongoDB bằng Mongoose.
-            const nhomMonAn = await CookBookModel.findOne({ _id: idNhomMonAn }).populate('dishs').lean().exec();
+            const groupDish = await CookBookModel.findById(idGroupDish);
 
-            if (!nhomMonAn) {
+            if (!groupDish) {
                 return {
                     error: 'Không tìm thấy món ăn.',
                 };
             }
 
-            const formattedMonAns = nhomMonAn.dishs.map((ma: any) => ({
-                _id: ma._id,
-                name: ma.name,
-                imgDes: ma.imgDes,
-                likes: ma.likes,
-            }));
+            const dishesInGroupDish = await DishInCookBookModel.find({ cookBook: idGroupDish });
+
+            var formattedMonAns = [];
+
+            // dishesInGroupDish.map((item: any) => ({
+            //     _id: item?.dish?._id,
+            //     name: item?.dish?.name,
+            //     imgDes: item?.dish?.imgDes,
+            //     likes: ma.likes,
+            // }));
+
+            for (const item of dishesInGroupDish) {
+                const dish = await DishModel.findById(item.dish);
+                const accountsLikeDish = await AccountLikeDishModel.find({ dish: dish?._id });
+                const idAccountsLike = accountsLikeDish.map((item) => item.account);
+                formattedMonAns.push({
+                    _id: dish?._id,
+                    name: dish?.name,
+                    imgDes: dish?.imgDes,
+                    likes: idAccountsLike,
+                });
+            }
 
             return formattedMonAns;
         } catch (error) {
@@ -91,53 +153,63 @@ export default class NguyenLieu {
     }
 
     // xóa món ăn khỏi nhóm món ăn
-    static async eraseDishOfCookBook(idNguoiDung: string, idMonAn: string, idNhomMonAn: string) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async eraseDishOfCookBook(idAccount: string, idDish: string, idGroupDish: string) {
+        const account = await AccountModel.findById(idAccount);
 
-        if (!nguoiDung) {
+        if (!account) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
             };
         }
 
-        const monAn = await DishModel.findById(idMonAn);
+        const dish = await DishModel.findById(idDish);
 
-        if (!monAn) {
+        if (!dish) {
             return {
                 error: 'Không tìm thấy món ăn.',
             };
         }
 
-        const nhomMonAn = await CookBookModel.findById(idNhomMonAn);
+        const groupDish = await CookBookModel.findById(idGroupDish);
 
-        if (!nhomMonAn) {
+        if (!groupDish) {
             return {
                 error: 'Không tìm thấy nhóm món ăn.',
             };
         }
 
-        await CookBookModel.findByIdAndUpdate(idNhomMonAn, {
-            $pull: { dishs: idMonAn },
-        });
-
+        const deleteDishInGroupDish = await DishInCookBookModel.deleteOne({ cookBook: idGroupDish, dish: idDish });
+        if (deleteDishInGroupDish) {
+            return {
+                message: 'Xóa khỏi nhóm thành công',
+            };
+        }
         return {
-            message: 'Xóa khỏi nhóm thành công',
+            error: 'Xóa khỏi nhóm không thành công',
         };
     }
 
     // xóa nhóm món ăn
-    static async eraseCookBook(idNhomMonAn: string) {
-        const nhomMA = await CookBookModel.findById(idNhomMonAn);
+    static async eraseCookBook(idGroupDish: string) {
+        const groupDish = await CookBookModel.findById(idGroupDish);
 
-        if (!nhomMA) {
+        if (!groupDish) {
             return {
                 error: 'Không tìm thấy nhóm món ăn.',
             };
         }
 
-        await nhomMA.deleteOne();
+        const deleteGroupDish = await groupDish.deleteOne();
+        const deleteDishesInCookBook = await DishInCookBookModel.deleteMany({ cookBook: idGroupDish });
+
+        if (deleteGroupDish && deleteDishesInCookBook) {
+            return {
+                message: 'Xóa nhóm món ăn thành công',
+            };
+        }
+
         return {
-            message: 'Xóa nhóm món ăn thành công',
+            error: 'Xóa nhóm món ăn không thành công',
         };
     }
 }
