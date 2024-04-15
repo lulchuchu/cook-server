@@ -1,12 +1,12 @@
 import express from 'express';
-const cookBookRouter = express.Router();
-import cookBookController from '../controllers/groupDishController';
+const groupDishRouter = express.Router();
+import groupDishController from '../controllers/groupDishController';
 
-cookBookRouter.post('/create', cookBookController.addCookBook);
-cookBookRouter.post('/add-dish', cookBookController.addDishToCookBook);
-cookBookRouter.get('/get-all-cookBook', cookBookController.getAllCookBook);
-cookBookRouter.get('/get-all-dish-of-cookBook', cookBookController.getAllDishOfCookBook);
-cookBookRouter.delete('/erase-dish-from-cookBook', cookBookController.eraseDishFromCookBook);
-cookBookRouter.delete('/:idCookBook', cookBookController.eraseCookBook);
+groupDishRouter.post('/create', groupDishController.addCookBook);
+groupDishRouter.post('/add-dish', groupDishController.addDishToCookBook);
+groupDishRouter.get('/get-all-cookBook', groupDishController.getAllCookBook);
+groupDishRouter.get('/get-all-dish-of-cookBook', groupDishController.getAllDishOfCookBook);
+groupDishRouter.delete('/erase-dish', groupDishController.eraseDishFromCookBook);
+groupDishRouter.delete('/erase', groupDishController.eraseCookBook);
 
-export default cookBookRouter;
+export default groupDishRouter;

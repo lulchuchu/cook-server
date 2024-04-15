@@ -3,6 +3,13 @@ import { model, Schema } from 'mongoose';
 const DOCUMENT_NAME = 'Dish';
 const COLLECTION_NAME = 'Dishs';
 
+type Nuttrition  = {
+    Cal: number;
+    Fat: string;
+    Protein: string;
+    Carb: string;
+}
+
 const Dish = new Schema(
     {
         name: {
@@ -32,7 +39,7 @@ const Dish = new Schema(
             type: String,
         },
         nuttrition: {
-            type: Array,
+            type: Object,
         },
         step: { type: Array },
     },

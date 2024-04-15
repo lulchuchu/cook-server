@@ -12,15 +12,15 @@ class createDB {
             const prices = req.body.prices;
 
             const newIngredients = new IngredientModel({
-                ten: keyIngre,
-                soluong: valueIngre,
-                donvitinh: units,
-                gia: prices,
+                name: keyIngre,
+                quantity: valueIngre,
+                unit: units,
+                price: prices,
             });
 
             const saved = await newIngredients.save();
             if (!saved) res.status(401).send('Failed!');
-            else res.status(200).send('Success!');
+            else res.status(200).send(saved._id);
         } catch (err: any) {
             res.status(500).send(err.message);
         }

@@ -78,7 +78,7 @@ class nhomCongThucController {
     };
 
     // xóa 1 món ăn từ nhóm món ăn
-    eraseDishFromCookBook = async (req: any, res: any) => {
+    eraseDishFromCookBook = async (req: Request, res: Response) => {
         const { idNguoiDung, idMonAn, idNhomMonAn } = req.body;
         try {
             const data = await CookBookService.eraseDishOfCookBook(idNguoiDung, idMonAn, idNhomMonAn);
@@ -88,14 +88,14 @@ class nhomCongThucController {
             }
 
             return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ message: 'Lỗi server!' });
+        } catch (e: any) {
+            return res.status(500).json({ message: e.message });
         }
     };
 
     // xóa nhóm món ăn
-    eraseCookBook = async (req: any, res: any) => {
-        const { idCookBook } = req.params;
+    eraseCookBook = async (req: Request, res: Response) => {
+        const { idCookBook } = req.body;
         try {
             const data = await CookBookService.eraseCookBook(idCookBook);
 
@@ -104,8 +104,8 @@ class nhomCongThucController {
             }
 
             return res.status(200).json(data);
-        } catch (e) {
-            return res.status(500).json({ message: 'Lỗi server!' });
+        } catch (e:any) {
+            return res.status(500).json({ message: e.message });
         }
     };
 }
