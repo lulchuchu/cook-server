@@ -1,50 +1,50 @@
 {
-    "name": "Gà rán Hàn Quốc kèm salad dưa leo",
-    "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FKorean%20fried%20chicken%20with%20cucumber%20salad%20Recipe%20Kitchen%20Stor.mp4?alt=media&token=d7737768-e37e-4e0d-b3f8-7d31f0d3e856",
-    "imgDes": "https://images.services.kitchenstories.io/aHIa5bQvvrnVbkCGYei4pvX6NOE=/750x0/filters:quality(80)/images.kitchenstories.io/recipeImages/R870-photo-final-4x3.jpg",
-    "description": "",
-    "country": "Hàn Quốc",
-    "type": "Bình thường",
+    "name": "Khoai tây kiểu Bombay",
+    "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FBombay-style%20potatoes%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=54caea0f-4cd2-43e7-bc2e-9b5724274afe",
+    "imgDes": "https://images.services.kitchenstories.io/0Z-iZOqCZM8Xv4k_SHP97YXqf3s=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-final-photo-_0.jpg",
+    "description": "Bạn muốn một lối tắt với nhiều hương vị hơn? Hãy thử gia vị CURRY POWER của chúng tôi để thay thế rau mùi xay, garam masala và nghệ! Bombay Aloo (hoặc aloo ki sabzi), là một món ăn kèm đơn giản nhưng đầy hương vị của Ấn Độ. Trong công thức này, trước tiên chúng ta chiên khoai tây để thêm một chút độ giòn, nhưng bạn cũng có thể thêm khoai tây đã nấu chín vào nước sốt. Thoạt nhìn, nó có thể không giống một công thức rẻ tiền, nhưng đó là một cách tuyệt vời để sử dụng loại gia vị đã quên của bạn và làm cho khoai tây có hương vị tuyệt vời. Bạn có thể dùng nó như một món ăn phụ cho bất kỳ món cà ri nào hoặc thậm chí thưởng thức nó như một bữa trưa nhanh. Nếu không có hạt mù tạt đen, bạn có thể dùng hạt thì là nguyên hạt hoặc hạt thì là. Nếu bạn không thể tìm được cà chua chất lượng tốt, hãy sử dụng cà chua đóng hộp để tăng hương vị.",
+    "country": "Ấn Độ",
+    "type": "Món chay",
     "rating": [],
     "storeUsers": [],
     "likes": [],
-    "defaultPortion": 4,
-    "ingredients": "6606f567a6e3f1773b1bfd0c",
-    "utensils": "tô trộn lớn, dụng cụ gọt rau củ, thớt, dao, chảo rán, khăn giấy, bát nhỏ",
+    "defaultPortion": 1,
+    "ingredients": "661a46a35dfb2cbdc4e8588b",
+    "utensils": "thớt, dao, nồi (lớn), máy xay thực phẩm, chảo rán (lớn), thìa, gia vị bột cà ri",
     "nuttrition": {
-        "Cal": 434,
-        "Fat": "26 g",
-        "Protein": "34 g",
-        "Carb": "16 g"
+        "Cal": 577,
+        "Fat": "37 g",
+        "Protein": "9 g",
+        "Carb": "60 g"
     },
     "step": [
         {
-            "time": 120,
-            "img": "https://images.services.kitchenstories.io/-0QPNA9qESwIw75QfTlkfW1mD4w=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-1.jpg",
-            "ingredients": "600 g chân gà - 1 thìa canh rượu gạo - 1 thìa cà phê muối - ½ thìa cà phê tiêu - 2 thìa cà phê gừng xay",
-            "utenils": "tô trộn lớn",
-            "des": "Trộn rượu gạo, muối, tiêu, gừng vào tô rồi thêm chân gà vào. Quăng để phủ và để ướp trong khoảng. 30 phút."
-        },
-        {
-            "time": 180,
-            "img": "https://images.services.kitchenstories.io/vF-EKv8GGzP-JPShuLbwQVzTjQQ=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-2.jpg",
-            "ingredients": "½ thìa cà phê muối - 2 thìa canh giấm gạo - 1½ thìa canh đường nâu - 1 quả dưa chuột - 2 củ hành lá - 1 quả ớt - 10 g ngò",
-            "utenils": "dụng cụ gọt - thớt - dao - tô trộn lớn",
-            "des": "Đối với món salad, trộn muối, giấm và đường để làm nước sốt. Gọt vỏ dưa chuột, cắt đôi theo chiều dọc và bỏ hạt. Cắt đôi một lần nữa theo chiều dọc, sau đó cắt lát. Cắt nhỏ hành lá. Cắt nhỏ ớt và ngò. Cho dưa chuột, ớt và ngò vào tô, thêm nước sốt rồi trộn đều. Để qua một bên."
-        },
-        {
             "time": 600,
-            "img": "https://images.services.kitchenstories.io/waawHiiQnRq7-Os6xSv2XCBrClY=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-3.jpg",
-            "ingredients": "2 muỗng canh tinh bột - dầu để chiên",
-            "utenils": "chảo - khăn giấy",
-            "des": "Lấy chân gà ra khỏi nước xốt và cho tinh bột vào cho đến khi phủ kín. Đun nóng dầu trong chảo rồi chiên chân gà ở lửa lớn trong khoảng. 6 – 8 phút. cho đến khi giòn. Loại bỏ và tẩy nhờn trên khăn giấy."
+            "img": "https://images.services.kitchenstories.io/fKEsF6hW_3fTRw-1ILTo_I-qUoY=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_0.jpg",
+            "ingredients": "500g khoai tây",
+            "utenils": "dao - thớt - nồi",
+            "des": "Cắt đôi hoặc cắt đôi khoai tây nếu sử dụng củ lớn hơn. Chuyển khoai tây vào một nồi lớn chứa nước ở nhiệt độ phòng có muối và đun sôi. Sau khi sôi, giảm nhiệt và đun nhỏ lửa trong khoảng. 10 phút hoặc cho đến khi mềm. Sau khi đã chín, hãy để ráo khoai tây và để vào chảo để hấp xong."
         },
         {
-            "time": 150,
-            "img": "https://images.services.kitchenstories.io/fpbQc4RBcp-sGz1kp89ZPUpTVgs=/750x0/filters:quality(80)/images.kitchenstories.io/recipeStepImages/R870-photo-step-4.jpg",
-            "ingredients": "1 tép tỏi - 5 thìa canh sốt cà chua = 2 thìa canh Gochujang - 2 thìa canh mật ong - 2 thìa canh đường nâu - 2 thìa canh nước tương - 2 thìa canh dầu mè - 2 thìa canh đậu phộng",
-            "utenils": "bát nhỏ",
-            "des": "Băm tỏi và cho vào tô nhỏ. Thêm sốt cà chua, Gochujang, mật ong, đường, nước tương và dầu mè. Đun nóng nước sốt trong chảo rán và đun nhỏ lửa khoảng. 1 – 2 phút. để dày lên. Tắt bếp và thêm chân gà vào. Trộn đều và rắc đậu phộng cắt nhỏ lên trên. Ăn kèm salad dưa chuột và thưởng thức!"
+            "time": 120,
+            "img": "https://images.services.kitchenstories.io/-Rxo_N2HUH6E4xxQHLg2LWtV0ts=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_1.jpg",
+            "ingredients": "15 g gừng - 1 tép tỏi - 2 quả cà chua - 1 củ hẹ - 1 quả ớt xanh",
+            "utenils": "máy xay thực phẩm",
+            "des": "Trong khi đó, gọt vỏ gừng và tỏi, xắt nhỏ cà chua. Cho gừng, tỏi và cà chua vào máy xay thực phẩm, xay cho đến khi mịn rồi đặt sang một bên. Sau đó thái mỏng hành tím và ớt xanh."
+        },
+        {
+            "time": 300,
+            "img": "https://images.services.kitchenstories.io/Ozg_JKAGG4HCVUdOGXsaKxPbp_M=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_2.jpg",
+            "ingredients": "4tbsp dầu ăn - 1tsp hạt thì là đen",
+            "utenils": "chảo rán - thìa",
+            "des": "Trong chảo lớn, đun nóng 3/4 lượng dầu thực vật trên lửa cao. Thêm khoai tây đã nấu chín và chiên cho đến khi vàng, lấy ra khỏi chảo và đặt sang một bên. Giảm lửa vừa, cho lượng dầu còn lại vào chảo. Thêm hạt thì là đen và xào nhanh trong 1 phút, sau đó thêm hành tím băm vào và chiên khoảng. 5 phút cho đến khi trong mờ và hơi caramen."
+        },
+        {
+            "time": 360,
+            "img": "https://images.services.kitchenstories.io/HB_yhDlfVtd8018IpHpFFGTJmJQ=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_3.jpg",
+            "ingredients": "2 tsp bột cà ri (tùy chọn) - 1 tsp rau mùi xay - 1 tsp garam masala - ½ tsp bột nghệ (đất) - 1tsp sữa chua bơ (để trang trí) - ngò (để trang trí)",
+            "utenils": "",
+            "des": "Thêm rau mùi xay, garam masala và nghệ, hoặc gia vị CURRY POWER (nếu dùng) vào chảo, giảm nhiệt và chiên cho đến khi có mùi thơm trong khi đảo thường xuyên. Sau đó thêm ớt xanh và hỗn hợp cà chua-gừng. Nấu trong khoảng. 3 – 5 phút, cho đến khi nước sốt đặc lại và trở nên dính. Chuyển khoai tây chiên trở lại chảo, thêm bơ, đảo đều và tiếp tục nấu trong khoảng. 3 – 5 phút. Ăn kèm với rau mùi tươi và một ít sữa chua. Thưởng thức!"
         }
     ]
 }

@@ -10,7 +10,7 @@ const CommentBlog = new Schema(
             ref: 'Account',
             required: true,
         },
-        content: { type: String, required: true },
+        content: { type: String},
         img: { type: String},
         likes: [{
             type: Schema.Types.ObjectId,

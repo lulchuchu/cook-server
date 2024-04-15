@@ -9,5 +9,6 @@ dishRouter.get('/get-by-country', dishController.getByCountry);
 dishRouter.get('/get-detail', dishController.getDishDetail);
 dishRouter.post('/like-dish', dishController.likeDish);
 dishRouter.get('/search', dishController.searchDish);
+dishRouter.get('/get-by-type', dishController.getDishsByType);
 
 export default dishRouter;

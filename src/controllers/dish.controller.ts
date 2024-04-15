@@ -7,6 +7,13 @@ import AccountLikeDishModel from '../models/AccountLikeDish.model';
 
 type DiacriticKey = 'a' | 'e' | 'i' | 'o' | 'u' | 'y';
 
+interface Nuttrition {
+    Cal: number;
+    Fat: string;
+    Protein: string;
+    Carb: string;
+}
+
 class DishController {
     async getAll(req: Request, res: Response): Promise<void> {
         try {
@@ -113,11 +120,28 @@ class DishController {
     async getByDiet(req: Request, res: Response): Promise<void> {
         try {
             const diet = req.query.key;
-            var type = '';
             if (diet === 'Ăn chay') {
-                type = 'Món chay';
+                const dishs = await DishModel.find({ type: 'Món chay' });
+                const data = [];
+                for (const dish of dishs) {
+                    const item = {
+                        _id: dish._id,
+                        img: dish.imgDes,
+                        name: dish.name,
+                        // likes: dish.likes,
+                        type: dish.type,
+                        country: dish.country,
+                    };
+                    data.push(item);
+                }
+                res.status(200).send(
+                    data
+                        .slice()
+                        .sort(() => Math.random() - 0.5)
+                        .slice(0, 5),
+                );
             }
-            const dishs = await DishModel.find({ type: type });
+            const dishs = await DishModel.find({ type: diet });
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
@@ -133,14 +157,33 @@ class DishController {
                 };
                 data.push(item);
             }
-            res.status(200).send(
-                data
-                    .slice()
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, 5),
-            );
         } catch (err: any) {
             res.status(500).send({ message: err.message });
+        }
+    }
+
+    async getDishsByType(req: Request, res: Response): Promise<void> {
+        try {
+            const type = req.query.type;
+            if (type !== 'Mỳ') {
+                const data = await DishModel.find({type: type}).select('_id name imgDes likes ');
+                res.status(200).send(data.slice().sort(() => Math.random() - 0.5));
+            }
+            else {
+                const query: FilterQuery<WithId<any>> = {
+                    $or: [
+                        { name: { $regex: 'Mỳ', $options: 'i' } },
+                        { name: { $regex: 'Phở', $options: 'i' } },
+                        { name: { $regex: 'Bún', $options: 'i' } },
+                        { desciption: { $regex: 'Mỳ', $options: 'i' } },
+                    ],
+                };
+                const data = await DishModel.find(query).select('_id name imgDes likes ');
+                res.status(200).send(data.slice().sort(() => Math.random() - 0.5));
+            }
+        }
+        catch(err: any) {
+            res.status(500).send({message: err.message});
         }
     }
 
