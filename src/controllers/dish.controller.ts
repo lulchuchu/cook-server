@@ -3,6 +3,7 @@ import DishModel from '../models/Dish.model';
 import DishService from '../services/dish.service';
 import { FilterQuery, Types } from 'mongoose';
 import { WithId } from 'mongodb';
+import AccountLikeDishModel from '../models/AccountLikeDish.model';
 
 type DiacriticKey = 'a' | 'e' | 'i' | 'o' | 'u' | 'y';
 
@@ -17,13 +18,16 @@ class DishController {
     async getAll(req: Request, res: Response): Promise<void> {
         try {
             const dishs = await DishModel.find({});
+
             const data = [];
             for (const dish of dishs) {
+                const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
-                    numberLike: dish.likes.length,
+                    // numberLike: dish.likes.length,
+                    numberLike: numLikesOfDish.length || 0,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -40,16 +44,18 @@ class DishController {
         }
     }
 
+    // hàm thừa chưa được sử dụng
     async getAllDish(req: Request, res: Response): Promise<void> {
         try {
             const dishs = await DishModel.find({});
             const data = [];
             for (const dish of dishs) {
+                const numLikesOfDish = await AccountLikeDishModel.findOne({ dish: dish._id });
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
-                    numberLike: dish.likes.length,
+                    numberLike: numLikesOfDish,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -121,7 +127,7 @@ class DishController {
                         _id: dish._id,
                         img: dish.imgDes,
                         name: dish.name,
-                        likes: dish.likes,
+                        // likes: dish.likes,
                         type: dish.type,
                         country: dish.country,
                     };
@@ -134,20 +140,19 @@ class DishController {
                         .slice(0, 5),
                 );
             }
-            else {
-                const dishs = await DishModel.find().select('_id nuttrition name imgDes likes type country');
-                const data = [];
-                for (const dish of dishs) {
-                    const nuttrition = dish.nuttrition;
-                    const fat = parseInt(nuttrition['Fat'].toString().split(' ')[0]);
-                    const carb = parseInt(nuttrition['Carb'].toString().split(' ')[0]);
-                    if (fat <= 40 && carb <= 60) {
-                        data.push(dish);
-                    }
-                }
-                res.send(data.slice()
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 5));
+            const dishs = await DishModel.find({ type: diet });
+            const data = [];
+            for (const dish of dishs) {
+                const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const item = {
+                    _id: dish._id,
+                    img: dish.imgDes,
+                    name: dish.name,
+                    numberLike: numLikesOfDish.length || 0,
+                    type: dish.type,
+                    country: dish.country,
+                };
+                data.push(item);
             }
         } catch (err: any) {
             res.status(500).send({ message: err.message });
@@ -185,11 +190,12 @@ class DishController {
             const dishs = await DishModel.find({ country: country });
             const data = [];
             for (const dish of dishs) {
+                const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
-                    numberLike: dish.likes.length,
+                    numberLike: numLikesOfDish.length || 0,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -209,7 +215,26 @@ class DishController {
     async getDishDetail(req: Request, res: Response): Promise<void> {
         try {
             const _id = req.query._id;
-            const dish = await DishModel.findById(_id).populate('ingredients').exec();
+            const currentDish = await DishModel.findById(_id).populate('ingredients').exec();
+            const numLikesOfDish = await AccountLikeDishModel.find({ dish: _id });
+            const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
+            const dish = {
+                _id: currentDish?._id,
+                name: currentDish?.name,
+                video: currentDish?.video,
+                likes: arrayIdAccountLike,
+                imgDes: currentDish?.imgDes,
+                description: currentDish?.description,
+                type: currentDish?.type,
+                defaultPortion: currentDish?.defaultPortion,
+                ingredients: currentDish?.ingredients,
+                utensils: currentDish?.utensils,
+                nuttrition: currentDish?.nuttrition,
+                step: currentDish?.step,
+                country: currentDish?.country,
+                updatedAt: currentDish?.updatedAt,
+            };
+
             res.status(200).send(dish);
         } catch (err: any) {
             res.status(500).send({ message: err.message });
@@ -234,14 +259,17 @@ class DishController {
     async getLikedOfUser(req: Request, res: Response): Promise<void> {
         try {
             const user = req.query.user as string;
-            const dishs = await DishModel.find();
-            var dishLiked = [];
-            for (const dish of dishs) {
-                if (dish.likes.includes(new Types.ObjectId(user))) {
-                    dishLiked.push(dish);
-                }
-            }
-            res.status(200).send(dishLiked);
+            // const dishs = await DishModel.find();
+            // var dishLiked = [];
+            // for (const dish of dishs) {
+            //     if (dish.likes.includes(new Types.ObjectId(user))) {
+            //         dishLiked.push(dish);
+            //     }
+            // }
+            // res.status(200).send(dishLiked);
+
+            const dishLiked = await DishService.getLikeDishesOfAccount(user);
+            res.status(200).json(dishLiked);
         } catch (err: any) {
             res.status(500).send({ message: err.message });
         }
