@@ -2,6 +2,7 @@ import DishModel from '../models/Dish.model';
 import AccountModel from '../models/Account.model';
 import CommentDishModel from '../models/CommentDish.model';
 import bucket from '../configs/firebase';
+import LikeAndUnlikeCommentDishModel from '../models/LikeAndUnlikeCommentDish.model';
 const Types = require('mongoose').Types;
 
 interface Image {
@@ -19,13 +20,6 @@ export default class CommentDish {
             };
         }
 
-        // const arrayCommentDish = await CommentDishModel.find({
-        //     idDish: idDish,
-        // })
-        //     .populate('user')
-        //     .lean()
-        //     .exec();
-
         const listCommentDishes = await CommentDishModel.find({
             idDish: idDish,
         })
@@ -33,15 +27,39 @@ export default class CommentDish {
             .lean()
             .exec();
 
-        const arrayCommentDish = listCommentDishes.map((item) => {
-            return {
-                ...item,
-                user: {
-                    ...item.user,
-                    password: null,
-                },
+        var arrayCommentDish: any = [];
+
+        for (const item of listCommentDishes) {
+            const getLikesCommentDish = async () => {
+                const likesCommentDish = await LikeAndUnlikeCommentDishModel.find({ commentDish: item._id, state: 1 });
+                const likesAccount = likesCommentDish.map((item) => item.account);
+                return likesAccount;
             };
-        });
+
+            const getDislikesCommentDish = async () => {
+                const dislikesCommentDish = await LikeAndUnlikeCommentDishModel.find({
+                    commentDish: item._id,
+                    state: -1,
+                });
+                const dislikesAccount = dislikesCommentDish.map((item) => item.account);
+                return dislikesAccount;
+            };
+
+            const idAccountsLike = await getLikesCommentDish();
+            const idAccountsDislike = await getDislikesCommentDish();
+            if (idAccountsLike && idAccountsDislike) {
+                arrayCommentDish.push({
+                    ...item,
+                    user: {
+                        ...item.user,
+                        password: null,
+                    },
+                    likes: idAccountsLike,
+                    dislikes: idAccountsDislike,
+                });
+            }
+        }
+
         return {
             list_comment_dish: arrayCommentDish,
         };
@@ -96,8 +114,8 @@ export default class CommentDish {
     }
 
     // thả cảm xúc vào comment món ăn
-    static async addFeeling(idCommentDish: string, idNguoiDung: string, state: number) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async addFeeling(idCommentDish: string, idAccount: string, state: number) {
+        const nguoiDung = await AccountModel.findById(idAccount);
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
@@ -113,78 +131,91 @@ export default class CommentDish {
 
         // nếu state = -1 => trường hợp dislike
         if (state === -1) {
-            // kiểm tra xem đã có like hay chưa
-            const checkLike = commentDish.likes.includes(new Types.ObjectId(idNguoiDung));
+            const checkLike = await LikeAndUnlikeCommentDishModel.findOne({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: 1,
+            });
 
             if (checkLike) {
-                await commentDish.updateOne({
-                    $pull: {
-                        likes: idNguoiDung,
-                    },
-                });
+                await checkLike.deleteOne();
             }
 
-            const checkDislike = commentDish.dislikes.includes(new Types.ObjectId(idNguoiDung));
+            const checkDislike = await LikeAndUnlikeCommentDishModel.findOne({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: -1,
+            });
 
             if (checkDislike) {
-                await commentDish.updateOne({
-                    $pull: {
-                        dislikes: idNguoiDung,
-                    },
-                });
+                await checkDislike.deleteOne();
 
                 return {
                     message: 'Bỏ dislike thành công!',
                 };
             }
 
-            await commentDish.updateOne({
-                $push: {
-                    dislikes: idNguoiDung,
-                },
+            const newDislikeCommentDish = new LikeAndUnlikeCommentDishModel({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: -1,
             });
-            return {
-                message: 'Dislike thành công!',
-            };
-        } else {
-            const checkDislike = commentDish.dislikes.includes(new Types.ObjectId(idNguoiDung));
-
-            if (checkDislike) {
-                await commentDish.updateOne({
-                    $pull: {
-                        dislikes: idNguoiDung,
-                    },
-                });
+            const checkAccess = await newDislikeCommentDish.save();
+            if (checkAccess) {
+                return {
+                    message: 'Dislike thành công!',
+                };
             }
 
-            const checkLike = commentDish.likes.includes(new Types.ObjectId(idNguoiDung));
+            return {
+                message: 'Dislike không thành công!',
+            };
+        } else {
+            const checkDislike = await LikeAndUnlikeCommentDishModel.findOne({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: -1,
+            });
+
+            if (checkDislike) {
+                await checkDislike.deleteOne();
+            }
+
+            const checkLike = await LikeAndUnlikeCommentDishModel.findOne({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: 1,
+            });
 
             if (checkLike) {
-                await commentDish.updateOne({
-                    $pull: {
-                        likes: idNguoiDung,
-                    },
-                });
+                await checkLike.deleteOne();
 
                 return {
                     message: 'Bỏ like thành công!',
                 };
             }
 
-            await commentDish.updateOne({
-                $push: {
-                    likes: idNguoiDung,
-                },
+            const newLikeCommentDish = new LikeAndUnlikeCommentDishModel({
+                account: idAccount,
+                commentDish: idCommentDish,
+                state: 1,
             });
+            const checkAccess = await newLikeCommentDish.save();
+            if (checkAccess) {
+                return {
+                    message: 'Like thành công!',
+                };
+            }
+
             return {
-                message: 'Like thành công!',
+                message: 'Like không thành công!',
             };
         }
     }
 
     // xóa 1 comment món ăn
-    static async deleteCommentDish(idNguoiDung: string, idCommentDish: string) {
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+    static async deleteCommentDish(idAccount: string, idCommentDish: string) {
+        const nguoiDung = await AccountModel.findById(idAccount);
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
@@ -198,16 +229,26 @@ export default class CommentDish {
             };
         }
 
-        if (idNguoiDung !== commentDish.user?.toString()) {
+        if (idAccount !== commentDish.user?.toString()) {
             return {
                 error: 'Bạn không phải chủ nhân của bình luận này!',
             };
         }
 
-        await commentDish.deleteOne();
+        // await LikeAndUnlikeCommentDishModel.deleteMany({ commentDish: idCommentDish });
 
+        // await commentDish.deleteOne();
+
+        const success1 = await LikeAndUnlikeCommentDishModel.deleteMany({ commentDish: idCommentDish });
+        const success2 = await commentDish.deleteOne();
+
+        if (success1 && success2) {
+            return {
+                message: 'Xóa bình luận món ăn thành công',
+            };
+        }
         return {
-            message: 'Xóa bình luận thành công!',
+            error: 'Xóa bình luận món ăn không thành công',
         };
     }
 }

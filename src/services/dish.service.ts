@@ -66,12 +66,23 @@ export default class MonAn {
             };
         }
 
-        const listAccountsLikeDish = await AccountLikeDishModel.find({ account: idAccount }).populate('dish');
+        const listAccountsLikeDish = await AccountLikeDishModel.find({ account: idAccount });
 
-        const configValueReturn = listAccountsLikeDish.map((item) => {
-            return item.dish;
-        });
+        var configValueReturn = [];
 
+        for (const item of listAccountsLikeDish) {
+            const currentDish = await DishModel.findById(item.dish);
+            const numLikesOfDish = await AccountLikeDishModel.find({ dish: currentDish?._id });
+            const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
+            const dish = {
+                _id: currentDish?._id,
+                name: currentDish?.name,
+                likes: arrayIdAccountLike,
+                imgDes: currentDish?.imgDes,
+                type: currentDish?.type,
+            };
+            configValueReturn.push(dish);
+        }
         return configValueReturn;
     }
 }

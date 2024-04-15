@@ -15,18 +15,6 @@ const CommentDish = new Schema(
         },
         content: { type: String },
         img: { type: String },
-        likes: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Account',
-            },
-        ],
-        dislikes: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Account',
-            },
-        ],
     },
     {
         timestamps: true,

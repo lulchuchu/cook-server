@@ -15,12 +15,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
-                    // numberLike: dish.likes.length,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -120,11 +121,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -148,11 +151,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -216,15 +221,6 @@ class DishController {
     async getLikedOfUser(req: Request, res: Response): Promise<void> {
         try {
             const user = req.query.user as string;
-            // const dishs = await DishModel.find();
-            // var dishLiked = [];
-            // for (const dish of dishs) {
-            //     if (dish.likes.includes(new Types.ObjectId(user))) {
-            //         dishLiked.push(dish);
-            //     }
-            // }
-            // res.status(200).send(dishLiked);
-
             const dishLiked = await DishService.getLikeDishesOfAccount(user);
             res.status(200).json(dishLiked);
         } catch (err: any) {

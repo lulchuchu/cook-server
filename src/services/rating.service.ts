@@ -10,21 +10,21 @@ interface Image {
 
 export default class DanhGia {
     // tại 1 đánh giá, nếu đã có đánh giá rồi thì sửa đánh giá
-    static async createRating(idMonAn: string, idNguoiDung: string, diemDanhGia: number, img: Image, noiDung: string) {
-        if (!diemDanhGia) {
+    static async createRating(idDish: string, idAccount: string, score: number, img: Image, content: string) {
+        if (!score) {
             return {
                 error: 'Vui lòng đánh giá Star cho công thức.',
             };
         }
 
-        const monAn = await DishModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idDish);
         if (!monAn) {
             return {
                 error: 'Không tìm thấy món ăn.',
             };
         }
 
-        const nguoiDung = await AccountModel.findById(idNguoiDung);
+        const nguoiDung = await AccountModel.findById(idAccount);
         if (!nguoiDung) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này!',
@@ -32,8 +32,8 @@ export default class DanhGia {
         }
 
         const danhGia = await RatingModel.findOne({
-            account: idNguoiDung,
-            dish: idMonAn,
+            account: idAccount,
+            dish: idDish,
         });
 
         var url = '';
@@ -56,14 +56,10 @@ export default class DanhGia {
         }
 
         if (danhGia) {
-            if (
-                diemDanhGia.toString() !== danhGia.score?.toString() ||
-                url !== danhGia.img ||
-                noiDung !== danhGia.content
-            ) {
-                danhGia.score = diemDanhGia || danhGia.score;
+            if (score.toString() !== danhGia.score?.toString() || url !== danhGia.img || content !== danhGia.content) {
+                danhGia.score = score || danhGia.score;
                 danhGia.img = url || danhGia.img;
-                danhGia.content = noiDung || danhGia.content;
+                danhGia.content = content || danhGia.content;
 
                 const currentDanhGia = await danhGia.save();
                 if (currentDanhGia) {
@@ -83,11 +79,11 @@ export default class DanhGia {
         }
 
         const newDanhGia = new RatingModel({
-            dish: idMonAn,
-            account: idNguoiDung,
-            score: diemDanhGia,
+            dish: idDish,
+            account: idAccount,
+            score: score,
             img: url,
-            content: noiDung,
+            content: content,
         });
 
         const saveDanhGia = await newDanhGia.save();
@@ -104,8 +100,8 @@ export default class DanhGia {
     }
 
     // xóa đánh giá
-    static async eraseRating(idDanhGia: string, idMonAn: string) {
-        const danhGia = await RatingModel.findById(idDanhGia);
+    static async eraseRating(idRating: string, idDish: string) {
+        const danhGia = await RatingModel.findById(idRating);
 
         if (!danhGia) {
             return {
@@ -113,7 +109,7 @@ export default class DanhGia {
             };
         }
 
-        const monAn = await DishModel.findById(idMonAn);
+        const monAn = await DishModel.findById(idDish);
         if (!monAn) {
             return {
                 error: 'Không tìm thấy món ăn.',
@@ -127,8 +123,8 @@ export default class DanhGia {
     }
 
     // lấy ra các đánh giá và điểm trung bình đánh giá 1 món ăn
-    static async getRating(idMonAn: string) {
-        const monAn = await DishModel.findById(idMonAn);
+    static async getRating(idDish: string) {
+        const monAn = await DishModel.findById(idDish);
 
         if (!monAn) {
             return {
@@ -136,7 +132,7 @@ export default class DanhGia {
             };
         }
 
-        const danhGiaList = await RatingModel.find({ dish: idMonAn });
+        const danhGiaList = await RatingModel.find({ dish: idDish });
 
         const tongDiemDanhGia = danhGiaList.reduce((totalValue, currentValue) => {
             return totalValue + Number(currentValue.score);
