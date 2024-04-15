@@ -50,8 +50,9 @@ export default class GroupDish {
         }
     }
 
-    static async addDishToCookBook(idCookBook: string, idDish: string, idUser: string) {
-        const account = await AccountModel.findById(idUser);
+    // thêm món ăn vào nhóm , không qua bước tạo nhóm mới
+    static async addDishToCookBook(idCookBook: string, idDish: string, idAccount: string) {
+        const account = await AccountModel.findById(idAccount);
         if (!account) {
             return {
                 error: 'Vui lòng đăng nhập để thực hiện chức năng này.',
@@ -108,12 +109,12 @@ export default class GroupDish {
     }
 
     // lấy tất cả món ăn trong nhóm món ăn
-    static async getDishesOfCookBook(idGroupDish: string) {
+    static async getDishesOfCookBook(idCookBook: string) {
         try {
             // Phương thức .lean() trong Mongoose là một trong những phương thức được
             // sử dụng để tăng hiệu suất và giảm bộ nhớ khi
             // truy vấn dữ liệu từ cơ sở dữ liệu MongoDB bằng Mongoose.
-            const groupDish = await CookBookModel.findById(idGroupDish);
+            const groupDish = await CookBookModel.findById(idCookBook);
 
             if (!groupDish) {
                 return {
@@ -121,16 +122,9 @@ export default class GroupDish {
                 };
             }
 
-            const dishesInGroupDish = await DishInCookBookModel.find({ cookBook: idGroupDish });
+            const dishesInGroupDish = await DishInCookBookModel.find({ cookBook: idCookBook });
 
             var formattedMonAns = [];
-
-            // dishesInGroupDish.map((item: any) => ({
-            //     _id: item?.dish?._id,
-            //     name: item?.dish?.name,
-            //     imgDes: item?.dish?.imgDes,
-            //     likes: ma.likes,
-            // }));
 
             for (const item of dishesInGroupDish) {
                 const dish = await DishModel.findById(item.dish);
@@ -153,7 +147,7 @@ export default class GroupDish {
     }
 
     // xóa món ăn khỏi nhóm món ăn
-    static async eraseDishOfCookBook(idAccount: string, idDish: string, idGroupDish: string) {
+    static async eraseDishOfCookBook(idAccount: string, idDish: string, idCookBook: string) {
         const account = await AccountModel.findById(idAccount);
 
         if (!account) {
@@ -169,16 +163,17 @@ export default class GroupDish {
                 error: 'Không tìm thấy món ăn.',
             };
         }
-
-        const groupDish = await CookBookModel.findById(idGroupDish);
+        console.log(1);
+        const groupDish = await CookBookModel.findById(idCookBook);
 
         if (!groupDish) {
             return {
                 error: 'Không tìm thấy nhóm món ăn.',
             };
         }
+        console.log(2);
 
-        const deleteDishInGroupDish = await DishInCookBookModel.deleteOne({ cookBook: idGroupDish, dish: idDish });
+        const deleteDishInGroupDish = await DishInCookBookModel.deleteOne({ cookBook: idCookBook, dish: idDish });
         if (deleteDishInGroupDish) {
             return {
                 message: 'Xóa khỏi nhóm thành công',
@@ -190,8 +185,8 @@ export default class GroupDish {
     }
 
     // xóa nhóm món ăn
-    static async eraseCookBook(idGroupDish: string) {
-        const groupDish = await CookBookModel.findById(idGroupDish);
+    static async eraseCookBook(idCookBook: string) {
+        const groupDish = await CookBookModel.findById(idCookBook);
 
         if (!groupDish) {
             return {
@@ -200,7 +195,7 @@ export default class GroupDish {
         }
 
         const deleteGroupDish = await groupDish.deleteOne();
-        const deleteDishesInCookBook = await DishInCookBookModel.deleteMany({ cookBook: idGroupDish });
+        const deleteDishesInCookBook = await DishInCookBookModel.deleteMany({ cookBook: idCookBook });
 
         if (deleteGroupDish && deleteDishesInCookBook) {
             return {

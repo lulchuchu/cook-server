@@ -15,12 +15,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
-                    // numberLike: dish.likes.length,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -120,11 +121,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };
@@ -148,11 +151,13 @@ class DishController {
             const data = [];
             for (const dish of dishs) {
                 const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                 const item = {
                     _id: dish._id,
                     img: dish.imgDes,
                     name: dish.name,
                     numberLike: numLikesOfDish.length || 0,
+                    likes: arrayIdAccountLike,
                     type: dish.type,
                     country: dish.country,
                 };

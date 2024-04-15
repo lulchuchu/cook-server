@@ -1,4 +1,3 @@
-import CookBookModel from '../models/GroupDish.model';
 import CookBookService from '../services/groupDish.service';
 import { Request, Response } from 'express';
 
