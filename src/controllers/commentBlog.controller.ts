@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import CommentBlogModels from '../models/CommentBlog.models';
+import CommentBlogModels from '../models/CommentBlog.model';
 import BlogModels from '../models/Blog.models';
 import bucket from '../configs/firebase';
 

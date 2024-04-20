@@ -132,7 +132,7 @@ export default class DanhGia {
             };
         }
 
-        const danhGiaList = await RatingModel.find({ dish: idDish });
+        const danhGiaList = await RatingModel.find({ dish: idDish }).populate('account').exec();
 
         const tongDiemDanhGia = danhGiaList.reduce((totalValue, currentValue) => {
             return totalValue + Number(currentValue.score);
@@ -141,7 +141,7 @@ export default class DanhGia {
         const trungBinhDanhGia = tongDiemDanhGia / danhGiaList.length;
         return {
             trungBinhDanhGia: Number(trungBinhDanhGia.toFixed(1)),
-            list_danh_gia: danhGiaList,
+            list_danh_gia: danhGiaList.reverse(),
         };
     }
 }

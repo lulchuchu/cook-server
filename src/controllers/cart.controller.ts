@@ -5,20 +5,26 @@ class CartController {
     async addCart(req: Request, res: Response): Promise<void> {
         try {
             const { img, nameDish, idDish, idUser, idIngre, meal } = req.body;
-            const cart = new CartModel({
-                img: img,
-                nameDish: nameDish,
-                dish: idDish,
-                customer: idUser,
-                ingredient: idIngre,
-                meal: meal,
-                state: 'Đang chờ',
-            });
-            const saved = await cart.save();
-            if (saved) {
-                res.status(200).send({ message: 'Success!' });
-            } else {
-                res.status(401).send({ message: 'Failed to save' });
+            const order = await CartModel.findOne({nameDish: nameDish, state: "Đang chờ"});
+            if (order) {
+                res.status(400).send({message: 'Nguyên liệu đã có trong giỏ hàng'});
+            }
+            else {
+                const cart = new CartModel({
+                    img: img,
+                    nameDish: nameDish,
+                    dish: idDish,
+                    customer: idUser,
+                    ingredient: idIngre,
+                    meal: meal,
+                    state: 'Đang chờ',
+                });
+                const saved = await cart.save();
+                if (saved) {
+                    res.status(200).send({ message: 'Success!' });
+                } else {
+                    res.status(401).send({ message: 'Failed to save' });
+                }
             }
         } catch (err: any) {
             res.status(500).send({ message: err.message });
@@ -30,7 +36,7 @@ class CartController {
             const idUser = req.query.idUser;
             const carts = await CartModel.find({ customer: idUser }).populate('ingredient').exec();
             if (carts) {
-                res.status(200).send(carts);
+                res.status(200).send(carts.reverse());
             } else {
                 res.status(404).send({ message: 'Not found!' });
             }

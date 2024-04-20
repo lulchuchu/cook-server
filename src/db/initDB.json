@@ -1,50 +1,43 @@
 {
-    "name": "Khoai tây kiểu Bombay",
-    "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FBombay-style%20potatoes%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=54caea0f-4cd2-43e7-bc2e-9b5724274afe",
-    "imgDes": "https://images.services.kitchenstories.io/0Z-iZOqCZM8Xv4k_SHP97YXqf3s=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-final-photo-_0.jpg",
-    "description": "Bạn muốn một lối tắt với nhiều hương vị hơn? Hãy thử gia vị CURRY POWER của chúng tôi để thay thế rau mùi xay, garam masala và nghệ! Bombay Aloo (hoặc aloo ki sabzi), là một món ăn kèm đơn giản nhưng đầy hương vị của Ấn Độ. Trong công thức này, trước tiên chúng ta chiên khoai tây để thêm một chút độ giòn, nhưng bạn cũng có thể thêm khoai tây đã nấu chín vào nước sốt. Thoạt nhìn, nó có thể không giống một công thức rẻ tiền, nhưng đó là một cách tuyệt vời để sử dụng loại gia vị đã quên của bạn và làm cho khoai tây có hương vị tuyệt vời. Bạn có thể dùng nó như một món ăn phụ cho bất kỳ món cà ri nào hoặc thậm chí thưởng thức nó như một bữa trưa nhanh. Nếu không có hạt mù tạt đen, bạn có thể dùng hạt thì là nguyên hạt hoặc hạt thì là. Nếu bạn không thể tìm được cà chua chất lượng tốt, hãy sử dụng cà chua đóng hộp để tăng hương vị.",
-    "country": "Ấn Độ",
-    "type": "Món chay",
+    "name": "Bánh mì kẹp thịt (Hamburgers)",
+    "video": "https://firebasestorage.googleapis.com/v0/b/kitchenstories-7031c.appspot.com/o/videos%2FSmash%20burger%20Recipe%20Kitchen%20Stories.mp4?alt=media&token=ae059ad1-471e-44f6-a67c-344c802db2b5",
+    "imgDes": "https://images.services.kitchenstories.io/QVDU2zhweB6VoYFPkVDUrry1KM8=/1080x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2121_smash_burger_title.jpg",
+    "description": "Làm món burger kiểu Mỹ tại nhà dễ hơn bạn nghĩ. Để có kết quả tốt nhất, hãy sử dụng chảo gang và đảm bảo chảo thật nóng trước khi cho miếng chả vào. Chúng tôi thích những chiếc bánh mì kẹp thịt có lớp phủ cổ điển này, nhưng bạn có thể thử nghiệm theo cách mình muốn! Thêm thịt xông khói, hành tây caramen hoặc một loại phô mai thay thế, chẳng hạn như phô mai xanh hoặc phô mai brie.",
+    "country": "Mỹ",
+    "type": "Bình thường",
     "rating": [],
     "storeUsers": [],
     "likes": [],
-    "defaultPortion": 1,
-    "ingredients": "661a46a35dfb2cbdc4e8588b",
-    "utensils": "thớt, dao, nồi (lớn), máy xay thực phẩm, chảo rán (lớn), thìa, gia vị bột cà ri",
+    "defaultPortion": 4,
+    "ingredients": "66214c602f14766224468dc9",
+    "utensils": "thớt, dao, bát, máy đánh trứng, giấy nến, kéo, chảo gang, thìa",
     "nuttrition": {
-        "Cal": 577,
-        "Fat": "37 g",
-        "Protein": "9 g",
-        "Carb": "60 g"
+        "Cal": 700,
+        "Fat": "49 g",
+        "Protein": "33 g",
+        "Carb": "30 g"
     },
     "step": [
         {
-            "time": 600,
-            "img": "https://images.services.kitchenstories.io/fKEsF6hW_3fTRw-1ILTo_I-qUoY=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_0.jpg",
-            "ingredients": "500g khoai tây",
-            "utenils": "dao - thớt - nồi",
-            "des": "Cắt đôi hoặc cắt đôi khoai tây nếu sử dụng củ lớn hơn. Chuyển khoai tây vào một nồi lớn chứa nước ở nhiệt độ phòng có muối và đun sôi. Sau khi sôi, giảm nhiệt và đun nhỏ lửa trong khoảng. 10 phút hoặc cho đến khi mềm. Sau khi đã chín, hãy để ráo khoai tây và để vào chảo để hấp xong."
+            "time": 60,
+            "img": "https://images.services.kitchenstories.io/DmuMEXzSj1ykXzdDebZqJ4Fa8yQ=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2121_smash_burger_step_1.jpg",
+            "ingredients": "1 hành tím - 1 cây rau diếp - 20g dưa muối - 3tbsp mayonnaise - 1tbsp tương cà - 1tbsp mù tạt - 4 bánh burger",
+            "utenils": "thớt- dao - bát - máy đánh kem - giấy sáp - kéo",
+            "des": "Gọt vỏ và cắt hành tây theo chiều dọc. Rửa sạch rau xà lách và thái nhỏ. Xả dưa chua. Trộn sốt mayonnaise, sốt cà chua và mù tạt vào một cái bát nhỏ. Cắt đôi số bánh burger và nướng bánh mì theo ý thích của bạn. Cắt giấy da thành các hình vuông có kích thước 15 x 15 cm/6 x 6 inch cho mỗi miếng bánh."
+        },
+        {
+            "time": 480,
+            "img": "https://images.services.kitchenstories.io/lJaoKoHOAzUButy7miX6hemTROk=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2121_smash_burger_step_2.jpg",
+            "ingredients": "500g thịt bò xay - dầu - muối - tiêu",
+            "utenils": "chỏa - thìa",
+            "des": "Đun nóng chảo gang trên lửa cao, sau đó phết nhẹ một lớp dầu thực vật. Chia thịt bò xay thành các phần bằng nhau và vo thành từng viên tròn. Xếp từng miếng chả vào chảo, cẩn thận không để quá đông. Che từng tờ bằng một tờ giấy da và làm phẳng bằng thìa cho đến khi chúng xấp xỉ. dày 1 cm. Nêm muối và hạt tiêu rồi nấu ở nhiệt độ cao trong khoảng. 2 phút. cho đến khi các cạnh giòn và có màu nâu."
         },
         {
             "time": 120,
-            "img": "https://images.services.kitchenstories.io/-Rxo_N2HUH6E4xxQHLg2LWtV0ts=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_1.jpg",
-            "ingredients": "15 g gừng - 1 tép tỏi - 2 quả cà chua - 1 củ hẹ - 1 quả ớt xanh",
-            "utenils": "máy xay thực phẩm",
-            "des": "Trong khi đó, gọt vỏ gừng và tỏi, xắt nhỏ cà chua. Cho gừng, tỏi và cà chua vào máy xay thực phẩm, xay cho đến khi mịn rồi đặt sang một bên. Sau đó thái mỏng hành tím và ớt xanh."
-        },
-        {
-            "time": 300,
-            "img": "https://images.services.kitchenstories.io/Ozg_JKAGG4HCVUdOGXsaKxPbp_M=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_2.jpg",
-            "ingredients": "4tbsp dầu ăn - 1tsp hạt thì là đen",
-            "utenils": "chảo rán - thìa",
-            "des": "Trong chảo lớn, đun nóng 3/4 lượng dầu thực vật trên lửa cao. Thêm khoai tây đã nấu chín và chiên cho đến khi vàng, lấy ra khỏi chảo và đặt sang một bên. Giảm lửa vừa, cho lượng dầu còn lại vào chảo. Thêm hạt thì là đen và xào nhanh trong 1 phút, sau đó thêm hành tím băm vào và chiên khoảng. 5 phút cho đến khi trong mờ và hơi caramen."
-        },
-        {
-            "time": 360,
-            "img": "https://images.services.kitchenstories.io/HB_yhDlfVtd8018IpHpFFGTJmJQ=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2443-step-photo-_3.jpg",
-            "ingredients": "2 tsp bột cà ri (tùy chọn) - 1 tsp rau mùi xay - 1 tsp garam masala - ½ tsp bột nghệ (đất) - 1tsp sữa chua bơ (để trang trí) - ngò (để trang trí)",
+            "img": "https://images.services.kitchenstories.io/WZS2RcGv8T6LiXuYQ6eVtyq-LPc=/640x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2121_smash_burger_step_3.jpg",
+            "ingredients": "4 miếng phô mai",
             "utenils": "",
-            "des": "Thêm rau mùi xay, garam masala và nghệ, hoặc gia vị CURRY POWER (nếu dùng) vào chảo, giảm nhiệt và chiên cho đến khi có mùi thơm trong khi đảo thường xuyên. Sau đó thêm ớt xanh và hỗn hợp cà chua-gừng. Nấu trong khoảng. 3 – 5 phút, cho đến khi nước sốt đặc lại và trở nên dính. Chuyển khoai tây chiên trở lại chảo, thêm bơ, đảo đều và tiếp tục nấu trong khoảng. 3 – 5 phút. Ăn kèm với rau mùi tươi và một ít sữa chua. Thưởng thức!"
+            "des": "Lật các miếng chả, nêm muối và hạt tiêu rồi đặt một lát phô mai lên mỗi miếng bánh. Nấu thêm 1–2 phút nữa. Trong khi đó, phết nước sốt lên cả hai mặt của bánh, sau đó xếp rau diếp lên nửa dưới. Tiếp theo, xếp các miếng chả, hành tây, dưa chua và mặt trên của bánh mì lên nhau. Phục vụ ngay lập tức!"
         }
     ]
 }

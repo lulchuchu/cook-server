@@ -7,9 +7,7 @@ class ratingController {
         const { idMonAn, idNguoiDung, diemDanhGia, img, noiDung } = req.body;
 
         try {
-            console.log(idMonAn, idNguoiDung, diemDanhGia, img, noiDung);
             const data = await ratingService.createRating(idMonAn, idNguoiDung, diemDanhGia, img, noiDung);
-            console.log(data);
             if (data?.error) {
                 return res.status(400).send({ message: data.error });
             }

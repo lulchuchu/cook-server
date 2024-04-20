@@ -101,15 +101,18 @@ export default class CommentDish {
             idDish: idDish,
             user: idUser,
             content: content,
-            img: url,
-            likes: [],
-            dislikes: [],
+            img: url
         });
 
         const saved = await commentDish.save();
 
+        const newComment = {
+            comment: saved,
+            likes: []
+        }
+
         return {
-            comment_dish: saved,
+            comment_dish: newComment,
         };
     }
 
