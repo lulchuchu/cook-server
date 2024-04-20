@@ -103,8 +103,15 @@ export default class GroupDish {
             user: idAccount,
         });
 
+        const data = [];
+
+        for (const group of groupDishes) {
+            const dishs = await DishInCookBookModel.find({ cookBook: group._id });
+            data.push({group, numberDish: dishs.length});
+        }
+
         return {
-            groupDishes,
+            data,
         };
     }
 
@@ -163,7 +170,6 @@ export default class GroupDish {
                 error: 'Không tìm thấy món ăn.',
             };
         }
-        console.log(1);
         const groupDish = await CookBookModel.findById(idCookBook);
 
         if (!groupDish) {
@@ -171,7 +177,6 @@ export default class GroupDish {
                 error: 'Không tìm thấy nhóm món ăn.',
             };
         }
-        console.log(2);
 
         const deleteDishInGroupDish = await DishInCookBookModel.deleteOne({ cookBook: idCookBook, dish: idDish });
         if (deleteDishInGroupDish) {

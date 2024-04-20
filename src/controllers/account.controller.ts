@@ -145,8 +145,19 @@ class AccountController {
                 text: text.toString(),
             };
 
-            await transporter.sendMail(mailOptions);
-            res.status(200).send({ message: 'Email sent successfully' });
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    res.status(400).send({message: 'Email not exits!'});
+                }
+                else {
+                    if (info.accepted.includes(email)) {
+                        res.status(200).send({ message: 'Email sent successfully' });
+                    }
+                    else {
+                        res.status(400).send({message: 'Email not exits!'});
+                    }
+                }
+            })
         } catch (error: any) {
             res.status(500).send({ message: error.message });
         }
@@ -161,9 +172,9 @@ class AccountController {
             if (code === storedCode) {
                 await AccountModel.updateOne({ email: email }, { $set: { emailVerified: true } });
                 delete temporaryCode[email];
-                res.send({ message: 'Verified email successfully' });
+                res.status(200).send({ message: 'Verified email successfully' });
             } else {
-                res.send({ message: 'Verified email failed' });
+                res.status(400).send({ message: 'Mã xác minh chưa chính xác!' });
             }
         } catch (error: any) {
             res.status(500).send({ message: error.message });
@@ -215,7 +226,7 @@ class AccountController {
     async updateProfile(req: Request, res: Response): Promise<void> {
         try {
             const { _id, username, img, address, tel } = req.body;
-            if (img !== '') {
+            if (img.uri !== '') {
                 const decodedImage = Buffer.from(img.uri, 'base64');
                 const filename = `userImage/${username}.${img.type}`;
                 const file = bucket.file(filename);
@@ -256,7 +267,7 @@ class AccountController {
                         _id: user?._id,
                         email: user?.email,
                         username,
-                        img: user?.img,
+                        img: imgUri,
                         tel: tel,
                         address: address,
                         token: token,

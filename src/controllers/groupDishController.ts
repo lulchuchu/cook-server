@@ -62,7 +62,7 @@ class groupDishController {
                 res.status(400).send({ message: data.error });
             }
 
-            res.status(200).send(data.groupDishes);
+            res.status(200).send(data.data);
         } catch (e) {
             res.status(500).send({ message: 'Lỗi server!' });
         }

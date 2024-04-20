@@ -14,7 +14,7 @@ class commentDishController {
 
             res.status(200).send(data.comment_dish);
         } catch (e: any) {
-            res.status(500).send({ message: 'Lỗi server!' });
+            res.status(500).send({ message: e.message });
         }
     };
 

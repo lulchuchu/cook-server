@@ -7,13 +7,6 @@ import AccountLikeDishModel from '../models/AccountLikeDish.model';
 
 type DiacriticKey = 'a' | 'e' | 'i' | 'o' | 'u' | 'y';
 
-interface Nuttrition {
-    Cal: number;
-    Fat: string;
-    Protein: string;
-    Carb: string;
-}
-
 class DishController {
     async getAll(req: Request, res: Response): Promise<void> {
         try {
@@ -28,7 +21,7 @@ class DishController {
                     img: dish.imgDes,
                     name: dish.name,
                     numberLike: numLikesOfDish.length || 0,
-                    likes: arrayIdAccountLike,
+                    likes: arrayIdAccountLike || [],
                     type: dish.type,
                     country: dish.country,
                 };
@@ -124,11 +117,14 @@ class DishController {
                 const dishs = await DishModel.find({ type: 'Món chay' });
                 const data = [];
                 for (const dish of dishs) {
+                    const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                    const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
                     const item = {
                         _id: dish._id,
                         img: dish.imgDes,
                         name: dish.name,
-                        // likes: dish.likes,
+                        numberLike: numLikesOfDish.length || 0,
+                        likes: arrayIdAccountLike || [],
                         type: dish.type,
                         country: dish.country,
                     };
@@ -141,21 +137,31 @@ class DishController {
                         .slice(0, 5),
                 );
             }
-            const dishs = await DishModel.find({ type: diet });
-            const data = [];
-            for (const dish of dishs) {
-                const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
-                const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
-                const item = {
-                    _id: dish._id,
-                    img: dish.imgDes,
-                    name: dish.name,
-                    numberLike: numLikesOfDish.length || 0,
-                    likes: arrayIdAccountLike,
-                    type: dish.type,
-                    country: dish.country,
-                };
-                data.push(item);
+            else {
+                const dishs = await DishModel.find().select('_id nuttrition name imgDes type country');
+                const data = [];
+                for (const dish of dishs) {
+                    const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                    const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
+                    const nuttrition = dish.nuttrition;
+                    const fat = parseInt(nuttrition['Fat'].toString().split(' ')[0]);
+                    const carb = parseInt(nuttrition['Carb'].toString().split(' ')[0]);
+                    if (fat <= 40 && carb <= 60) {
+                        const item = {
+                            _id: dish._id,
+                            nuttrition: dish.nuttrition,
+                            name: dish.name,
+                            img: dish?.imgDes,
+                            type: dish.type,
+                            country: dish.country,
+                            likes: arrayIdAccountLike || []
+                        }
+                        data.push(item);
+                    }
+                }
+                res.send(data.slice()
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 5));
             }
         } catch (err: any) {
             res.status(500).send({ message: err.message });
@@ -166,7 +172,19 @@ class DishController {
         try {
             const type = req.query.type;
             if (type !== 'Mỳ') {
-                const data = await DishModel.find({type: type}).select('_id name imgDes likes ');
+                const dishs = await DishModel.find({type: type}).select('_id name imgDes');
+                const data = [];
+                for (const dish of dishs) {
+                    const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                    const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
+                    const item = {
+                        _id: dish._id,
+                        name: dish.name,
+                        img: dish.imgDes,
+                        likes: arrayIdAccountLike
+                    }
+                    data.push(item);
+                }
                 res.status(200).send(data.slice().sort(() => Math.random() - 0.5));
             }
             else {
@@ -178,7 +196,19 @@ class DishController {
                         { desciption: { $regex: 'Mỳ', $options: 'i' } },
                     ],
                 };
-                const data = await DishModel.find(query).select('_id name imgDes likes ');
+                const dishs = await DishModel.find(query).select('_id name imgDes');
+                const data = [];
+                for (const dish of dishs) {
+                    const numLikesOfDish = await AccountLikeDishModel.find({ dish: dish._id });
+                    const arrayIdAccountLike = numLikesOfDish.map((item) => item.account);
+                    const item = {
+                        _id: dish._id,
+                        name: dish.name,
+                        img: dish.imgDes,
+                        likes: arrayIdAccountLike
+                    }
+                    data.push(item);
+                }
                 res.status(200).send(data.slice().sort(() => Math.random() - 0.5));
             }
         }

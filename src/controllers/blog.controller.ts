@@ -22,12 +22,12 @@ class BlogController {
             for (const image of uriList) {
                 const decodedImage = Buffer.from(image.uri, 'base64');
 
-                const filename = `images/${Date.now()}.${image.type}`;
+                const filename = `images/${Date.now()}.${image.type || 'png'}`;
                 const file = bucket.file(filename);
 
                 await file.save(decodedImage, {
                     metadata: {
-                        contentType: `image/${image.type}`,
+                        contentType: `image/${image.type || 'png'}`,
                     },
                 });
                 const url = await file.getSignedUrl({
@@ -36,7 +36,6 @@ class BlogController {
                 });
                 urlImages.push(url[0]);
             }
-            console.log('Upload successful!');
         } catch (error) {
             console.log(error);
         }
@@ -56,7 +55,7 @@ class BlogController {
             if (savedBlog) {
                 res.status(200).send(savedBlog);
             } else {
-                res.status(401).send({ message: 'Failed' });
+                res.status(400).send({ message: 'Failed' });
             }
         } catch (err: any) {
             res.status(500).send({ message: err.message });
