@@ -10,18 +10,13 @@ class CmtBlogController {
         const imgUri = bodyData.img;
         if (imgUri && imgUri?.uri !== '') {
             const decodedImage = Buffer.from(imgUri.uri, 'base64');
-            var filename = null;
-            if (imgUri.type) {
-                filename = `images/${Date.now()}.${imgUri.type}`;
-            }
-            else {
-                filename = `images/${Date.now()}.png`;
-            }
+            const filename = `images/${Date.now()}.${imgUri.type}`;
+            
             const file = bucket.file(filename);
 
             await file.save(decodedImage, {
                 metadata: {
-                    contentType: `image/${imgUri.type}` || 'image/png'
+                    contentType: `image/${imgUri.type}`
                 }
             });
 

@@ -22,12 +22,12 @@ class BlogController {
             for (const image of uriList) {
                 const decodedImage = Buffer.from(image.uri, 'base64');
 
-                const filename = `images/${Date.now()}.${image.type || 'png'}`;
+                const filename = `images/${Date.now()}.${image.type}`;
                 const file = bucket.file(filename);
 
                 await file.save(decodedImage, {
                     metadata: {
-                        contentType: `image/${image.type || 'png'}`,
+                        contentType: `image/${image.type}`,
                     },
                 });
                 const url = await file.getSignedUrl({

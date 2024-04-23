@@ -83,12 +83,12 @@ export default class CommentDish {
         var url = '';
         if (img && img.uri !== '') {
             const decodeImage = Buffer.from(img.uri, 'base64');
-            const filename = `cmtRecipeImages/${Date.now()}.png`;
+            const filename = `cmtRecipeImages/${Date.now()}.${img.type}`;
             const file = bucket.file(filename);
 
             await file.save(decodeImage, {
                 metadata: {
-                    contentType: `image/png`,
+                    contentType: `image/${img.type}`,
                 },
             });
             const urlFirebase = await file.getSignedUrl({
