@@ -40,12 +40,12 @@ export default class DanhGia {
         if (img && img?.uri !== '') {
             const decodedImage = Buffer.from(img.uri, 'base64');
 
-            const filename = `ratingImage/${Date.now()}.png`;
+            const filename = `ratingImage/${Date.now()}.${img.type}`;
             const file = bucket.file(filename);
 
             await file.save(decodedImage, {
                 metadata: {
-                    contentType: `image/png`,
+                    contentType: `image/${img.type}`,
                 },
             });
             const urlFibase = await file.getSignedUrl({
