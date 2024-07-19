@@ -1,10 +1,12 @@
 const admin = require('firebase-admin');
+import {config} from "dotenv";
+config();
 
-const serviceAccount = require('../../kitchenstories-7031c-firebase-adminsdk-w1g4h-f9ce3b0ba6.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT!);
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: 'gs://kitchenstories-7031c.appspot.com',
+    storageBucket: process.env.FIREBASE_BUCKET,
 });
 
 const bucket = admin.storage().bucket();
